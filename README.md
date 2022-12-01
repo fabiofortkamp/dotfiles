@@ -10,3 +10,10 @@ This is a primitive atempt to sync my dotfiles. Everything is manual at this poi
 ```zsh
 ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 ```
+
+## VS Code
+
+This repo has some VS Code workspace-specific settings that I like to use for
+this particular project:
+
+- Theme: Atom Dark One
