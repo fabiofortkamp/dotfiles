@@ -99,3 +99,10 @@ fi
 # Example aliases
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
+
+# prm settings
+# https://unix.stackexchange.com/questions/76505/unix-portable-way-to-get-scripts-absolute-path-in-zsh
+
+alias prm=". $HOME/dotfiles/prm/prm.sh"
+alias pst="prm start"
+alias pt="prm stop"
