@@ -26,3 +26,7 @@ This repo has some VS Code workspace-specific settings that I like to use for
 this particular project:
 
 - Theme: Atom Dark One
+
+### custom folder
+
+The scripts in the `custom` folder are executed in alphabetical order.
