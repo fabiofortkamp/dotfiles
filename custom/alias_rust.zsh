@@ -9,6 +9,6 @@ if type "exa" > /dev/null; then
   alias ls="exa --icons"
 fi
 
-if type "gstbat" > /dev/null; then
+if type "bat" > /dev/null; then
   alias cat="bat --style=auto"
 fi
