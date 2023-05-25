@@ -20,9 +20,9 @@ Currently, this repo must be cloned at the home directory.
 This repo includes 
 [my fork of the prm project](https://github.com/fabiofortkamp/prm).
 
-### VS Code
+### VS Code Insiders
 
-This repo has some VS Code workspace-specific settings that I like to use for
+This repo has some VS Code Insiders workspace-specific settings that I like to use for
 this particular project:
 
 - Theme: Atom Dark One
