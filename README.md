@@ -32,6 +32,9 @@ this particular project:
 This repo includes 
 [my fork of the prm project](https://github.com/fabiofortkamp/prm).
 
-### `custom` folder
+### `custom` folder and the `local` script
 
-The scripts in the `custom` folder are executed in alphabetical order.
+The scripts in the `custom` folder are executed in alphabetical order; 
+`the custom/local.zsh` is also loaded but it is ignored by git. This is a good
+place to put local configurations that you don't want to share with the
+world.
