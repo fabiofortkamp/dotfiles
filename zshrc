@@ -106,3 +106,12 @@ alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias prm=". $HOME/dotfiles/prm/prm.sh"
 alias pst="prm start"
 alias pt="prm stop"
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=("$HOME/.juliaup/bin" $path)
+export PATH
+
+# <<< juliaup initialize <<<
