@@ -13,8 +13,8 @@ linters.setup { { command = "flake8", args = {
 
 lvim.plugins = {
   "AckslD/swenv.nvim",
-  "stevearc/dressing.nvim"
-}
+  "stevearc/dressing.nvim",
+"JuliaEditorSupport/julia-vim"}
 
 require("swenv").setup({
   post_set_venv = function()
