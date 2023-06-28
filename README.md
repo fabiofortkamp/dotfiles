@@ -40,14 +40,9 @@ Currently, this repo must be cloned at the home directory;
 
 ## Features
 
-### VS Code Insiders 
+### LunarVim
 
-VS Code Insiders is set as the default editor, unless in a SSH session, where regular vim is used.
-
-This repo has some VS Code Insiders workspace-specific settings that I like to use for
-this particular project:
-
-- Theme: Atom Dark One
+LunarVim is set as the default editor - unless in a SSH session, which uses regular `vim`.
 
 ### prm
 

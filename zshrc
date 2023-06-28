@@ -85,7 +85,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='code-insiders'
+  export EDITOR='lvim'
 fi
 
 # Compilation flags
