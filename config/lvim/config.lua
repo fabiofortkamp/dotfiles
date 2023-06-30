@@ -51,3 +51,4 @@ require("lvim.lsp.manager").setup("pyright", pyright_opts)
 require'lspconfig'.marksman.setup{}
 
 vim.opt.relativenumber = true
+vim.opt.colorcolumn = "88"
