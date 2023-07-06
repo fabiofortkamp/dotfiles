@@ -100,13 +100,6 @@ fi
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 
-# prm settings
-# https://unix.stackexchange.com/questions/76505/unix-portable-way-to-get-scripts-absolute-path-in-zsh
-
-alias prm=". $HOME/dotfiles/prm/prm.sh"
-alias pst="prm start"
-alias pt="prm stop"
-
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!

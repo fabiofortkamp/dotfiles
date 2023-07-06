@@ -47,7 +47,11 @@ LunarVim is set as the default editor - unless in a SSH session, which uses regu
 ### prm
 
 This repo includes 
-[my fork of the prm project](https://github.com/fabiofortkamp/prm).
+[my fork of the prm project](https://github.com/fabiofortkamp/prm). The `prm` projects
+are stored in `~/OneDrive/prm` (the top-level `OneDrive` folder is created if not 
+existing).
+
+You can also use the aliases `pst=prm start` and `pt=prm stop`.
 
 ### `custom` folder and the `local` script
 
