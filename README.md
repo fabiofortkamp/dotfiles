@@ -35,6 +35,7 @@ Currently, this repo must be cloned at the home directory;
 - `ln -s "$HOME/dotfiles/config/nvim"  $HOME/.config/nvim`
 - `mkdir -p "$HOME/.julia" && ln -s "$HOME/dotfiles/julia/config" "$HOME/.julia/config"`
 - `ln -s $HOME/dotfiles/spacemacs $HOME/.spacemacs`
+- `ln -s $HOME/dotfiles/config/tmux $HOME/.config/tmux`
 
 2. Configure julia in LunarVim according to [this guide](https://www.lunarvim.org/docs/features/supported-languages/julia).
 
