@@ -27,7 +27,7 @@ require("swenv").setup({
   end,
 })
 
-- setup debug adapter
+-- setup debug adapter
 lvim.builtin.dap.active = true
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 pcall(function()
