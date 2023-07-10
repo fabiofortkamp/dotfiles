@@ -15,7 +15,7 @@ linters.setup { { command = "flake8", args = {
 lvim.plugins = {
   "AckslD/swenv.nvim",
   "stevearc/dressing.nvim",
-  "mfusseneger/nvim-dap-python",
+  "mfussenegger/nvim-dap-python",
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
   "JuliaEditorSupport/julia-vim"}
