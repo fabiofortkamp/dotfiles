@@ -9,6 +9,7 @@ local linters = require "lvim.lsp.null-ls.linters"
 linters.setup { { command = "flake8", args = {
   "--ignore=E203", -- whitespace before ‘,’, ‘;’, or ‘:’
   "--max-line-length=88", -- for black compatibility
+  "-docstring-convention google",
   filetypes = {"python"}}}}
 
 lvim.plugins = {
