@@ -6,6 +6,10 @@ sudo apt install zsh curl
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+command -v zsh | sudo tee -a /etc/shells
+
+sudo chsh -s $(which zsh) $USER
+
 # Link zsh config
 rm ~/.zshrc && ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
 
