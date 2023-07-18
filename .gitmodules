@@ -1,3 +1,6 @@
 [submodule "prm"]
 	path = prm
 	url = https://github.com/fabiofortkamp/prm
+[submodule "custom/plugins/zsh-syntax-highlighting"]
+	path = custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/fabiofortkamp/zsh-syntax-highlighting
