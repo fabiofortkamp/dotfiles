@@ -29,6 +29,9 @@ unzip Hack.zip
 fc-cache -f
 
 # Install asdf and plugins
+sudo apt install build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev curl \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
 
 # Install Juliaup
@@ -36,3 +39,7 @@ curl -fsSL https://install.julialang.org | sh
 
 cd $HOME/dotfiles
 chmod +x install-asdf.zsh
+
+source "$HOME/zshrc"
+source "$HOME/dotfiles/install-asdf.zsh"
+source "$HOME/dotfiles/install-lvim.zsh"
