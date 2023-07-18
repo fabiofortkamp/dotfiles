@@ -68,3 +68,7 @@ plugin from oh-my-zsh in the following ways:
 
 - there is no `ipython` alias
 - the default virtual environment to be used with `mkv` and `vrun` is termed `.venv`
+
+### `lazygit` plugin
+
+This plugin defines the alias `lg` to run [`lazygit`](https://github.com/jesseduffield/lazygit)
