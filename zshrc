@@ -78,6 +78,8 @@ plugins=(git
   zsh-syntax-highlighting
   zsh-autosuggestions)
 
+fpath+=$ZSH_CUSTOM/plugins/zsh-completions/src
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
