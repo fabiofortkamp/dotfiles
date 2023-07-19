@@ -54,3 +54,15 @@ The scripts in the `custom` folder are executed in alphabetical order;
 the `custom/local.zsh` is also loaded but it is ignored by git. This is a good
 place to put local configurations that you don't want to share with the
 world.
+
+### Modified `python` plugin
+
+This repo modifies the [python](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/python)
+plugin from oh-my-zsh in the following ways:
+
+- there is no `ipython` alias
+- the default virtual environment to be used with `mkv` and `vrun` is termed `.venv`
+
+### `lazygit` plugin
+
+This plugin defines the alias `lg` to run [`lazygit`](https://github.com/jesseduffield/lazygit)
