@@ -45,6 +45,11 @@ Currently, this repo must be cloned at the home directory;
 
 LunarVim is set as the default editor - unless in a SSH session, which uses regular `vim`.
 
+
+### Neovim config
+
+The neovim config is largely taken from [this repo](https://github.com/LunarVim/Neovim-from-scratch).
+
 ### prm
 
 This repo includes 

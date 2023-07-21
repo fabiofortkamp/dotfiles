@@ -15,7 +15,6 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
---   פּ ﯟ   some other good icons
 local kind_icons = {
   Text = "󰊄",
   Method = "m",
@@ -28,16 +27,16 @@ local kind_icons = {
   Module = "",
   Property = "",
   Unit = "",
-  Value = "",
+  Value = "",
   Enum = "",
-  Keyword = "󰌆",
+  Keyword = "",
   Snippet = "",
   Color = "",
   File = "",
   Reference = "",
-  Folder = "",
+  Folder = "",
   EnumMember = "",
-  Constant = "",
+  Constant = "󰾹",
   Struct = "",
   Event = "",
   Operator = "",
@@ -101,6 +100,8 @@ cmp.setup {
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[NVIM_LUA]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
@@ -109,6 +110,8 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "nvim_lsp" },
+    { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
@@ -118,7 +121,7 @@ cmp.setup {
     select = false,
   },
   window = {
-    documentation = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered()
   },
   experimental = {
     ghost_text = false,
