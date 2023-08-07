@@ -2,8 +2,8 @@
 
 asdf plugin add python
 asdf install python 3.6.15
-asdf install python 3.11.5
-asdf global python 3.11.5
+asdf install python 3.11.4
+asdf global python 3.11.4
 
 asdf plugin add lazygit
 asdf install lazygit latest
