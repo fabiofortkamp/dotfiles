@@ -71,7 +71,7 @@ function vrun() {
 
 # Create a new virtual environment, with default name '.venv'.
 function mkv() {
-  local name="${1:-v.env}"
+  local name="${1:-.venv}"
   local venvpath="${name:P}"
 
   python3 -m venv "${name}" || return
