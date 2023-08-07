@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+sudo apt update
+
 # Install zsh
 sudo apt install zsh curl
 
