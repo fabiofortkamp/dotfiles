@@ -14,6 +14,8 @@ git config --global user.name "<NAME>"
 git config --global user.email "<email>"
 ```
 
+Install [VS Code Insiders](https://code.visualstudio.com/insiders/).
+
 Then, clone this repo:
 
 ```shell
@@ -35,9 +37,9 @@ Restart the shell and then run `./install-asdf.zsh && chmod +x install-lvim.zsh 
 
 ## Features
 
-### LunarVim
+### VS Code Insiders
 
-LunarVim is set as the default editor - unless in a SSH session, which uses regular `vim`.
+VS Code Insiders is set as the default editor - unless in a SSH session, which uses regular `vim`.
 
 
 ### Neovim config
