@@ -76,7 +76,9 @@ plugins=(git
   python 
   lazygit 
   zsh-syntax-highlighting
-  zsh-autosuggestions)
+  zsh-autosuggestions
+  poetry
+  )
 
 fpath+=$ZSH_CUSTOM/plugins/zsh-completions/src
 
