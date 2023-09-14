@@ -1,5 +1,3 @@
-using InteractiveUtils
-
 try
     @eval using Revise
 catch e
@@ -14,9 +12,4 @@ atreplinit() do repl
     end
 end
 
-ENV["JULIA_EDITOR"] = "lvim"
-
-InteractiveUtils.define_editor(
-    r"lvim", wait=true) do cmd, path, line
-    `$cmd +$line $path`
-end
+ENV["JULIA_EDITOR"] = "code-insiders"
