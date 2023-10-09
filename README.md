@@ -68,3 +68,13 @@ plugin from oh-my-zsh in the following ways:
 ### `lazygit` plugin
 
 This plugin defines the alias `lg` to run [`lazygit`](https://github.com/jesseduffield/lazygit)
+
+### Neovim
+
+This repo uses the [NvChad](https://nvchad.com/) distribution, and the custom folder
+is included in the repo. Link the configuration with:
+
+```shell
+ln -s ~/dotfiles/config/nvim/lua/custom ~/.config/nvim/lua/custom
+```
+

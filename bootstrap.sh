@@ -39,6 +39,9 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
 # Install Juliaup
 curl -fsSL https://install.julialang.org | sh
 
+# Install NvChad
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+
 cd $HOME/dotfiles
 chmod +x install-asdf.zsh
 
