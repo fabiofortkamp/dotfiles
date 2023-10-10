@@ -6,15 +6,30 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup { { name = "black" }, }
 
 local linters = require "lvim.lsp.null-ls.linters"
-linters.setup { {
-  command = "flake8",
-  args = {
-    "--ignore=E203",      -- whitespace before ‘,’, ‘;’, or ‘:’
-    "--max-line-length=88", -- for black compatibility
-    "--docstring-convention=google",
-    filetypes = { "python" }
-  }
-} }
+linters.setup({
+  {
+    command = "ruff",
+    args = {
+      filetypes = { "python" }
+    },
+  },
+  {
+    command = "mypy",
+    args = {
+      "--ignore-missing-imports",
+      filetypes = { "python"}
+    }
+  },
+  -- {
+  --   command = "flake8",
+  --   args = {
+  --     "--ignore=E203",      -- whitespace before ‘,’, ‘;’, or ‘:’
+  --     "--max-line-length=88", -- for black compatibility
+  --     "--docstring-convention=google",
+  --     filetypes = { "python" }
+  --   },
+  -- },
+})
 
 lvim.plugins = {
   "AckslD/swenv.nvim",
