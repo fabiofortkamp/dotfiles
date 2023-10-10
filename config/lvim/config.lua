@@ -3,14 +3,18 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup{{name = "black"},}
+formatters.setup { { name = "black" }, }
 
 local linters = require "lvim.lsp.null-ls.linters"
-linters.setup { { command = "flake8", args = {
-  "--ignore=E203", -- whitespace before ‘,’, ‘;’, or ‘:’
-  "--max-line-length=88", -- for black compatibility
-  "--docstring-convention=google",
-  filetypes = {"python"}}}}
+linters.setup { {
+  command = "flake8",
+  args = {
+    "--ignore=E203",      -- whitespace before ‘,’, ‘;’, or ‘:’
+    "--max-line-length=88", -- for black compatibility
+    "--docstring-convention=google",
+    filetypes = { "python" }
+  }
+} }
 
 lvim.plugins = {
   "AckslD/swenv.nvim",
@@ -18,7 +22,7 @@ lvim.plugins = {
   "mfussenegger/nvim-dap-python",
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
-  "JuliaEditorSupport/julia-vim"}
+  "JuliaEditorSupport/julia-vim" }
 
 
 require("swenv").setup({
@@ -63,7 +67,7 @@ lvim.builtin.which_key.mappings["dS"] = { "<cmd>lua require('neotest').summary.t
 
 lvim.builtin.which_key.mappings["C"] = {
   name = "Python",
-   c = {"<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env"}
+  c = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Choose Env" }
 }
 
 local pyright_opts = {
@@ -78,7 +82,7 @@ local pyright_opts = {
         autoImportCompletions = true,
         autoSearchPaths = true,
         diagnosticMode = "workspace", -- openFilesOnly, workspace
-        typeCheckingMode = "basic", -- off, basic, strict
+        typeCheckingMode = "basic",   -- off, basic, strict
         useLibraryCodeForTypes = true
       }
     }
@@ -87,7 +91,7 @@ local pyright_opts = {
 
 require("lvim.lsp.manager").setup("pyright", pyright_opts)
 
-require'lspconfig'.marksman.setup{}
+require 'lspconfig'.marksman.setup {}
 
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "88"
