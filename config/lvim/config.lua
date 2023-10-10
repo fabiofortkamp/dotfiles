@@ -3,7 +3,7 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup { { name = "black" }, }
+formatters.setup { { name = "black" }}
 
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup({
@@ -107,6 +107,7 @@ local pyright_opts = {
 require("lvim.lsp.manager").setup("pyright", pyright_opts)
 
 require 'lspconfig'.marksman.setup {}
+require'lspconfig'.jqls.setup{}
 
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "88"
