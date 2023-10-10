@@ -7,4 +7,5 @@ local M = {}
 -- this table is returned and consumed by the nvChad configuration engine
 M.ui = { theme = 'catppuccin' }
 M.plugins = 'custom.plugins'
+M.mappings = require 'custom.mappings'
 return M
