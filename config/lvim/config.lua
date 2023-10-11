@@ -37,7 +37,8 @@ lvim.plugins = {
   "mfussenegger/nvim-dap-python",
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
-  "JuliaEditorSupport/julia-vim" }
+  "JuliaEditorSupport/julia-vim" ,
+  "github/copilot.vim"}
 
 
 require("swenv").setup({
