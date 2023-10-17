@@ -109,7 +109,7 @@ fi
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-
+alias e="$EDITOR"
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!
