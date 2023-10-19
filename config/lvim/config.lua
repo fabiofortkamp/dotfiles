@@ -3,7 +3,7 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup { { name = "black" }}
+formatters.setup { { name = "black" } }
 
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup({
@@ -17,7 +17,7 @@ linters.setup({
     command = "mypy",
     args = {
       "--ignore-missing-imports",
-      filetypes = { "python"}
+      filetypes = { "python" }
     }
   },
   -- {
@@ -37,8 +37,9 @@ lvim.plugins = {
   "mfussenegger/nvim-dap-python",
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
-  "JuliaEditorSupport/julia-vim" ,
-  "github/copilot.vim"}
+  "JuliaEditorSupport/julia-vim",
+  "zbirenbaum/copilot.lua",
+}
 
 
 require("swenv").setup({
@@ -108,7 +109,51 @@ local pyright_opts = {
 require("lvim.lsp.manager").setup("pyright", pyright_opts)
 
 require 'lspconfig'.marksman.setup {}
-require'lspconfig'.jqls.setup{}
+require 'lspconfig'.jqls.setup {}
+
+require('copilot').setup({
+  panel = {
+    enabled = true,
+    auto_refresh = false,
+    keymap = {
+      jump_prev = "[[",
+      jump_next = "]]",
+      accept = "<CR>",
+      refresh = "gr",
+      open = "<M-CR>"
+    },
+    layout = {
+      position = "bottom", -- | top | left | right
+      ratio = 0.4
+    },
+  },
+  suggestion = {
+    enabled = true,
+    auto_trigger = false,
+    debounce = 75,
+    keymap = {
+      accept = "<M-l>",
+      accept_word = false,
+      accept_line = false,
+      next = "<M-]>",
+      prev = "<M-[>",
+      dismiss = "<C-]>",
+    },
+  },
+  filetypes = {
+    yaml = false,
+    markdown = false,
+    help = false,
+    gitcommit = false,
+    gitrebase = false,
+    hgcommit = false,
+    svn = false,
+    cvs = false,
+    ["."] = false,
+  },
+  copilot_node_command = 'node', -- Node.js version must be > 16.x
+  server_opts_overrides = {},
+})
 
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "88"
