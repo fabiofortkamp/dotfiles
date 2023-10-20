@@ -32,8 +32,8 @@ fc-cache -f
 
 # Install asdf and plugins
 sudo apt install build-essential libssl-dev zlib1g-dev \
-libbz2-dev libreadline-dev libsqlite3-dev curl \
-libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+	libbz2-dev libreadline-dev libsqlite3-dev curl \
+	libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
 
 # Install Juliaup
@@ -44,6 +44,12 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
 cd $HOME/dotfiles
 chmod +x install-asdf.zsh
+
+mkdir -p "$HOME/.config/mypy"
+ln -s "$HOME/dotfiles/config/mypy/config" "$HOME/.config/mypy/config"
+
+mkdir -p "$HOME/.config/ruff"
+ln -s "$HOME/dotfiles/config/ruff/ruff.toml" "$HOME/.config/ruff/ruff.toml"
 
 source "$HOME/zshrc"
 source "$HOME/dotfiles/install-asdf.zsh"

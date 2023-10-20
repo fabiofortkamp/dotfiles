@@ -20,7 +20,7 @@ Then, clone this repo:
 
 ```shell
 
-git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles 
+git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
 ```
 
 ### Bootstraping
@@ -45,16 +45,16 @@ The alias `e` is defined to open the default editor.
 
 ### prm
 
-This repo includes 
+This repo includes
 [my fork of the prm project](https://github.com/fabiofortkamp/prm). The `prm` projects
-are stored in `~/OneDrive/prm` (the top-level `OneDrive` folder is created if not 
+are stored in `~/OneDrive/prm` (the top-level `OneDrive` folder is created if not
 existing).
 
 You can also use the aliases `pst=prm start` and `pt=prm stop`.
 
 ### `custom` folder and the `local` script
 
-The scripts in the `custom` folder are executed in alphabetical order; 
+The scripts in the `custom` folder are executed in alphabetical order;
 the `custom/local.zsh` is also loaded but it is ignored by git. This is a good
 place to put local configurations that you don't want to share with the
 world.
@@ -80,3 +80,11 @@ is included in the repo. Link the configuration with:
 ln -s ~/dotfiles/config/nvim/lua/custom ~/.config/nvim/lua/custom
 ```
 
+### ruff and mypy configuration
+
+There are default [ruff](https://docs.astral.sh/ruff/) and [mypy](https://mypy.readthedocs.io/en/stable/index.html)
+configuration files.
+
+The ruff file enables more checks, in particular docstrings, and enforces Google-style ones.
+
+The mypy file ignores missing imports.
