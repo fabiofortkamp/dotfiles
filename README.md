@@ -37,9 +37,11 @@ Restart the shell and then run `./install-asdf.zsh && chmod +x install-lvim.zsh 
 
 ## Features
 
-### VS Code Insiders
+### Default editor
 
-VS Code Insiders is set as the default editor - unless in a SSH session, which uses regular `vim`.
+Neovim (`nvim`) is set as the default editor - unless in a SSH session, which uses regular `vim`.
+
+My current neovim configuration is not included in this repo, but uses [AstroNvim](https://github.com/fabiofortkamp/astronvim_config).
 
 The alias `e` is defined to open the default editor.
 
