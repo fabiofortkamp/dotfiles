@@ -51,6 +51,8 @@ ln -s "$HOME/dotfiles/config/mypy/config" "$HOME/.config/mypy/config"
 mkdir -p "$HOME/.config/ruff"
 ln -s "$HOME/dotfiles/config/ruff/ruff.toml" "$HOME/.config/ruff/ruff.toml"
 
+ln -s "$HOME/dotfiles/config/tmux" "$HOME/.config/tmux"
+
 source "$HOME/zshrc"
 source "$HOME/dotfiles/install-asdf.zsh"
 source "$HOME/dotfiles/install-lvim.zsh"
