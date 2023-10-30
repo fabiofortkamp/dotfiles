@@ -53,6 +53,10 @@ ln -s "$HOME/dotfiles/config/ruff/ruff.toml" "$HOME/.config/ruff/ruff.toml"
 
 ln -s "$HOME/dotfiles/config/tmux" "$HOME/.config/tmux"
 
+mkdir -p "$HOME/.config/tilix/"
+
+ln -s "$HOME/dotfiles/config/tilix/schemes" "$HOME/.config/tilix/schemes"
+
 source "$HOME/zshrc"
 source "$HOME/dotfiles/install-asdf.zsh"
 source "$HOME/dotfiles/install-lvim.zsh"
