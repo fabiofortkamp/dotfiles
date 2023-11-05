@@ -87,6 +87,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Tmuxinator
+TMUXINATOR_CONFIG="$HOME/OneDrive/2-Areas/tmuxinator"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
