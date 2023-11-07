@@ -90,6 +90,14 @@ source $ZSH/oh-my-zsh.sh
 # Tmuxinator
 TMUXINATOR_CONFIG="$HOME/OneDrive/2-Areas/tmuxinator"
 
+# Go configuration
+# if the file below exists
+if [ -f "$HOME/.asdf/plugins/golang/set-env.zsh" ]; then
+  # source it
+  source ~/.asdf/plugins/golang/set-env.zsh
+fi
+GOBIN=$HOME/bin
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
