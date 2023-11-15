@@ -39,6 +39,10 @@ lvim.plugins = {
   "nvim-neotest/neotest-python",
   "JuliaEditorSupport/julia-vim",
   "zbirenbaum/copilot.lua",
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
 }
 
 
