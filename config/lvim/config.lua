@@ -114,6 +114,7 @@ require("lvim.lsp.manager").setup("pyright", pyright_opts)
 
 require 'lspconfig'.marksman.setup {}
 require 'lspconfig'.jqls.setup {}
+require'lspconfig'.awk_ls.setup{}
 
 require('copilot').setup({
   panel = {
