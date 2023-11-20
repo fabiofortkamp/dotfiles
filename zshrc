@@ -96,7 +96,7 @@ if [ -f "$HOME/.asdf/plugins/golang/set-env.zsh" ]; then
   # source it
   source ~/.asdf/plugins/golang/set-env.zsh
 fi
-GOBIN=$HOME/bin
+export GOBIN=$HOME/bin
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -121,7 +121,11 @@ fi
 # Example aliases
 alias zshconfig="$EDITOR ~/.zshrc"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
-alias e="$EDITOR"
+alias e="$EDITOR"#
+
+# Set Java Home
+. ~/.asdf/plugins/java/set-java-home.zsh
+
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!
