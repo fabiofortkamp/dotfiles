@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # Tmuxinator
-TMUXINATOR_CONFIG="$HOME/OneDrive/2-Areas/tmuxinator"
+TMUXINATOR_CONFIG="$HOME/.config/tmuxinator/"
 
 # Go configuration
 # if the file below exists

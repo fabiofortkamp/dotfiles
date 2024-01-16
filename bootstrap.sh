@@ -54,6 +54,8 @@ if [[ $(uname) == "Darwin" ]]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	~/.tmux/plugins/tpm/bin/install_plugins
 
+	ln -s "$HOME/OneDrive/2-Areas/tmuxinator" "$HOME/.config/tmuxinator"
+
 else
 	# Ubuntu configuration
 	sudo apt update
@@ -116,4 +118,6 @@ else
 	source "$HOME/zshrc"
 	source "$HOME/dotfiles/install-asdf.zsh"
 	source "$HOME/dotfiles/install-lvim.zsh"
+
+	ln -s "$HOME/OneDrive/2-Areas/tmuxinator" "$HOME/.config/tmuxinator"
 fi

@@ -45,7 +45,6 @@ chmod +x bootstrap.sh
 zsh bootstrap.sh
 ```
 
-
 ## Features
 
 ### Default editor
@@ -101,3 +100,10 @@ configuration files.
 The ruff file enables more checks, in particular docstrings, and enforces Google-style ones.
 
 The mypy file ignores missing imports.
+
+### tmuxinator
+
+After bootstraping, install [tmuxinator](https://github.com/tmuxinator/tmuxinator) with `gem install tmuxinator`.
+
+This repo assumes a PARA-like setup with tmuxinator files at `$HOME/OneDrive/2-Areas/tmuxinator/`. A link at `$HOME/.config/tmuxinator` is
+created at this location, and the `$TMUXINATOR_CONFIG` environment variable points to this latter location.
