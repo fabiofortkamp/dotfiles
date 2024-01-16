@@ -20,7 +20,7 @@ if [[ $(uname) == "Darwin" ]]; then
 	) >>/Users/fpfortkamp/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
-	brew install bat exa coreutils tmux libyaml gh
+	brew install bat exa coreutils tmux libyaml gh ripgrep fd
 
 	# Install juliaup
 	curl -fsSL https://install.julialang.org | sh
