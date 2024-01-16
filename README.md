@@ -25,6 +25,8 @@ git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
 
 ### Bootstraping
 
+#### Linux
+
 Run the bootstrap script:
 
 ```shell
@@ -34,6 +36,15 @@ chmod +x bootstrap.sh
 ```
 
 Restart the shell and then run `./install-asdf.zsh && chmod +x install-lvim.zsh && ./install-lvim.zsh`
+
+#### macOS
+
+```shell
+cd ~/dotfiles
+chmod +x bootstrap.sh
+zsh bootstrap.sh
+```
+
 
 ## Features
 

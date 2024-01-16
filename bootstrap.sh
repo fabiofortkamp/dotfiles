@@ -39,7 +39,7 @@ if [[ $(uname) == "Darwin" ]]; then
 	mkdir -p "$HOME/.config/ruff"
 	ln -s "$HOME/dotfiles/config/ruff/ruff.toml" "$HOME/.config/ruff/ruff.toml"
 
-	ln -s "$HOME/dotfiles/config/tmux/tmux.conf" "$HOME/.config/tmux"
+	ln -s "$HOME/dotfiles/config/tmux" "$HOME/.config/tmux"
 
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	~/.tmux/plugins/tpm/bin/install_plugins
