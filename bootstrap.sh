@@ -29,10 +29,20 @@ if [[ $(uname) == "Darwin" ]]; then
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 	brew install openssl readline sqlite3 xz zlib tcl-tk
 
-	source $HOME/dotfiles/zshrc
+	# Load changes (esp. environment variables)
+	source "$HOME/dotfiles/zshrc"
 
-	zsh $HOME/dotfiles/install-asdf.zsh
+	# Install toolkits with asdf
+	zsh "$HOME/dotfiles/install-asdf.zsh"
 
+	# Install global Python packages
+	pip3 install --upgrade pip
+	pip install mypy ruff neovim
+
+	# Install global Ruby packages
+	gem install tmuxinator neovim
+
+	# Place configuration files
 	mkdir -p "$HOME/.config/mypy"
 	ln -s "$HOME/dotfiles/config/mypy/config" "$HOME/.config/mypy/config"
 
@@ -43,6 +53,7 @@ if [[ $(uname) == "Darwin" ]]; then
 
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	~/.tmux/plugins/tpm/bin/install_plugins
+
 else
 	# Ubuntu configuration
 	sudo apt update
