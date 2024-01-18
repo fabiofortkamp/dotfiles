@@ -13,3 +13,6 @@
 [submodule "catppuccin-tilix"]
 	path = catppuccin-tilix
 	url = https://github.com/fabiofortkamp/catppuccin-tilix
+[submodule "custom/plugins/zsh-vi-mode"]
+	path = custom/plugins/zsh-vi-mode
+	url = https://github.com/fabiofortkamp/zsh-vi-mode

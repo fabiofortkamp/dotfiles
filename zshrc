@@ -79,6 +79,7 @@ plugins=(git
   zsh-autosuggestions
   poetry
   tmux
+  zsh-vi-mode
   )
 
 fpath+=$ZSH_CUSTOM/plugins/zsh-completions/src
