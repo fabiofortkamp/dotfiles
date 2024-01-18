@@ -56,6 +56,7 @@ if [[ $(uname) == "Darwin" ]]; then
 
 	ln -s "$HOME/OneDrive/2-Areas/tmuxinator" "$HOME/.config/tmuxinator"
 
+	ln -s "$HOME/dotfiles/julia/config" "$HOME/.julia/config"
 else
 	# Ubuntu configuration
 	sudo apt update
@@ -120,4 +121,6 @@ else
 	source "$HOME/dotfiles/install-lvim.zsh"
 
 	ln -s "$HOME/OneDrive/2-Areas/tmuxinator" "$HOME/.config/tmuxinator"
+
+	ln -s "$HOME/dotfiles/julia/config" "$HOME/.julia/config"
 fi
