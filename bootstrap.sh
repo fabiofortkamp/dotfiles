@@ -22,6 +22,8 @@ if [[ $(uname) == "Darwin" ]]; then
 
 	brew install bat exa coreutils tmux libyaml gh ripgrep fd php
 
+	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
+
 	# Install juliaup
 	curl -fsSL https://install.julialang.org | sh
 
