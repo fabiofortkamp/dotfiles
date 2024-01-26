@@ -103,7 +103,10 @@ else
 	# Install NvChad
 	git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 
-	cd $HOME/dotfiles
+	# Install homebrew
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"#
+	cd "$HOME/dotfiles" || return
+
 	chmod +x install-asdf.zsh
 
 	mkdir -p "$HOME/.config/mypy"

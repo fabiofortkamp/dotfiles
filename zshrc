@@ -127,6 +127,14 @@ alias e="$EDITOR"#
 # Set Java Home
 . ~/.asdf/plugins/java/set-java-home.zsh
 
+# Homebrew config
+# if the file below exists
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+if [[ $(uname) == "Linux" ]]; then
+	fpath+=/home/linuxbrew/.linuxbrew/share/zsh/site-functions
+fi
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!
@@ -135,3 +143,4 @@ path=("$HOME/.juliaup/bin" $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
