@@ -29,7 +29,7 @@ if [[ $(uname) == "Darwin" ]]; then
 
 	# Install asdf
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-	brew install openssl readline sqlite3 xz zlib tcl-tk
+	brew install openssl readline sqlite3 xz zlib tcl-tk lua
 
 	# Load changes (esp. environment variables)
 	source "$HOME/dotfiles/zshrc"
