@@ -131,3 +131,11 @@ else
 
 	ln -s "$HOME/dotfiles/julia/config" "$HOME/.julia/config"
 fi
+
+# Homebrew packages that should be common to all systems
+brew install pipx
+pipx ensurepath
+
+# Recommendations from Manning's
+# "Publishing Python Packages"
+pipx install build cookiecutter tox pre-commit
