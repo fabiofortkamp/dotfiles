@@ -29,7 +29,7 @@ if [[ $(uname) == "Darwin" ]]; then
 
 	# Install asdf
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-	brew install openssl readline sqlite3 xz zlib tcl-tk lua
+	brew install openssl readline sqlite3 xz zlib tcl-tk lua python-launcher
 
 	# Load changes (esp. environment variables)
 	source "$HOME/dotfiles/zshrc"
@@ -106,6 +106,8 @@ else
 	# Install homebrew
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"#
 	cd "$HOME/dotfiles" || return
+
+	brew install python-launcher
 
 	chmod +x install-asdf.zsh
 
