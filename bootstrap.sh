@@ -137,6 +137,14 @@ brew install pipx
 pipx ensurepath
 
 brew install git-flow-avh zoxide
+
+# fzf is a fuzzy finder that can filter list outputs
+# it's used by zoxide above
+# https://github.com/junegunn/fzf
+brew install fzf
+# To install useful key bindings and fuzzy completion:
+"$(brew --prefix)/opt/fzf/install"
+
 # Recommendations from Manning's
 # "Publishing Python Packages"
 pipx install build cookiecutter tox pre-commit

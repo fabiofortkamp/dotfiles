@@ -145,3 +145,5 @@ export PATH
 # <<< juliaup initialize <<<
 eval "$(zoxide init --cmd cd zsh)"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
