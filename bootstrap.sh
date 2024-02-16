@@ -136,6 +136,11 @@ fi
 brew install pipx
 pipx ensurepath
 
+# ripgrep is a more modern grep
+# https://github.com/BurntSushi/ripgrep
+# fd is a more modern find
+# https://github.com/sharkdp/fd
+brew install ripgrep fd
 brew install git-flow-avh
 # Recommendations from Manning's
 # "Publishing Python Packages"
