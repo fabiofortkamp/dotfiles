@@ -136,7 +136,7 @@ fi
 brew install pipx
 pipx ensurepath
 
-brew install git-flow-avh
+brew install git-flow-avh zoxide
 # Recommendations from Manning's
 # "Publishing Python Packages"
 pipx install build cookiecutter tox pre-commit
