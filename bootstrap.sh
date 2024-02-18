@@ -148,8 +148,6 @@ brew install ripgrep fd
 # it's used by zoxide above
 # https://github.com/junegunn/fzf
 brew install fzf
-# To install useful key bindings and fuzzy completion:
-"$(brew --prefix)/opt/fzf/install"
 
 # Recommendations from Manning's
 # "Publishing Python Packages"
