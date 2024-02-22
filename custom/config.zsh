@@ -7,4 +7,3 @@ ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 ## fzf config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-bindkey "ç" fzf-cd-widget
