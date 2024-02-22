@@ -136,7 +136,7 @@ fi
 brew install pipx
 pipx ensurepath
 
-brew install git-flow-avh zoxide
+brew install git-flow-avh zoxide gojq
 
 # ripgrep is a more modern grep
 # https://github.com/BurntSushi/ripgrep
