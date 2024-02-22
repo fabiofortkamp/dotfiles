@@ -79,7 +79,10 @@ plugins=(git
   zsh-autosuggestions
   poetry
   tmux
+  fzf
   )
+
+
 
 fpath+=$ZSH_CUSTOM/plugins/zsh-completions/src
 
@@ -145,4 +148,3 @@ export PATH
 eval "$(zoxide init --cmd cd zsh)"
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
