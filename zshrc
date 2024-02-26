@@ -145,6 +145,6 @@ path=("$HOME/.juliaup/bin" $path)
 export PATH
 
 # <<< juliaup initialize <<<
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 
