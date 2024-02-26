@@ -5,8 +5,8 @@
 
 # https://stackoverflow.com/questions/7522712/how-can-i-check-if-a-command-exists-in-a-shell-script
 
-if type "exa" > /dev/null; then
-  alias ls="exa --icons"
+if type "eza" > /dev/null; then
+  alias ls="eza --icons"
 fi
 
 if type "bat" > /dev/null; then

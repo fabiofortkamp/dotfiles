@@ -20,7 +20,7 @@ if [[ $(uname) == "Darwin" ]]; then
 	) >>/Users/fpfortkamp/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
-	brew install bat exa coreutils tmux libyaml gh ripgrep fd php
+	brew install bat coreutils tmux libyaml gh ripgrep fd php
 
 	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
@@ -79,8 +79,8 @@ else
 	# Install rustup
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-	# Install bat and exa
-	sudo apt install bat exa
+	# Install bat
+	sudo apt install bat
 	mkdir -p ~/.local/bin
 	ln -s /usr/bin/batcat ~/.local/bin/bat
 
@@ -136,7 +136,7 @@ fi
 brew install pipx
 pipx ensurepath
 
-brew install git-flow-avh zoxide tree gojq
+brew install git-flow-avh zoxide tree gojq openssl cmake
 
 # ripgrep is a more modern grep
 # https://github.com/BurntSushi/ripgrep
@@ -152,3 +152,7 @@ brew install fzf
 # Recommendations from Manning's
 # "Publishing Python Packages"
 pipx install build cookiecutter tox pre-commit
+
+## Cargo installations
+# https://eza.rocks/
+cargo install eza
