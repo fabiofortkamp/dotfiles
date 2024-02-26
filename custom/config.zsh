@@ -7,3 +7,9 @@ ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 ## fzf config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+## tmuxinator aliases
+alias mux=tmuxinator
+alias mst=tmuxinator start
+alias muxl=tmuxinator list
+alias muxo=tmuxinator open
