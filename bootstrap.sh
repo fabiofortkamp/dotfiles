@@ -136,7 +136,7 @@ fi
 brew install pipx
 pipx ensurepath
 
-brew install git-flow-avh zoxide tree gojq openssl cmake
+brew install git-flow-avh zoxide tree gojq openssl cmake thefuck
 
 # ripgrep is a more modern grep
 # https://github.com/BurntSushi/ripgrep

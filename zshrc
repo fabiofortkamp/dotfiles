@@ -80,6 +80,7 @@ plugins=(git
   poetry
   tmux
   fzf
+  thefuck
   )
 
 
