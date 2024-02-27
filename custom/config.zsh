@@ -10,6 +10,6 @@ ZSH_AUTOSUGGEST_STRATEGY=(completion history)
 
 ## tmuxinator aliases
 alias mux=tmuxinator
-alias mst=tmuxinator start
-alias muxl=tmuxinator list
-alias muxo=tmuxinator open
+alias mst="tmuxinator start"
+alias muxl="tmuxinator list"
+alias muxo="tmuxinator open"
