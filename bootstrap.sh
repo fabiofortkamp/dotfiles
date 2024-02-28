@@ -71,7 +71,7 @@ fi
 brew install pipx python-launcher
 pipx ensurepath
 
-brew install git-flow-avh zoxide tree gojq openssl cmake
+brew install gh git-flow-avh zoxide tree gojq openssl cmake
 
 # ripgrep is a more modern grep
 # https://github.com/BurntSushi/ripgrep
