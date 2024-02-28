@@ -59,6 +59,11 @@ if [[ $(uname) == "Darwin" ]]; then
 	ln -s "$HOME/OneDrive/2-Areas/tmuxinator" "$HOME/.config/tmuxinator"
 
 	ln -s "$HOME/dotfiles/julia/config" "$HOME/.julia/config"
+
+	# fzf is a fuzzy finder that can filter list outputs
+	# it's used by zoxide above
+	# https://github.com/junegunn/fzf
+	brew install fzf
 else
 	# Ubuntu configuration
 	sudo apt update
@@ -107,6 +112,11 @@ else
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"#
 	cd "$HOME/dotfiles" || return
 
+	# fzf is a fuzzy finder that can filter list outputs
+	# it's used by zoxide above
+	# https://github.com/junegunn/fzf
+	sudo apt install fzf
+
 	brew install python-launcher
 
 	chmod +x install-asdf.zsh
@@ -143,11 +153,6 @@ brew install git-flow-avh zoxide tree gojq openssl cmake
 # fd is a more modern find
 # https://github.com/sharkdp/fd
 brew install ripgrep fd
-
-# fzf is a fuzzy finder that can filter list outputs
-# it's used by zoxide above
-# https://github.com/junegunn/fzf
-brew install fzf
 
 # Recommendations from Manning's
 # "Publishing Python Packages"
