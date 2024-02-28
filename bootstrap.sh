@@ -17,7 +17,7 @@ if [[ $(uname) == "Darwin" ]]; then
 	(
 		echo
 		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
-	) >>/Users/fpfortkamp/.zprofile
+	) >>"$HOME/.zprofile"
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
 	brew install bat coreutils tmux libyaml gh ripgrep fd php
@@ -136,7 +136,7 @@ fi
 brew install pipx
 pipx ensurepath
 
-brew install git-flow-avh zoxide tree gojq openssl cmake thefuck
+brew install git-flow-avh zoxide tree gojq openssl cmake
 
 # ripgrep is a more modern grep
 # https://github.com/BurntSushi/ripgrep
@@ -153,6 +153,8 @@ brew install fzf
 # "Publishing Python Packages"
 pipx install build cookiecutter tox pre-commit
 
+# A command to replace a previous wrongly-entered mistake
+pipx install thefuck
 ## Cargo installations
 # https://eza.rocks/
 cargo install eza
