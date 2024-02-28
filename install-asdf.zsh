@@ -8,7 +8,7 @@ asdf install python 3.10.13
 asdf install python 3.9.18
 asdf install python 3.8.18
 asdf install python 3.7.17
-asdf global python 3.12.2 3.11.4 3.10.13 3.9.18 3.8.18 3.7.17
+asdf global python 3.12.2 3.11.4 3.10.13 3.9.18 3.8.18 3.7.17 3.6.15
 
 asdf plugin add lazygit
 asdf install lazygit latest
