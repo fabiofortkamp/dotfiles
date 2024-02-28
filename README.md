@@ -101,9 +101,18 @@ The ruff file enables more checks, in particular docstrings, and enforces Google
 
 The mypy file ignores missing imports.
 
-### tmuxinator
+### tmux and tmuxinator
 
 After bootstraping, install [tmuxinator](https://github.com/tmuxinator/tmuxinator) with `gem install tmuxinator`.
 
 This repo assumes a PARA-like setup with tmuxinator files at `$HOME/OneDrive/2-Areas/tmuxinator/`. A link at `$HOME/.config/tmuxinator` is
 created at this location, and the `$TMUXINATOR_CONFIG` environment variable points to this latter location.
+
+Some additional configuration steps are needed. First, download TPM (tmux plugin manager) with:
+
+```shell
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.config/tmux/tmux.conf
+```
+
+Then, start a tmux session and press `C-a I` to install all plugins and finish configure tmux.
