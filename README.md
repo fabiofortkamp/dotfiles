@@ -6,7 +6,7 @@ Ubuntu-based configuration for zsh, Neovim, LunarVim and Julia.
 
 ### Pre-requisites
 
-Install git:
+1. (Ubuntu:) Install git:
 
 ```shell
 sudo apt install git
@@ -14,9 +14,20 @@ git config --global user.name "<NAME>"
 git config --global user.email "<email>"
 ```
 
-Install [VS Code Insiders](https://code.visualstudio.com/insiders/).
+2. Install [VS Code Insiders](https://code.visualstudio.com/insiders/);
+3. (Ubuntu only): run:
 
-Then, clone this repo:
+```shell
+sudo apt update && sudo install zsh curl
+command -v zsh | sudo tee -a /etc/shells
+sudo chsh -s $(which zsh) $USER
+
+```
+
+4. Install [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh);
+5. Install [Homebrew](https://brew.sh/) - follow the on-screen instructions;
+6. Install [asdf](https://asdf-vm.com/);
+   Then, clone this repo:
 
 ```shell
 
@@ -24,6 +35,11 @@ git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
 ```
 
 ### Bootstraping
+
+Start a new shell and see if you get the default oh-my-zsh prompt; you might get some
+errors about missing packages - that's OK for now.
+
+Now, run the bootstrap script in this directory:
 
 #### Linux
 
@@ -44,6 +60,8 @@ cd ~/dotfiles
 chmod +x bootstrap.sh
 zsh bootstrap.sh
 ```
+
+### Post-bootstrap
 
 ## Features
 
@@ -82,15 +100,6 @@ plugin from oh-my-zsh in the following ways:
 ### `lazygit` plugin
 
 This plugin defines the alias `lg` to run [`lazygit`](https://github.com/jesseduffield/lazygit)
-
-### Neovim
-
-This repo uses the [NvChad](https://nvchad.com/) distribution, and the custom folder
-is included in the repo. Link the configuration with:
-
-```shell
-ln -s ~/dotfiles/config/nvim/lua/custom ~/.config/nvim/lua/custom
-```
 
 ### ruff and mypy configuration
 

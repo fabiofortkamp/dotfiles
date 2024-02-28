@@ -1,64 +1,36 @@
 #!/usr/bin/bash
 
+# Link zsh config
+rm ~/.zshrc && ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
+
+# Install rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Install juliaup
+curl -fsSL https://install.julialang.org | sh
+
+# Place configuration files
+mkdir -p "$HOME/.config/mypy"
+ln -s "$HOME/dotfiles/config/mypy/config" "$HOME/.config/mypy/config"
+
+mkdir -p "$HOME/.config/ruff"
+ln -s "$HOME/dotfiles/config/ruff/ruff.toml" "$HOME/.config/ruff/ruff.toml"
+
+ln -s "$HOME/dotfiles/config/tmux" "$HOME/.config/tmux"
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/bin/install_plugins
+
+ln -s "$HOME/OneDrive/2-Areas/tmuxinator" "$HOME/.config/tmuxinator"
+
+ln -s "$HOME/dotfiles/julia/config" "$HOME/.julia/config"
+
 if [[ $(uname) == "Darwin" ]]; then
 	# macOS configuration
-
-	# Install oh-my-zsh
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-	# Link zsh config
-	rm ~/.zshrc && ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
-
-	# Install rustup
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-	# Install Homebrew
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	(
-		echo
-		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
-	) >>"$HOME/.zprofile"
-	eval "$(/opt/homebrew/bin/brew shellenv)"
 
 	brew install bat coreutils tmux libyaml gh ripgrep fd php
 
 	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
-
-	# Install juliaup
-	curl -fsSL https://install.julialang.org | sh
-
-	# Install asdf
-	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-	brew install openssl readline sqlite3 xz zlib tcl-tk lua python-launcher
-
-	# Load changes (esp. environment variables)
-	source "$HOME/dotfiles/zshrc"
-
-	# Install toolkits with asdf
-	zsh "$HOME/dotfiles/install-asdf.zsh"
-
-	# Install global Python packages
-	pip3 install --upgrade pip
-	pip install mypy ruff neovim
-
-	# Install global Ruby packages
-	gem install tmuxinator neovim
-
-	# Place configuration files
-	mkdir -p "$HOME/.config/mypy"
-	ln -s "$HOME/dotfiles/config/mypy/config" "$HOME/.config/mypy/config"
-
-	mkdir -p "$HOME/.config/ruff"
-	ln -s "$HOME/dotfiles/config/ruff/ruff.toml" "$HOME/.config/ruff/ruff.toml"
-
-	ln -s "$HOME/dotfiles/config/tmux" "$HOME/.config/tmux"
-
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-	~/.tmux/plugins/tpm/bin/install_plugins
-
-	ln -s "$HOME/OneDrive/2-Areas/tmuxinator" "$HOME/.config/tmuxinator"
-
-	ln -s "$HOME/dotfiles/julia/config" "$HOME/.julia/config"
 
 	# fzf is a fuzzy finder that can filter list outputs
 	# it's used by zoxide above
@@ -66,24 +38,6 @@ if [[ $(uname) == "Darwin" ]]; then
 	brew install fzf
 else
 	# Ubuntu configuration
-	sudo apt update
-
-	# Install zsh
-	sudo apt install zsh curl
-
-	# Install oh-my-zsh
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-	command -v zsh | sudo tee -a /etc/shells
-
-	sudo chsh -s $(which zsh) $USER
-
-	# Link zsh config
-	rm ~/.zshrc && ln -s "$HOME/dotfiles/zshrc" "$HOME/.zshrc"
-
-	# Install rustup
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
 	# Install bat
 	sudo apt install bat
 	mkdir -p ~/.local/bin
@@ -95,55 +49,26 @@ else
 	cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip
 	unzip Hack.zip
 	fc-cache -f
+	cd ~/dotfiles || return
 
-	# Install asdf and plugins
 	sudo apt install build-essential libssl-dev zlib1g-dev \
 		libbz2-dev libreadline-dev libsqlite3-dev curl \
 		libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev autoconf patch build-essential rustc libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev uuid-dev
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.12.0
-
-	# Install Juliaup
-	curl -fsSL https://install.julialang.org | sh
-
-	# Install NvChad
-	git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-
-	# Install homebrew
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"#
-	cd "$HOME/dotfiles" || return
 
 	# fzf is a fuzzy finder that can filter list outputs
 	# it's used by zoxide above
 	# https://github.com/junegunn/fzf
 	sudo apt install fzf
 
-	brew install python-launcher
-
-	chmod +x install-asdf.zsh
-
-	mkdir -p "$HOME/.config/mypy"
-	ln -s "$HOME/dotfiles/config/mypy/config" "$HOME/.config/mypy/config"
-
-	mkdir -p "$HOME/.config/ruff"
-	ln -s "$HOME/dotfiles/config/ruff/ruff.toml" "$HOME/.config/ruff/ruff.toml"
-
-	ln -s "$HOME/dotfiles/config/tmux" "$HOME/.config/tmux"
-
 	mkdir -p "$HOME/.config/tilix/"
 
 	ln -s "$HOME/dotfiles/config/tilix/schemes" "$HOME/.config/tilix/schemes"
 
-	source "$HOME/zshrc"
-	source "$HOME/dotfiles/install-asdf.zsh"
-	source "$HOME/dotfiles/install-lvim.zsh"
-
-	ln -s "$HOME/OneDrive/2-Areas/tmuxinator" "$HOME/.config/tmuxinator"
-
-	ln -s "$HOME/dotfiles/julia/config" "$HOME/.julia/config"
 fi
 
 # Homebrew packages that should be common to all systems
-brew install pipx
+brew install pipx python-launcher
 pipx ensurepath
 
 brew install git-flow-avh zoxide tree gojq openssl cmake
