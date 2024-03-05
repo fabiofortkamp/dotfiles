@@ -81,7 +81,7 @@ brew install ripgrep fd
 
 # Recommendations from Manning's
 # "Publishing Python Packages"
-pipx install build cookiecutter tox pre-commit
+pipx install build cookiecutter tox pre-commit hatch uv ruff mypy
 
 # A command to replace a previous wrongly-entered mistake
 pipx install thefuck
