@@ -1,3 +1,3 @@
 #!/usr/bin/zsh
 
-stow mypy ruff julia zsh tmux
+stow mypy ruff julia zsh tmux direnv
