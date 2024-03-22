@@ -81,6 +81,7 @@ plugins=(git
   tmux
   fzf
   thefuck
+  direnv
   )
 
 
