@@ -45,6 +45,12 @@ symbol = " "
 [git_branch]
 symbol = " "
 
+[git_status]
+untracked = "󱀶"
+modified = ""
+staged = "●"
+style="cyan"
+
 [golang]
 symbol = " "
 
