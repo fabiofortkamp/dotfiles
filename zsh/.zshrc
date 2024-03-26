@@ -78,6 +78,7 @@ plugins=(git
   zsh-syntax-highlighting
   zsh-autosuggestions
   poetry
+  poetry-env
   tmux
   fzf
   thefuck
