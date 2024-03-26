@@ -10,7 +10,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://install.julialang.org | sh
 
 ./brew.sh
-
+./brew-config.sh
 ./install-asdf.zsh
 
 if [[ $(uname) == "Darwin" ]]; then
