@@ -61,6 +61,7 @@ packages=(
     "python-launcher"
     "direnv"
     "stow"
+    "starship"
 )
 
 # Loop over the array to install each application.
