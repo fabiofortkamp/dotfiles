@@ -11,5 +11,7 @@ symbol = " "
 
 [directory]
 read_only = " 󰌾"
+truncation_length = 6
+truncation_symbol = "..."
 truncate_to_repo = false
 
