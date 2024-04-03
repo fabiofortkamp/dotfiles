@@ -153,5 +153,6 @@ export PATH
 # <<< juliaup initialize <<<
 eval "$(zoxide init zsh)"
 
-
 eval "$(starship init zsh)"
+
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env

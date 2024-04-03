@@ -33,7 +33,3 @@ asdf global ruby 3.3.0
 asdf plugin add java
 asdf install java openjdk-21.0.1
 asdf global java openjdk-21.0.1
-
-asdf plugin add haskell
-asdf install haskell 9.8.2
-asdf global haskell 9.8.2
