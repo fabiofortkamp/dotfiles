@@ -10,7 +10,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 curl -fsSL https://install.julialang.org | sh
 
 ./brew.sh
-
+./brew-config.sh
 ./install-asdf.zsh
 
 if [[ $(uname) == "Darwin" ]]; then
@@ -37,7 +37,7 @@ fi
 
 # Recommendations from Manning's
 # "Publishing Python Packages"
-pipx install build cookiecutter tox pre-commit hatch uv ruff mypy
+pipx install build cookiecutter tox pre-commit hatch uv ruff mypy poetry
 
 # A command to replace a previous wrongly-entered mistake
 pipx install thefuck

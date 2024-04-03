@@ -125,3 +125,25 @@ tmux source ~/.config/tmux/tmux.conf
 ```
 
 Then, start a tmux session and press `C-a I` to install all plugins and finish configure tmux.
+
+### Python startup
+
+This repo configures Python 3.12 as the default one and includes a Python startup file using [rich](https://github.com/Textualize/rich).
+
+Install with:
+
+```shell
+pip install rich
+```
+
+## Updating your systems
+
+Homebrew is the main package manager for all operating systems. 
+
+To define new packages that should always been installed, add them to [`brew.sh`](./brew.sh);
+When running this script, packages already installed are skipped, 
+so you can safely execute that script repeatedly and periodically on all your machines,
+and they will always have  the same packages installed.
+
+You should also run [`stow.sh`](./stow.sh) to link all configuration files to their
+correct places.

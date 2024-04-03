@@ -1,0 +1,20 @@
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+# The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
+
+[c]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+truncation_length = 6
+truncation_symbol = "..."
+truncate_to_repo = false
+
+
+[docker_context]
+disabled = true

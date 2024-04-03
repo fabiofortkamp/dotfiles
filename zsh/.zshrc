@@ -78,6 +78,7 @@ plugins=(git
   zsh-syntax-highlighting
   zsh-autosuggestions
   poetry
+  poetry-env
   tmux
   fzf
   thefuck
@@ -118,6 +119,9 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Python startup
+PYTHONSTARTUP="$HOME/dotfiles/config/python/pythonstartup.py"
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -150,3 +154,4 @@ export PATH
 eval "$(zoxide init zsh)"
 
 
+eval "$(starship init zsh)"
