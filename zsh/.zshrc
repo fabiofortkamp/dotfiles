@@ -83,6 +83,7 @@ plugins=(git
   fzf
   thefuck
   direnv
+  golang
   )
 
 

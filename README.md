@@ -96,6 +96,12 @@ plugin from oh-my-zsh in the following ways:
 
 - there is no `ipython` alias
 - the default virtual environment to be used with `mkv` and `vrun` is termed `.venv`
+### Modified `golang` plugin
+
+This repo modifies the [golang](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/golang)
+plugin from oh-my-zsh in the following ways:
+
+- add a `gorr` alias to `go run .`
 
 ### `lazygit` plugin
 
