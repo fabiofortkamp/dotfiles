@@ -46,5 +46,5 @@ pipx install thefuck
 # https://eza.rocks/
 "$HOME/.cargo/bin/cargo" install eza
 
-"$HOME/.cargo/bin/cargo" install --git https://github.com/astral-sh/rye rye
+curl -sSf https://rye-up.com/get | bash
 
