@@ -154,5 +154,7 @@ export PATH
 # <<< juliaup initialize <<<
 eval "$(zoxide init zsh)"
 
-
 eval "$(starship init zsh)"
+
+source "$HOME/.rye/env"
+path+=($HOME/.rye/shims/)
