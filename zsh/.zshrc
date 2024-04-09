@@ -83,6 +83,7 @@ plugins=(git
   fzf
   thefuck
   direnv
+  golang
   )
 
 
@@ -156,3 +157,6 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
 [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
+
+source "$HOME/.rye/env"
+path+=($HOME/.rye/shims/)

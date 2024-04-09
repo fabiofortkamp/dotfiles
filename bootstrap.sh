@@ -50,7 +50,10 @@ pipx install build cookiecutter tox pre-commit hatch uv ruff mypy poetry
 
 # A command to replace a previous wrongly-entered mistake
 pipx install thefuck
-## Cargo installations
+
+## Manual rust-based (Cargo) installation
 # https://eza.rocks/
-cargo install eza
+"$HOME/.cargo/bin/cargo" install eza
+
+curl -sSf https://rye-up.com/get | bash
 
