@@ -23,7 +23,7 @@ if [[ $(uname) == "Darwin" ]]; then
 	curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
 	# on linux, it didn't work, so I didn't include in the main brew.sh file
-	brew install gnuplot
+	brew install gnuplot xquartz freeglut
 else
 
 	# Install the Hack Nerd Font
@@ -40,7 +40,7 @@ else
 		libffi-dev liblzma-dev autoconf patch rustc libssl-dev \
 		libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev \
 		libgdbm6 libgdbm-dev libdb-dev uuid-dev libffi8ubuntu1 libgmp-dev libgmp10 \
-		libncurses-dev libncurses5 libtinfo5 gnuplot
+		libncurses-dev libncurses5 libtinfo5 gnuplot freeglut3
 fi
 
 
@@ -57,3 +57,5 @@ pipx install thefuck
 
 curl -sSf https://rye-up.com/get | bash
 
+## Haskell installations
+"$HOME/.ghcup/bin/stack" install gnuplot gloss

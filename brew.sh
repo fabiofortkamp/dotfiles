@@ -62,6 +62,8 @@ packages=(
     "direnv"
     "stow"
     "starship"
+    "cairo"
+    "pango"
 )
 
 # Loop over the array to install each application.
