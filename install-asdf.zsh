@@ -23,8 +23,8 @@ asdf install nodejs 18.16.0
 asdf global nodejs 18.16.0
 
 asdf plugin add golang
-asdf install golang 1.21.6
-asdf global golang 1.21.6
+asdf install golang 1.22.2
+asdf global golang 1.22.2
 
 asdf plugin add ruby
 asdf install ruby 3.3.0
