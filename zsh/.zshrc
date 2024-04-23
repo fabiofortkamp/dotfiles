@@ -160,3 +160,6 @@ eval "$(starship init zsh)"
 
 source "$HOME/.rye/env"
 path+=($HOME/.rye/shims/)
+
+# awk scripts
+path+=($HOME/dotfiles/awk-scripts/)
