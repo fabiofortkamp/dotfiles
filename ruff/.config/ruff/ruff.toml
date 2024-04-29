@@ -1,4 +1,6 @@
 line-length = 88
+
+[lint]
 select = [
   "E",   # pycodestyle
   "F",   # pyflakes
@@ -9,5 +11,5 @@ select = [
   "B",   # flake8-bugbear
 ]
 
-[pydocstyle]
+[lint.pydocstyle]
 convention = "google"
