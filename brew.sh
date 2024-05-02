@@ -52,6 +52,7 @@ packages=(
     "zoxide"
     "tree"
     "gojq"
+    "goawk"
     "openssl"
     "cmake"
     "luarocks"
