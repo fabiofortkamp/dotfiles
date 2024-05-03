@@ -59,3 +59,6 @@ curl -sSf https://rye-up.com/get | bash
 
 ## Haskell installations
 "$HOME/.ghcup/bin/stack" install gnuplot gloss
+
+# Rye linking
+ln -s $HOME/dotfiles/rye/config.toml $HOME/.rye/config.toml

@@ -158,5 +158,10 @@ eval "$(starship init zsh)"
 
 [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
 
+
+# rye configuration
+[ -f "$HOME/.rye/env" ] &&
 source "$HOME/.rye/env"
 path+=($HOME/.rye/shims/)
+
+RYE_HOME = "$HOME/.rye"
