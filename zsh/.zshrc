@@ -164,4 +164,4 @@ eval "$(starship init zsh)"
 source "$HOME/.rye/env"
 path+=($HOME/.rye/shims/)
 
-RYE_HOME = "$HOME/.rye"
+RYE_HOME="$HOME/.rye"
