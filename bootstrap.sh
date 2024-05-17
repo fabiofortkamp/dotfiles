@@ -63,3 +63,6 @@ curl -sSf https://rye-up.com/get | bash
 # Rye linking
 rm "$HOME/.rye/config.toml"
 ln -s $HOME/dotfiles/rye/config.toml $HOME/.rye/config.toml
+
+# Node packages
+npm install -g @mermaid-js/mermaid-cli
