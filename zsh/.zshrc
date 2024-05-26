@@ -64,7 +64,16 @@ ZSH_THEME="half-life"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/dotfiles/custom/
+# Homebrew config
+# if the file below exists
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+if [[ $(uname) == "Linux" ]]; then
+	fpath+=/home/linuxbrew/.linuxbrew/share/zsh/site-functions
+fi
 
+FZF_BASE="$(brew --prefix fzf)"
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -136,14 +145,6 @@ alias e="$EDITOR"#
 # Set Java Home
 . ~/.asdf/plugins/java/set-java-home.zsh
 
-# Homebrew config
-# if the file below exists
-if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-if [[ $(uname) == "Linux" ]]; then
-	fpath+=/home/linuxbrew/.linuxbrew/share/zsh/site-functions
-fi
 # >>> juliaup initialize >>>
 
 # !! Contents within this block are managed by juliaup !!
