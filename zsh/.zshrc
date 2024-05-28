@@ -166,3 +166,5 @@ source "$HOME/.rye/env"
 path+=($HOME/.rye/shims/)
 
 export RYE_HOME="$HOME/.rye"
+
+export HATCH_CONFIG="$XDG_CONFIG_HOME/hatch/config.toml"
