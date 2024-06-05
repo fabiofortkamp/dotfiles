@@ -169,3 +169,6 @@ export RYE_HOME="$HOME/.rye"
 
 export HATCH_CONFIG="$XDG_CONFIG_HOME/hatch/config.toml"
 source $HOME/dotfiles/hatch/.hatch-complete.zsh
+
+# Quarto config
+export QUARTO_PYTHON="$HOME/.asdf/shims/python3.12"
