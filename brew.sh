@@ -38,6 +38,7 @@ brew cleanup
 packages=(
     "bash"
     "zsh"
+    "fish"
     "git"
     "tree"
     "bat"
