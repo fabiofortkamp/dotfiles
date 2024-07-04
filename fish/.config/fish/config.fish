@@ -18,3 +18,10 @@ source ~/.asdf/asdf.fish
 
 # zoxide config
 zoxide init fish | source
+
+# git aliases
+abbr -a g git
+abbr -a ga 'git add'
+abbr -a gpoat git push origin --all; and git push origin --tags
+abbr -a gcmsg 'git commit -m'
+abbr -a ggpull 'git pull origin $(git_current_branch)'
