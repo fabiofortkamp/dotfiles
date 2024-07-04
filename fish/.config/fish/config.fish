@@ -16,4 +16,5 @@ starship init fish | source
 # asdf config
 source ~/.asdf/asdf.fish
 
-
+# zoxide config
+zoxide init fish | source
