@@ -25,3 +25,9 @@ abbr -a ga 'git add'
 abbr -a gpoat git push origin --all; and git push origin --tags
 abbr -a gcmsg 'git commit -m'
 abbr -a ggpull 'git pull origin $(git_current_branch)'
+
+# tmux aliases
+abbr -a ts 'tmux new-session -s'
+abbr -a ta 'tmux attach -t'
+abbr -a tl 'tmux list-sessions'
+abbr -a tkss 'tmux kill-session -t'
