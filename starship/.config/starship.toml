@@ -18,3 +18,10 @@ truncate_to_repo = false
 
 [docker_context]
 disabled = true
+
+[shell]
+disabled = false
+nu_indicator = "🌑"
+zsh_indicator = "🐚"
+bash_indicator = "🦪"
+fish_indicator = "🐟"
