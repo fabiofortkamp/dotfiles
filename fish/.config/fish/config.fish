@@ -12,3 +12,8 @@ fish_add_path -gP "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/s
 
 # Starship config
 starship init fish | source
+
+# asdf config
+source ~/.asdf/asdf.fish
+
+

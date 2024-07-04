@@ -1,0 +1,1 @@
+/home/fpfortkamp/.asdf/completions/asdf.fish
