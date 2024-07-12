@@ -172,3 +172,6 @@ source $HOME/dotfiles/hatch/.hatch-complete.zsh
 
 # Quarto config
 export QUARTO_PYTHON="$HOME/.asdf/shims/python3.12"
+
+# project aliases
+alias hatchlor="cookiecutter https://github.com/florianwilhelm/the-hatchlor.git"
