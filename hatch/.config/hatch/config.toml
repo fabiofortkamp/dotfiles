@@ -5,15 +5,23 @@ shell = ""
 [dirs]
 project = []
 python = "isolated"
+data = "/home/fpfortkamp/.local/share/hatch"
+cache = "/home/fpfortkamp/.cache/hatch"
 
 [dirs.env]
 virtual = ".hatch"
+pip-compile = ".hatch"
+
+
 
 [projects]
 
 [publish.index]
 repo = "main"
 
+[template]
+name = "Fábio P. Fortkamp"
+email = "fabio@fabiofortkamp.com"
 [template.licenses]
 headers = true
 default = [
