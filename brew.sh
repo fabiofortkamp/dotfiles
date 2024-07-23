@@ -66,6 +66,9 @@ packages=(
     "starship"
     "cairo"
     "pango"
+    "gcc"
+    "open-mpi"
+    "opencoarrays"
 )
 
 # Loop over the array to install each application.
