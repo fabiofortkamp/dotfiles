@@ -33,3 +33,7 @@ asdf global ruby 3.3.0
 asdf plugin add java
 asdf install java openjdk-21.0.1
 asdf global java openjdk-21.0.1
+
+asdf plugin add lua
+asdf install lua 5.1.5
+asdf global lua 5.1.5

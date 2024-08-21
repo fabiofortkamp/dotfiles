@@ -57,7 +57,6 @@ packages=(
     "goawk"
     "openssl"
     "cmake"
-    "luarocks"
     "ripgrep"
     "fd"
     "pipx"
