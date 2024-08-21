@@ -36,7 +36,7 @@ asdf global java openjdk-21.0.1
 
 asdf plugin add lua
 asdf install lua 5.1.5
-asdf global lua5.1.5
+asdf global lua 5.1.5
 
 asdf plugin add php
 asdf install php 8.3.10
