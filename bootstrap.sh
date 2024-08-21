@@ -40,7 +40,9 @@ else
 		libffi-dev liblzma-dev autoconf patch rustc libssl-dev \
 		libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev \
 		libgdbm6 libgdbm-dev libdb-dev uuid-dev libffi8ubuntu1 libgmp-dev libgmp10 \
-		libncurses-dev libncurses5 libtinfo5 gnuplot freeglut3
+		libncurses-dev libncurses5 libtinfo5 gnuplot freeglut3 \
+		locate licurl14-openssl-dev libgd-dev libonig-dev libonig5 libpq-dev \
+		libzip4 libzip-dev
 fi
 
 

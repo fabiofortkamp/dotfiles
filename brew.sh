@@ -69,6 +69,8 @@ packages=(
     "gcc"
     "open-mpi"
     "opencoarrays"
+    "bison"
+    "re2c"
 )
 
 # Loop over the array to install each application.
