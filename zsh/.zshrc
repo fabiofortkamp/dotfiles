@@ -160,13 +160,6 @@ eval "$(starship init zsh)"
 [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
 
 
-# rye configuration
-[ -f "$HOME/.rye/env" ] &&
-source "$HOME/.rye/env"
-path+=($HOME/.rye/shims/)
-
-export RYE_HOME="$HOME/.rye"
-
 export HATCH_CONFIG="$XDG_CONFIG_HOME/hatch/config.toml"
 source $HOME/dotfiles/hatch/.hatch-complete.zsh
 

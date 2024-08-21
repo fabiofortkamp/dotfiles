@@ -57,14 +57,8 @@ pipx install thefuck
 # https://eza.rocks/
 "$HOME/.cargo/bin/cargo" install eza
 
-curl -sSf https://rye-up.com/get | bash
-
 ## Haskell installations
 "$HOME/.ghcup/bin/stack" install gnuplot gloss
-
-# Rye linking
-rm "$HOME/.rye/config.toml"
-ln -s $HOME/dotfiles/rye/config.toml $HOME/.rye/config.toml
 
 # Node packages
 npm install -g @mermaid-js/mermaid-cli
