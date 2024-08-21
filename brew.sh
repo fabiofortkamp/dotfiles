@@ -71,6 +71,7 @@ packages=(
     "opencoarrays"
     "bison"
     "re2c"
+    "tree-sitter"
 )
 
 # Loop over the array to install each application.
