@@ -39,6 +39,7 @@ packages=(
     "bash"
     "zsh"
     "fish"
+    "bottom"
     "git"
     "tree"
     "bat"
