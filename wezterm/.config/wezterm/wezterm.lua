@@ -42,6 +42,7 @@ config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
 
 local act = wezterm.action
+config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 config.keys = {
   { key = "Tab",   mods = "CTRL",           action = act.ActivateTabRelative(1) },
@@ -194,6 +195,29 @@ config.keys = {
   { key = "Insert",     mods = "CTRL",           action = act.CopyTo("PrimarySelection") },
   { key = "Copy",       mods = "NONE",           action = act.CopyTo("Clipboard") },
   { key = "Paste",      mods = "NONE",           action = act.PasteFrom("Clipboard") },
+  {
+    key = '|',
+    mods = 'LEADER|SHIFT',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+  -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+  {
+    key = 'a',
+    mods = 'LEADER|CTRL',
+    action = wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
+  },
+  {
+    key = 'z',
+    mods = 'LEADER',
+    action = wezterm.action.TogglePaneZoomState,
+  },
+  {
+    key = '_',
+    mods = 'LEADER|SHIFT',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+  { key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
+  { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
 }
 
 config.key_tables = {
