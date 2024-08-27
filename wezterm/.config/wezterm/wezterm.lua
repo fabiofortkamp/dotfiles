@@ -10,7 +10,33 @@ local config = wezterm.config_builder()
 config.color_scheme = "catppuccin-mocha"
 
 config.font = wezterm.font("VictorMono Nerd Font")
+
+-- Set up shell depending on operating system
+-- stolen from https://gist.github.com/Zbizu/43df621b3cd0dc460a76f7fe5aa87f30
+local function getOS()
+	-- ask LuaJIT first
+	if jit then
+		return jit.os
+	end
+
+	-- Unix, Linux variants
+	local fh
+	local err
+	fh, err = assert(io.popen("uname -o 2>/dev/null","r"))
+	local osnane
+	if fh then
+		osname = fh:read()
+	end
+
+	return osname or "Windows"
+end
+
+-- if Windows, use powershell, otherwise use zsh
+if getOS() == "Windows" then
 config.default_prog = { "powershell", "-nologo" }
+else
+config.default_prog = {"zsh", "-l"}
+end
 
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
