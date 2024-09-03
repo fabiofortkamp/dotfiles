@@ -5,3 +5,6 @@ tmux/.config/tmux/plugins
 nushell/.config/nushell/history.txt
 xmonad/.config/xmonad/xmonad
 xmonad/.config/xmonad/xmonad-contrib
+xmonad/.config/xmonad/.stack-work
+xmonad/.config/xmonad/stack.yaml
+xmonad/.config/xmonad/stack.yaml.lock
