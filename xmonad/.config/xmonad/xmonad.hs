@@ -1,5 +1,5 @@
-import Xmonad
-import Xmonad.Hooks.EwmhDesktops
+import XMonad
+import XMonad.Hooks.EwmhDesktops
 
 main :: IO ()
 main = xmonad $ ewmhFullscreen $ ewmh $ myConfig
