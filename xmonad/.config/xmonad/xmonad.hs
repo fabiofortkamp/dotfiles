@@ -1,7 +1,10 @@
 import Xmonad
+import Xmonad.Hooks.EwmhDesktops
 
 main :: IO ()
-main = xmonad def
+main = xmonad $ ewmhFullscreen $ ewmh $ myConfig
+
+myConfig = def
     { terminal    = "wezterm"
     , modMask     = mod4Mask -- Rebind Mod to the Windows (Super) key
     , borderWidth = 2
