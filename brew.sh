@@ -70,6 +70,7 @@ packages=(
     "open-mpi"
     "opencoarrays"
     "gdu"
+    "bottom"
 )
 
 # Loop over the array to install each application.
