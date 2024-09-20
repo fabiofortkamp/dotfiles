@@ -88,6 +88,7 @@ packages=(
     "tmux"
     "tree"
     "tree"
+    "wget"
     "zlib"
     "zoxide"
     "zsh"
