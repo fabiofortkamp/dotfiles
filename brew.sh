@@ -39,7 +39,6 @@ packages=(
     "bash"
     "zsh"
     "fish"
-    "bottom"
     "git"
     "tree"
     "bat"
@@ -57,6 +56,7 @@ packages=(
     "goawk"
     "openssl"
     "cmake"
+    "luarocks"
     "ripgrep"
     "fd"
     "pipx"
@@ -69,9 +69,7 @@ packages=(
     "gcc"
     "open-mpi"
     "opencoarrays"
-    "bison"
-    "re2c"
-    "tree-sitter"
+    "gdu"
 )
 
 # Loop over the array to install each application.
