@@ -10,6 +10,8 @@ local config = wezterm.config_builder()
 config.color_scheme = "catppuccin-mocha"
 
 config.font = wezterm.font("VictorMono Nerd Font")
+config.font_size = 16.0
+
 
 -- Set up shell depending on operating system
 -- stolen from https://gist.github.com/Zbizu/43df621b3cd0dc460a76f7fe5aa87f30
@@ -37,6 +39,7 @@ config.default_prog = { "powershell", "-nologo" }
 else
 config.default_prog = {"zsh", "-l"}
 end
+
 
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
