@@ -154,8 +154,8 @@ alias e="$EDITOR"#
 
 # !! Contents within this block are managed by juliaup !!
 
-# path=("$HOME/.juliaup/bin" $path)
-# export PATH
+path=("$HOME/.juliaup/bin" $path)
+export PATH
 
 # <<< juliaup initialize <<<
 eval "$(zoxide init zsh)"
