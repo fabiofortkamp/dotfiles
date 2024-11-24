@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -207,6 +207,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- Set default tex files as LaTeX
+vim.g.tex_flavor = 'latex'
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
@@ -316,6 +319,26 @@ require('lazy').setup({
     },
   },
 
+  {
+    'L3MON4D3/LuaSnip',
+    config = function(plugin, opts)
+      -- add more custom luasnip configuration such as filetype extend or custom snippets
+      local luasnip = require 'luasnip'
+      luasnip.filetype_extend('javascript', { 'javascriptreact' })
+      require('luasnip.loaders.from_vscode').lazy_load {
+        paths = { './lua/snippets' },
+      }
+      require('luasnip.loaders.from_lua').lazy_load { paths = { './LuaSnip/' } }
+
+      luasnip.config.set_config {
+        -- Enable autotriggered snippets
+        enable_autosnippets = true,
+
+        -- Use Tab to trigger visual selection
+        store_selection_key = '<Tab>',
+      }
+    end,
+  },
   -- NOTE: Plugins can specify dependencies.
   --
   -- The dependencies are proper plugin specifications as well - anything

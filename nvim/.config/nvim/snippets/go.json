@@ -1,0 +1,43 @@
+{
+  "if err not nil": {
+    "prefix": [
+      "iferr"
+    ],
+    "body": [
+      "if $1, err := $2; err != nil {",
+      "$3",
+      "}",
+      "",
+      ""
+    ],
+    "description": "Process some non-nil error"
+  },
+  "Test Function": {
+    "prefix": [
+      "tfun"
+    ],
+    "body": [
+      "func Test$1(t *testing.T) {",
+      "$0",
+      "}"
+    ]
+  },
+  "Test Tables": {
+    "prefix": "ttab",
+    "body": [
+      "tests := []struct {",
+      "$1",
+      "}{",
+      "{$0},",
+      "}"
+    ]
+  },
+  "Test Fatalf": {
+    "prefix": "iffat",
+    "body": [
+      "if $1 {",
+      "t.Fatalf(\"$2\",$3)",
+      "}\n$0"
+    ]
+  }
+}
