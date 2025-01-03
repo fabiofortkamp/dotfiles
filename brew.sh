@@ -13,7 +13,7 @@ if ! command -v brew &>/dev/null; then
         export PATH="/opt/homebrew/bin:$PATH"
     fi
 
-    if [-x "/home/linuxbrew/.linuxbrew/bin/brew"]; then
+    if [ -x "/home/linuxbrew/.linuxbrew/bin/brew"]; then
 
         # For Linux
         echo "Configuring Homebrew in PATH for Linux..."
