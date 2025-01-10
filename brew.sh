@@ -87,7 +87,6 @@ packages=(
     "stow"
     "tmux"
     "tree"
-    "tree"
     "wget"
     "zlib"
     "zoxide"
