@@ -109,7 +109,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-require 'config.lazy'
+require 'custom.lazy'
 
 vim.cmd.colorscheme 'tokyonight-night'
 -- The line beneath this is called `modeline`. See `:help modeline`
