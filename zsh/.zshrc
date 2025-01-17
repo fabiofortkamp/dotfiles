@@ -180,3 +180,7 @@ alias hatchlor="cookiecutter https://github.com/florianwilhelm/the-hatchlor.git"
 # necessaru for OneDrive
 export XDG_RUNTIME_DIR="/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
