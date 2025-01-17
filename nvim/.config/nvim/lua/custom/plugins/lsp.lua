@@ -187,6 +187,8 @@ return {
         'stylua', -- Used to format Lua code
         'fprettify',
         'findent',
+        'elm-language-server',
+        'elm-format',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
