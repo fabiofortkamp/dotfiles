@@ -189,6 +189,9 @@ return {
         'findent',
         'elm-language-server',
         'elm-format',
+        'html-lsp',
+        'prettier',
+        'htmlhint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
