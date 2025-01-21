@@ -184,3 +184,5 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
