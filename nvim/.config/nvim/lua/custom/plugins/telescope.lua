@@ -111,6 +111,8 @@ return {
       vim.keymap.set('n', '<leader>so', function()
         builtin.find_files { cwd = vim.fs.joinpath(vim.fn.getenv 'HOME', 'dotfiles'), hidden = true }
       end, { desc = '[S]earch d[O]tfiles' })
+
+      require('custom.plugins.telescope.multigrep').setup()
     end,
   },
 }
