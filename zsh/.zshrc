@@ -186,3 +186,7 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 eval "$(atuin init zsh)"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+# temporary directory settings
+TMP="/tmp"
+PYTEST_DEBUG_TEMPROOT="/tmp"
