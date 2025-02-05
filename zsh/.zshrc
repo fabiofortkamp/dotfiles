@@ -178,7 +178,10 @@ export QUARTO_PYTHON="$HOME/.asdf/shims/python3.12"
 alias hatchlor="cookiecutter https://github.com/florianwilhelm/the-hatchlor.git"
 
 # necessaru for OneDrive
-export XDG_RUNTIME_DIR="/run/user/$UID"
+# temporary directory settings
+TMP="/tmp"
+PYTEST_DEBUG_TEMPROOT="/tmp"
+export XDG_RUNTIME_DIR="$TMP/run/user/$UID"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 
 . "$HOME/.atuin/bin/env"
@@ -187,6 +190,3 @@ eval "$(atuin init zsh)"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
-# temporary directory settings
-TMP="/tmp"
-PYTEST_DEBUG_TEMPROOT="/tmp"
