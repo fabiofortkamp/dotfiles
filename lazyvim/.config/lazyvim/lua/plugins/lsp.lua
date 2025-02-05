@@ -17,6 +17,7 @@ return {
         "basedpyright",
         "isort",
         "black",
+        "matlab-language-server",
       },
     },
   },
