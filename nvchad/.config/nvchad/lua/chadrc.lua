@@ -6,7 +6,7 @@
 
  local M = {
    base46 = {
-     theme = "zenburn",
+     theme = "catppuccin",
      hl_add = {},
      hl_override = {},
      integrations = {},
