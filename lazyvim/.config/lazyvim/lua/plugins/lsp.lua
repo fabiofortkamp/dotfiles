@@ -4,7 +4,8 @@ return {
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
-      servers = {},
+      solargraph = {},
+      standardrb = {},
     },
   },
   {
@@ -18,6 +19,9 @@ return {
         "isort",
         "black",
         "matlab-language-server",
+        "solargraph",
+        "standardrb",
+        "rubocop",
       },
     },
   },
