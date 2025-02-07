@@ -131,7 +131,7 @@ export GOBIN=$HOME/bin
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='vz'
 fi
 
 # Compilation flags
