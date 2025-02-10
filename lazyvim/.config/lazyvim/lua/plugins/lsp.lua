@@ -5,7 +5,6 @@ return {
     opts = {
       ---@type lspconfig.options
       solargraph = {},
-      standardrb = {},
     },
   },
   {
@@ -20,7 +19,6 @@ return {
         "black",
         "matlab-language-server",
         "solargraph",
-        "standardrb",
         "rubocop",
       },
     },
