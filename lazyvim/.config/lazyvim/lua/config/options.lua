@@ -12,4 +12,4 @@ vim.g.lazyvim_picker = "telescope"
 -- Can be one of: nvim-cmp, blink.cmp
 -- Leave it to "auto" to automatically use the completion engine
 -- enabled with `:LazyExtras`
-vim.g.lazyvim_cmp = "nvim-cmp"
+vim.g.lazyvim_cmp = "blink.cmp"
