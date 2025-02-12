@@ -1,5 +1,4 @@
 custom/local.zsh
-config/nvim/plugin
-config/tmux/plugins
 tmux/.config/tmux/plugins
 nushell/.config/nushell/history.txt
+lazyvim/.config/lazyvim/lua/plugins/dev.lua
