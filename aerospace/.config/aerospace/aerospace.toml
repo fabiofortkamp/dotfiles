@@ -188,6 +188,11 @@ down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
+# make floating windows by default, declare exceptions here exclusively
+[[on-window-detected]]
+    check-further-callbacks = true
+    run = 'layout floating'
+
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
 run = "move-node-to-workspace T"
@@ -199,3 +204,27 @@ run = "move-node-to-workspace B"
 [[on-window-detected]]
 if.app-id = 'com.apple.AppStore'
 run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = "layout floating"
+
+
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = "layout floating"
+
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "layout floating"
+
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = "move-node-to-workspace S"
+
+[[on-window-detected]]
+if.app-id = 'com.todoist.mac.Todoist'
+run = "move-node-to-workspace U"
+
