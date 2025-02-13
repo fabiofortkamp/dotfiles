@@ -127,6 +127,7 @@ alt-o = 'workspace O' # Obsidian
 alt-s = 'workspace S' # Slack
 alt-t = 'workspace T' # Terminal
 alt-u = 'workspace U' # Todoist
+alt-w = 'workspace W' # Preview
 alt-v = 'workspace V' # Trello
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -211,6 +212,9 @@ run = "layout floating"
 if.app-id = 'com.apple.finder'
 run = "layout floating"
 
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
+run = 'move-node-to-workspace w'
 
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
