@@ -196,9 +196,17 @@ shift-down = ['volume set 0', 'mode main']
     check-further-callbacks = true
     run = 'layout floating'
 
+# move wezterm to work workspace during startup...
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
+if.during-aerospace-startup = true
 run = "move-node-to-workspace T"
+
+# ...but allow tiling in other workspaces
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+if.during-aerospace-startup = false
+run = "layout tiling"
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
