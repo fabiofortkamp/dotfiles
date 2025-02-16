@@ -2,6 +2,7 @@ local oil_opts = {
   keymaps = {
     ["<C-h>"] = false,
     ["<C-l>"] = false,
+    ["<C-s>"] = false,
   },
   view_options = {
     -- Show files and directories that start with "."
