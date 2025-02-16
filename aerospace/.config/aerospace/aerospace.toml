@@ -191,11 +191,6 @@ down = 'volume down'
 up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
-# make floating windows by default, declare exceptions here exclusively
-[[on-window-detected]]
-    check-further-callbacks = true
-    run = 'layout floating'
-
 # move wezterm to work workspace during startup...
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
@@ -222,7 +217,7 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
-run = 'move-node-to-workspace w'
+run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
