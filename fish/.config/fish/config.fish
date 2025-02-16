@@ -7,6 +7,9 @@ fish_add_path -gP "$HOME/dotfiles/bin"
 # set vi keybindings
 set -g fish_key_bindings fish_vi_key_bindings
 
+# set up tmux-sessionizer keybindings
+bind \cs "$HOME/dotfiles/bin/tmux-sessionizer"
+
 # zoxide config
 zoxide init fish | source
 
