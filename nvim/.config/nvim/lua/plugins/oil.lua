@@ -3,6 +3,9 @@ local oil_opts = {
     ["<C-h>"] = false,
     ["<C-l>"] = false,
   },
+  view_options = {
+    -- Show files and directories that start with "."
+    show_hidden = true,}
 }
 return {
   "stevearc/oil.nvim",
