@@ -1,6 +1,9 @@
 # set up homebrew path
 fish_add_path -gP /opt/homebrew/bin/ /opt/homebrew/sbin/
 
+# create local dotfiles scripts dir
+fish_add_path  -gP "$HOME/dotfiles/bin"
+
 # zoxide config
 zoxide init fish | source
 
