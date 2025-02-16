@@ -2,3 +2,5 @@ custom/local.zsh
 tmux/.config/tmux/plugins
 nushell/.config/nushell/history.txt
 lazyvim/.config/lazyvim/lua/plugins/dev.lua
+fish/.config/fish/fish_variables
+fish/.config/fish/fish_variables
