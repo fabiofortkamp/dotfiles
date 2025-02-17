@@ -121,7 +121,7 @@ alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 alt-b = 'workspace B' # Browser 
 alt-d = 'workspace D' # Drafts
-alt-k = 'workspace K' # Outlook
+alt-i = 'workspace I' # Outlook
 alt-e = 'workspace E' # File Explorer
 alt-m = 'workspace M' # Matlab
 alt-o = 'workspace O' # Obsidian
@@ -244,4 +244,4 @@ run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.outlook'
-run = "move-node-to-workspace K"
+run = "move-node-to-workspace I"
