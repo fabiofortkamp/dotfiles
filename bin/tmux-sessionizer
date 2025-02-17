@@ -4,7 +4,12 @@
 # https://frontendmasters.github.io/dev-prod-2/lessons/navigation/tmux
 # https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 
-selected=$(find ~/personal ~/dtu ~/polo ~/nvim-plugins/ ~/build ~/ -maxdepth 1 -mindepth 1 -type d | fzf)
+selected=$(
+  (
+    find ~/personal ~/dtu ~/polo ~/nvim-plugins ~/build -maxdepth 1 -mindepth 1 -type d
+    echo "$HOME/dotfiles"
+  ) | fzf
+)
 if [[ -z "$selected" ]]; then
   exit 0
 fi
