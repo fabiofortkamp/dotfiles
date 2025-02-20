@@ -32,3 +32,17 @@ if not contains $_asdf_shims $PATH
     set -gx --prepend PATH $_asdf_shims
 end
 set --erase _asdf_shims
+
+# add MATLAB and COMSOL to PATH
+# only macOS supported for not
+function add_to_path_if_exists
+    for file in $argv
+        if test -e $file
+            fish_add_path -gP $file
+        end
+    end
+end
+
+add_to_path_if_exists /Applications/COMSOL63/Multiphysics/bin
+add_to_path_if_exists "/Applications/MATLAB_R2024b.app/bin"
+add_to_path_if_exists "/Applications/Blender.app/Contents/MacOS"
