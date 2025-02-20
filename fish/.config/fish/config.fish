@@ -46,3 +46,12 @@ end
 add_to_path_if_exists /Applications/COMSOL63/Multiphysics/bin
 add_to_path_if_exists "/Applications/MATLAB_R2024b.app/bin"
 add_to_path_if_exists "/Applications/Blender.app/Contents/MacOS"
+
+# common variables
+set -gx EDITOR nvim
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_DATA_HOME "$HOME/.local/share/"
+set -gx XDG_CACHE_HOME "$HOME/.cache/"
+set -gx TMP /tmp
+set -gx PYTEST_DEBUG_TEMPROOT /tmp
+set -gx XDG_RUNTIME_DIR "$TMP/run/$USER"
