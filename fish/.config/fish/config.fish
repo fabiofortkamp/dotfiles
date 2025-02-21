@@ -18,6 +18,21 @@ zoxide init fish | source
 # Set up fzf key bindings
 fzf --fish | source
 
+# ASDF configuration code
+fish_add_path -gP "$HOME/.asdf/bin"
+if test -z $ASDF_DATA_DIR
+    set _asdf_shims "$HOME/.asdf/shims"
+else
+    set _asdf_shims "$ASDF_DATA_DIR/shims"
+end
+
+# Do not use fish_add_path (added in Fish 3.2) because it
+# potentially changes the order of items in PATH
+if not contains $_asdf_shims $PATH
+    set -gx --prepend PATH $_asdf_shims
+end
+set --erase _asdf_shims
+
 # add MATLAB and COMSOL to PATH
 # only macOS supported for not
 function add_to_path_if_exists
@@ -40,6 +55,3 @@ set -gx XDG_CACHE_HOME "$HOME/.cache/"
 set -gx TMP /tmp
 set -gx PYTEST_DEBUG_TEMPROOT /tmp
 set -gx XDG_RUNTIME_DIR "$TMP/run/$USER"
-
-# load rvm (ruby version manager)
-rvm default
