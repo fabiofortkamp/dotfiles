@@ -1,6 +1,5 @@
-
 -- stolen from https://ejmastnak.com/tutorials/vim-latex/luasnip/
-local ls = require "luasnip"
+local ls = require("luasnip")
 local s = ls.snippet
 local sn = ls.snippet_node
 local t = ls.text_node
@@ -27,7 +26,9 @@ local tex_utils = {}
 tex_utils.in_mathzone = function() -- math context detection
   return vim.fn["vimtex#syntax#in_mathzone"]() == 1
 end
-tex_utils.in_text = function() return not tex_utils.in_mathzone() end
+tex_utils.in_text = function()
+  return not tex_utils.in_mathzone()
+end
 tex_utils.in_comment = function() -- comment detection
   return vim.fn["vimtex#syntax#in_comment"]() == 1
 end
@@ -37,25 +38,29 @@ tex_utils.in_env = function(name) -- generic environment detection
 end
 -- A few concrete environments---adapt as needed
 tex_utils.in_equation = function() -- equation environment detection
-  return tex_utils.in_env "equation"
+  return tex_utils.in_env("equation")
 end
 tex_utils.in_itemize = function() -- itemize environment detection
-  return tex_utils.in_env "itemize"
+  return tex_utils.in_env("itemize")
 end
 tex_utils.in_tikz = function() -- TikZ picture environment detection
-  return tex_utils.in_env "tikzpicture"
+  return tex_utils.in_env("tikzpicture")
 end
 
 return {
   -- Examples of Greek letter snippets, autotriggered for efficiency
+  -- Each call to the s function will get:
+  --  - snippet parameters
+  --  - snippet nodes
+  --  - optional table of additional options
   s({ trig = ";a", snippetType = "autosnippet" }, {
-    t "\\alpha",
+    t("\\alpha"),
   }),
   s({ trig = ";b", snippetType = "autosnippet" }, {
-    t "\\beta",
+    t("\\beta"),
   }),
   s({ trig = ";g", snippetType = "autosnippet" }, {
-    t "\\gamma",
+    t("\\gamma"),
   }),
   s(
     { trig = "eq", dscr = "Expands 'eq' into an equation environment" },
@@ -68,13 +73,12 @@ return {
       { i(1) }
     )
   ),
+  s({ trig = "tt", dscr = "Expands 'tt' into a texttt environment" }, fmta("\\texttt{<>}", { d(1, get_visual) })),
   s(
-    {trig = "tt", dscr = "Expands 'tt' into a texttt environment",},
-    fmta("\\texttt{<>}", { d(1, get_visual) })
-),
-  s({
-    trig = "tii",
-    dscr = "Expands 'tii' into a textit environment",},
+    {
+      trig = "tii",
+      dscr = "Expands 'tii' into a textit environment",
+    },
     -- fmta call for the \texttt snippet
     fmta("\\textit{<>}", { d(1, get_visual) })
   ),
@@ -96,14 +100,18 @@ return {
   s(
     { trig = "([^%a])mm", wordTrig = false, regTrig = true },
     fmta("<>$<>$", {
-      f(function(_, snip) return snip.captures[1] end),
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
       d(1, get_visual),
     })
   ),
   s(
     { trig = "([^%a])ee", regTrig = true, wordTrig = false },
     fmta("<>e^{<>}", {
-      f(function(_, snip) return snip.captures[1] end),
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
       d(1, get_visual),
     })
   ),
@@ -119,8 +127,10 @@ return {
   s(
     { trig = "([%a%)%]%}])00", regTrig = true, wordTrig = false, snippetType = "autosnippet" },
     fmta("<>_{<>}", {
-      f(function(_, snip) return snip.captures[1] end),
-      t "0",
+      f(function(_, snip)
+        return snip.captures[1]
+      end),
+      t("0"),
     })
   ),
   s(
@@ -151,4 +161,3 @@ return {
     { condition = tex_utils.in_mathzone }
   ),
 }
-
