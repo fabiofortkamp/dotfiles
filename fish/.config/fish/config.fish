@@ -1,33 +1,44 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+# set up homebrew path
+fish_add_path -gP /opt/homebrew/bin/ /opt/homebrew/sbin/
 
-# Homebrew config
-set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew";
-set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar";
-set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew";
-fish_add_path -gP "/home/linuxbrew/.linuxbrew/bin" "/home/linuxbrew/.linuxbrew/sbin";
-! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/home/linuxbrew/.linuxbrew/share/man" $MANPATH;
-! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH;
+fish_add_path -gP "$HOME/.local/bin"
+# create local dotfiles scripts dir
+fish_add_path -gP "$HOME/dotfiles/bin"
 
-# Starship config
-starship init fish | source
+# set vi keybindings
+set -g fish_key_bindings fish_vi_key_bindings
 
-# asdf config
-source ~/.asdf/asdf.fish
+# set up tmux-sessionizer keybindings
+bind \cs -M default "$HOME/dotfiles/bin/tmux-sessionizer"
+bind \cs -M insert "$HOME/dotfiles/bin/tmux-sessionizer"
 
 # zoxide config
 zoxide init fish | source
 
-# git aliases
-abbr -a g git
-abbr -a ga 'git add'
-abbr -a gpoat git push origin --all; and git push origin --tags
-abbr -a gcmsg 'git commit -m'
-abbr -a ggpull 'git pull origin $(git_current_branch)'
+# Set up fzf key bindings
+fzf --fish | source
 
-# tmux aliases
-abbr -a ts 'tmux new-session -s'
-abbr -a ta 'tmux attach -t'
-abbr -a tl 'tmux list-sessions'
-abbr -a tkss 'tmux kill-session -t'
+# add MATLAB and COMSOL to PATH
+# only macOS supported for not
+function add_to_path_if_exists
+    for file in $argv
+        if test -e $file
+            fish_add_path -gP $file
+        end
+    end
+end
+
+add_to_path_if_exists /Applications/COMSOL63/Multiphysics/bin
+add_to_path_if_exists "/Applications/MATLAB_R2024b.app/bin"
+add_to_path_if_exists "/Applications/Blender.app/Contents/MacOS"
+
+# common variables
+set -gx EDITOR nvim
+set -gx XDG_CONFIG_HOME "$HOME/.config"
+set -gx XDG_DATA_HOME "$HOME/.local/share/"
+set -gx XDG_CACHE_HOME "$HOME/.cache/"
+set -gx TMP /tmp
+set -gx PYTEST_DEBUG_TEMPROOT /tmp
+set -gx XDG_RUNTIME_DIR "$TMP/run/$USER"
+
+mise activate fish | source
