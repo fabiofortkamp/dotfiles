@@ -26,6 +26,7 @@ return {
       expand = function(snippet, _)
         return LazyVim.cmp.expand(snippet)
       end,
+      preset = "luasnip"
     },
     appearance = {
       -- sets the fallback highlight groups to nvim-cmp's highlight groups
