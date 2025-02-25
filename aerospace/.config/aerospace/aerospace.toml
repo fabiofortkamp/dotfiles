@@ -119,12 +119,15 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
+alt-a = 'workspace A' # Matlab
 alt-b = 'workspace B' # Browser 
 alt-d = 'workspace D' # Drafts
 alt-i = 'workspace I' # Outlook
 alt-e = 'workspace E' # File Explorer
+alt-f = 'workspace F' # Fantastical
 alt-m = 'workspace M' # Matlab
 alt-o = 'workspace O' # Obsidian
+alt-r = 'workspace R' # Books (to [R]ead)
 alt-s = 'workspace S' # Slack
 alt-t = 'workspace T' # Terminal
 alt-u = 'workspace U' # Todoist
@@ -224,11 +227,9 @@ run = 'move-node-to-workspace W'
 if.app-id = 'com.1password.1password'
 run = "layout floating"
 
-
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace O"
-
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
@@ -239,9 +240,25 @@ if.app-id = 'com.todoist.mac.Todoist'
 run = "move-node-to-workspace U"
 
 [[on-window-detected]]
+if.app-id = 'com.atlassian.trello'
+run = "move-node-to-workspace V"
+
+[[on-window-detected]]
+if.app-id = 'com.mathworks.matlab'
+run = "move-node-to-workspace A"
+
+[[on-window-detected]]
 if.app-id = 'com.agiletortoise.Drafts-OSX'
 run = "move-node-to-workspace D"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
 run = "move-node-to-workspace I"
+
+[[on-window-detected]]
+if.app-id = 'com.flexibits.fantastical2.mac'
+run = "move-node-to-workspace F"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iBooksX'
+run = "move-node-to-workspace R"
