@@ -243,5 +243,5 @@ if.app-id = 'com.agiletortoise.Drafts-OSX'
 run = "move-node-to-workspace D"
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.outlook'
+if.app-id = 'com.microsoft.Outlook'
 run = "move-node-to-workspace I"
