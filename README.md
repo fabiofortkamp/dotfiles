@@ -7,9 +7,7 @@ macOS-based configuration for a engineering research workflow focused on the com
 ### Pre-requisites
 - git
 - bash
-- zsh
 - curl
-
 
 ### Running the installation script
 

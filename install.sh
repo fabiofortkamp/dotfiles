@@ -9,16 +9,5 @@ mkdir -p "$HOME/.local/{bin,lib}"
 mkdir -p "$HOME/build"
 
 # Install homebrew
-./brew.sh
-
-# # Install rustup
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-#
-# # Install juliaup
-# curl -fsSL https://install.julialang.org | sh
-#
-# # Install GHCup
-# curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-#
-# ./brew-config.sh
-# ./install-asdf.zsh
+source "$DOTFILES/brew.sh"
+source "$DOTFILES/stow.sh"
