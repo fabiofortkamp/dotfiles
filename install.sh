@@ -10,4 +10,6 @@ mkdir -p "$HOME/build"
 
 # Install homebrew
 source "$DOTFILES/brew.sh"
+
+# Link everything together
 source "$DOTFILES/stow.sh"
