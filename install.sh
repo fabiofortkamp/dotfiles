@@ -19,3 +19,9 @@ source "$DOTFILES/build_neovim.sh"
 
 # Link everything together
 source "$DOTFILES/stow.sh"
+
+# Install tools with mise
+mise install
+
+# Additional symbolic links
+ln -s "$HOME/dotfiles/default-gems" "$HOME/.default-gems"
