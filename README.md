@@ -1,67 +1,26 @@
 # dotfiles
 
-Ubuntu-based configuration for zsh, Neovim, LunarVim and Julia.
+macOS-based configuration for a engineering research workflow focused on the commmand line.
 
 ## Installation
 
 ### Pre-requisites
+- git
+- bash
+- zsh
+- curl
 
-1. (Ubuntu:) Install git:
 
-```shell
-sudo apt install git
-git config --global user.name "<NAME>"
-git config --global user.email "<email>"
-```
+### Running the installation script
 
-2. Install [VS Code Insiders](https://code.visualstudio.com/insiders/);
-3. (Ubuntu only): run:
-
-```shell
-sudo apt update && sudo install zsh curl
-command -v zsh | sudo tee -a /etc/shells
-sudo chsh -s $(which zsh) $USER
-
-```
-
-4. Install [Oh-My-Zsh](https://github.com/ohmyzsh/ohmyzsh);
-5. Install [Homebrew](https://brew.sh/) - follow the on-screen instructions;
-6. Install [asdf](https://asdf-vm.com/);
-   Then, clone this repo:
-
+Run the following commands in a shell:
 ```shell
 
 git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
+./install.sh
 ```
 
-### Bootstraping
 
-Start a new shell and see if you get the default oh-my-zsh prompt; you might get some
-errors about missing packages - that's OK for now.
-
-Now, run the bootstrap script in this directory:
-
-#### Linux
-
-Run the bootstrap script:
-
-```shell
-cd ~/dotfiles
-chmod +x bootstrap.sh
-./bootstrap.sh
-```
-
-Restart the shell and then run `./install-asdf.zsh && chmod +x install-lvim.zsh && ./install-lvim.zsh`
-
-#### macOS
-
-```shell
-cd ~/dotfiles
-chmod +x bootstrap.sh
-zsh bootstrap.sh
-```
-
-### Post-bootstrap
 
 ## Features
 
