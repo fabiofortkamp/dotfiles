@@ -41,4 +41,4 @@ set -gx TMP /tmp
 set -gx PYTEST_DEBUG_TEMPROOT /tmp
 set -gx XDG_RUNTIME_DIR "$TMP/run/$USER"
 
-# mise activate fish | source
+mise activate fish | source
