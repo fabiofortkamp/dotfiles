@@ -75,8 +75,6 @@ packages=(
   "open-mpi"
   "opencoarrays"
   "openssl"
-  "openssl@1.1"
-  "openssl@3"
   "pango"
   "php"
   "pipx"
