@@ -1,3 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-stow mypy ruff julia zsh tmux direnv starship nushell hatch fish nvim wezterm  aerospace git
+cd $DOTFILES
+stow mypy ruff julia zsh tmux direnv starship nushell hatch fish nvim wezterm  aerospace git mise
