@@ -23,7 +23,7 @@ git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
 ### Fish as the default shell
 
 [Fish](https://fishshell.com/) is set as the default shell, with [replacements](./fish/.config/fish/config.fish)
-for git and [eza](https://github.com/eza-community/eza). [Fzf](https://github.com/junegunn/fzf) and [zoxide](https://github.com/ajeetdsouza/zoxide) are also initialized.
+for git and [eza](https://github.com/eza-community/eza). [Fzf](https://github.com/junegunn/fzf), [atuin](https://docs.atuin.sh/) (in offline mode) and [zoxide](https://github.com/ajeetdsouza/zoxide) are also initialized.
 
 The prompt is managed by the [starship](https://starship.rs/guide/) [configuration](./starship/.config/starship.toml).
 
