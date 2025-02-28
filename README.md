@@ -25,3 +25,5 @@ git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
 [Fish](https://fishshell.com/) is set as the default shell, with [replacements](./fish/.config/fish/config.fish)
 for git and [eza](https://github.com/eza-community/eza).
 
+The prompt is managed by the [starship](https://starship.rs/guide/) [configuration](./starship/.config/starship.toml).
+
