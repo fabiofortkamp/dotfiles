@@ -42,3 +42,10 @@ set -gx PYTEST_DEBUG_TEMPROOT /tmp
 set -gx XDG_RUNTIME_DIR "$TMP/run/$USER"
 
 mise activate fish | source
+
+# ls aliases
+alias eza="eza --icons=always"
+alias ls="eza"
+alias l="eza -l"
+alias tree="eza --tree"
+
