@@ -1,0 +1,15 @@
+line-length = 88
+
+[lint]
+select = [
+  "E",   # pycodestyle
+  "F",   # pyflakes
+  "UP",  # pyupgrade
+  "D",   # pydocstyle
+  "C90", # complexity
+  "I",   # isort
+  "B",   # flake8-bugbear
+]
+
+[lint.pydocstyle]
+convention = "google"

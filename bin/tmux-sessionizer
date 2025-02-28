@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# stolen from ThePrimagen
+# https://frontendmasters.github.io/dev-prod-2/lessons/navigation/tmux
+# https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+# https://github.com/ThePrimeagen/tmux-sessionizer/blob/6ebd16e2e30a8c0ebd77f0c2ce18cb46db8397fa/tmux-sessionizer
+selected=$(
+  (
+    find ~/personal ~/dtu ~/polo ~/nvim-plugins ~/build -maxdepth 1 -mindepth 1 -type d
+    echo "$HOME/dotfiles"
+  ) | fzf
+)
+if [[ -z "$selected" ]]; then
+  exit 0
+fi
+
+# source file ".tmux-sessionizer if present"
+hydrate() {
+  if [ -f $2/.tmux-sessionizer ]; then
+    tmux send-keys -t $1 "source $2/.tmux-sessionizer" c-M
+  elif [ -f $HOME/.tmux-sessionizer ]; then
+    tmux send-keys -t $1 "source $HOME/.tmux-sessionizer" c-M
+  fi
+}
+
+selected_name=$(basename $selected | tr ".,: " "____")
+
+switch_to() {
+  # -z = string is null (zero length)
+  if [[ -z "$TMUX" ]]; then
+    tmux attach-session -t $selected_name
+  else
+    tmux switch-client -t $selected_name
+  fi
+
+}
+
+if tmux has-session -t="$selected_name" 2>/dev/null; then
+  hydrate $selected_name $selected
+  switch_to
+else
+  tmux new-session -ds "$selected_name" -c "$selected"
+  hydrate $selected_name $selected
+  switch_to
+fi

@@ -1,0 +1,45 @@
+# make Hatch use a local pyproject.toml file, for all projects
+mode = "local"
+project = ""
+
+# inherit the shell from the parent process
+shell = ""
+
+[dirs]
+python = "isolated"
+data = "$XDG_DATA_HOME/hatch"
+cache = "$XDG_CACHE_HOME/hatch"
+
+[dirs.env]
+# store the environment types below in '.hatch' dir in the project root
+virtual = ".hatch"
+pip-compile = ".hatch"
+
+[projects]
+
+[publish.index]
+repo = "main"
+
+[template]
+name = "Fábio P. Fortkamp"
+email = "fabio@fabiofortkamp.com"
+
+[template.licenses]
+headers = true
+default = [
+    "MIT",
+]
+
+[template.plugins.default]
+tests = true
+ci = true
+src-layout = true
+
+[terminal.styles]
+info = "bold"
+success = "bold cyan"
+error = "bold red"
+warning = "bold yellow"
+waiting = "bold magenta"
+debug = "bold"
+spinner = "simpleDotsScrolling"
