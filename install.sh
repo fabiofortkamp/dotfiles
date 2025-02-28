@@ -25,3 +25,7 @@ mise install
 
 # Additional symbolic links
 ln -s "$HOME/dotfiles/default-gems" "$HOME/.default-gems"
+
+# Make fish default shell
+echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/fish
