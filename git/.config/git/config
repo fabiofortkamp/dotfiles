@@ -1,9 +1,8 @@
-# stolen from Gary Bernhardt
+# unless stated otherwise, these settings are stolen from Gary Bernhardt
 # https://github.com/garybernhardt/dotfiles/blob/main/.gitconfig
 [user]
     name = Fábio Pinto Fortkamp
     email = fabio@fabiofortkamp.com
-[diff]
 [color]
     ui = auto
 [color "diff-highlight"]
@@ -63,3 +62,25 @@
     pf = push --force-with-lease
 [merge]
     tool = vimdiff
+# some settings stolen from:
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+[init]
+        defaultBranch = main
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+[help]
+        autocorrect = prompt
+[commit]
+        verbose = true
+
