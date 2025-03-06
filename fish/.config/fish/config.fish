@@ -49,7 +49,7 @@ starship init fish | source
 # ls aliases
 alias eza="eza --icons=always"
 alias ls="eza"
-alias l="eza -l"
+alias l="eza -la"
 alias tree="eza --tree"
 
 # git aliases

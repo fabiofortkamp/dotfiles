@@ -41,7 +41,8 @@ subcommands and their descriptions;
 - Change directories with the `z` command, which remembers your navigation history; for instance, you should be able to `z dotfiles` from any location and jump into this dotfiles 
 directory;
 - When searching for a file to use as an argument for something, run `CTRL-T` to use `fzf` fuzzy finder; press enter to paste the full path back into the shell;
-- The shell prompt shows the current working directory, git information, and versions of the tools used by the current project.
+- The shell prompt shows the current working directory, git information, and versions of the tools used by the current project;
+- For quick listing directories in a pretty manner, try just the `l` abbreviation, or an enhanced `tree` shortcut.
 
 ### Neovim as default editor 📝
 
