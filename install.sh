@@ -23,6 +23,10 @@ source "$DOTFILES/stow.sh"
 # Install tools with mise
 mise install
 
+# Additional mise tools commands
+# OCaml
+opam install ocaml-lsp-server odoc ocamlformat utop
+
 # Additional symbolic links
 ln -s "$HOME/dotfiles/default-gems" "$HOME/.default-gems"
 

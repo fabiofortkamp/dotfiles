@@ -70,6 +70,7 @@ Some features of my mise configuration:
   - Go 1.24.1
   - Lua 5.1
   - Node 22
+  - OPAM 2.3.0
   - Python 3.13
   - Ruby  3.3
   - uv (configured to always fetch the latest version)

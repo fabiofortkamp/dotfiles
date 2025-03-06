@@ -12,3 +12,4 @@ python = "3.13"
 uv = "latest"
 lua = ["5.1"]
 go = "1.24.1"
+opam = "2.3.0"
