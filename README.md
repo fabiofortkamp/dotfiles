@@ -67,10 +67,11 @@ are listed in the configuration file linked above.
 Some features of my mise configuration:
 
 - Installed tools:
-  - Python 3.13
-  - Ruby  3.3
+  - Go 1.24.1
   - Lua 5.1
   - Node 22
+  - Python 3.13
+  - Ruby  3.3
   - uv (configured to always fetch the latest version)
 - Python and uv are integrated; mise with use python version information provided in `uv.lock` files
 - You can override the local defaults by placing a file `mise.local.toml` in a project;
