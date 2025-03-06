@@ -1,5 +1,9 @@
 [settings]
 idiomatic_version_file = false
+experimental = true
+
+[settings.python]
+uv_venv_auto = true
 
 [tools]
 node = "22"
