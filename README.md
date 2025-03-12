@@ -53,7 +53,8 @@ LSP and tree-sitter parsers are fully configured for these languages.
 
 ### Package management with homebrew 🍻
 
-[Homebrew](https://brew.sh/) is the default tool to install new packages.
+[Homebrew](https://brew.sh/) is the default tool to install new packages. See [this script](./brew.sh) for a list
+of packages that are installed.
 
 ### Dev tool management with mise 🥙
 
