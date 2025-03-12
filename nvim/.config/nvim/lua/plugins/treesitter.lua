@@ -6,6 +6,8 @@ return {
       "javascript",
       "json",
       "lua",
+      "make",
+      "matlab",
       "markdown",
       "markdown_inline",
       "ruby",

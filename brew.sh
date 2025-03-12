@@ -85,6 +85,7 @@ packages=(
   "ruff"
   "starship"
   "stow"
+  "texinfo"
   "texlab"
   "texlive"
   "tmux"
