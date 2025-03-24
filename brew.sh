@@ -106,6 +106,24 @@ for package in "${packages[@]}"; do
   fi
 done
 
+# Install casks
+# Define an array of packages to install using Homebrew.
+casks=(
+  "quarto"
+  "skim"
+  "wezterm"
+)
+
+# Loop over the array to install each application.
+for cask in "${casks[@]}"; do
+  if brew list --cask | grep -q "^$cask\$"; then
+    echo "$cask is already installed. Skipping..."
+  else
+    echo "Installing $cask..."
+    brew install --cask "$cask"
+  fi
+done
+
 # Update and clean up again for safe measure
 brew update
 brew upgrade
