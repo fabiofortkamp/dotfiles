@@ -109,6 +109,7 @@ done
 # Install casks
 # Define an array of packages to install using Homebrew.
 casks=(
+  "emacs"
   "ghostty"
   "quarto"
   "skim"
