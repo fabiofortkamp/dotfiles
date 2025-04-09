@@ -59,6 +59,7 @@ packages=(
   "gh"
   "git"
   "git-flow-avh"
+  "git-town"
   "goawk"
   "gojq"
   "icu4c"
