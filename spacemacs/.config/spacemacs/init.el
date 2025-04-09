@@ -65,7 +65,8 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      mermaid-mode)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -601,18 +602,18 @@ This function is called at the very end of Spacemacs initialization."
          hide-comnt highlight-indentation highlight-numbers highlight-parentheses
          hl-todo holy-mode hoon-mode hungry-delete hybrid-mode indent-guide info+
          inspector link-hint llama logcat lorem-ipsum macrostep magit
-         magit-section markdown-mode markdown-toc matlab-mode multi-line
-         multi-term multi-vterm nameless nerd-icons open-junk-file org-superstar
-         overseer package-lint paradox password-generator pcre2el pkgbuild-mode
-         popwin pos-tip qml-mode quickrun rainbow-delimiters restart-emacs
-         scad-mode shell-pop smeargle space-doc spaceline spacemacs-purpose-popwin
-         spacemacs-whitespace-cleanup stan-mode string-edit-at-point
-         string-inflection symbol-overlay symon term-cursor terminal-here thrift
-         toc-org transient treemacs-evil treemacs-icons-dired treemacs-magit
-         treemacs-persp treemacs-projectile treepy undo-fu undo-fu-session uuidgen
-         vala-mode vala-snippets vi-tilde-fringe volatile-highlights vterm vundo
-         wgrep winum with-editor wolfram-mode writeroom-mode ws-butler yaml
-         yasnippet yasnippet-snippets)))
+         magit-section markdown-mode markdown-toc matlab-mode mermaid-mode
+         multi-line multi-term multi-vterm nameless nerd-icons open-junk-file
+         org-superstar overseer package-lint paradox password-generator pcre2el
+         pkgbuild-mode popwin pos-tip qml-mode quickrun rainbow-delimiters
+         restart-emacs scad-mode shell-pop smeargle space-doc spaceline
+         spacemacs-purpose-popwin spacemacs-whitespace-cleanup stan-mode
+         string-edit-at-point string-inflection symbol-overlay symon term-cursor
+         terminal-here thrift toc-org transient treemacs-evil treemacs-icons-dired
+         treemacs-magit treemacs-persp treemacs-projectile treepy undo-fu
+         undo-fu-session uuidgen vala-mode vala-snippets vi-tilde-fringe
+         volatile-highlights vterm vundo wgrep winum with-editor wolfram-mode
+         writeroom-mode ws-butler yaml yasnippet yasnippet-snippets)))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
