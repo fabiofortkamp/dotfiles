@@ -94,6 +94,7 @@ packages=(
   "zlib"
   "zoxide"
   "zsh"
+  "lusingander/tap/serie"
 )
 
 # Loop over the array to install each application.
