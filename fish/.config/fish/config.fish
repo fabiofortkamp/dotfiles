@@ -35,6 +35,9 @@ add_to_path_if_exists /Applications/COMSOL63/Multiphysics/bin
 add_to_path_if_exists "/Applications/MATLAB_R2024b.app/bin"
 add_to_path_if_exists "/Applications/Blender.app/Contents/MacOS"
 
+# Emacs configuration
+add_to_path_if_exists "$HOME/doom-emacs/bin"
+
 # common variables
 set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME "$HOME/.config"
@@ -158,11 +161,10 @@ alias gwtmv='git worktree move'
 alias gwtrm='git worktree remove'
 alias gstu='gsta --include-untracked'
 
-
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-test -r '/Users/fapfor/.opam/opam-init/init.fish' && source '/Users/fapfor/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+test -r '/Users/fapfor/.opam/opam-init/init.fish' && source '/Users/fapfor/.opam/opam-init/init.fish' >/dev/null 2>/dev/null; or true
 # END opam configuration
