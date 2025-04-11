@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: class
+# key: cls
+# --
+classdef
+end

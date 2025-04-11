@@ -38,7 +38,11 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-private-snippets-directory "~/dotfiles/snippets/"
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-help-tooltip t
+                      )
      ;; better-defaults
      emacs-lisp
      git
@@ -585,28 +589,29 @@ This function is called at the very end of Spacemacs initialization."
      '(a ace-jump-helm-line ace-link aggressive-indent alert all-the-icons
          arduino-mode auto-compile auto-highlight-symbol auto-yasnippet
          centered-cursor-mode clean-aindent-mode closql code-review
-         column-enforce-mode company deferred define-word devdocs diminish
-         dired-quick-sort disable-mouse dotenv-mode drag-stuff dumb-jump eat
-         ebuild-mode edit-indirect elisp-def elisp-demos elisp-slime-nav emacsql
-         emojify emr esh-help eshell-prompt-extras eshell-z eval-sexp-fu evil-anzu
-         evil-args evil-cleverparens evil-collection evil-easymotion evil-escape
-         evil-evilified-state evil-exchange evil-goggles evil-iedit-state
-         evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc
-         evil-nerd-commenter evil-numbers evil-org evil-surround evil-textobj-line
-         evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar
-         expand-region eyebrowse fancy-battery flycheck flycheck-elsa
-         flycheck-package flycheck-pos-tip forge gemini-mode gh-md ghub git-link
-         git-messenger git-modes git-timemachine gitignore-templates gntp gnuplot
-         golden-ratio google-translate helm-ag helm-c-yasnippet helm-comint
-         helm-company helm-descbinds helm-git-grep helm-ls-git helm-make
-         helm-mode-manager helm-org helm-org-rifle helm-projectile helm-purpose
-         helm-swoop helm-themes helm-xref hide-comnt highlight-indentation
-         highlight-numbers highlight-parentheses hl-todo holy-mode hoon-mode
-         htmlize hungry-delete hybrid-mode indent-guide info+ inspector link-hint
-         llama log4e logcat lorem-ipsum macrostep magit magit-section
-         markdown-mode markdown-toc matlab-mode mermaid-mode multi-line multi-term
-         multi-vterm nameless nerd-icons open-junk-file org org-category-capture
-         org-cliplink org-contrib org-download org-mime org-pomodoro org-present
+         column-enforce-mode company company-quickhelp deferred define-word
+         devdocs diminish dired-quick-sort disable-mouse dotenv-mode drag-stuff
+         dumb-jump eat ebuild-mode edit-indirect elisp-def elisp-demos
+         elisp-slime-nav emacsql emojify emr esh-help eshell-prompt-extras
+         eshell-z eval-sexp-fu evil-anzu evil-args evil-cleverparens
+         evil-collection evil-easymotion evil-escape evil-evilified-state
+         evil-exchange evil-goggles evil-iedit-state evil-indent-plus evil-lion
+         evil-lisp-state evil-matchit evil-mc evil-nerd-commenter evil-numbers
+         evil-org evil-surround evil-textobj-line evil-tutor evil-unimpaired
+         evil-visual-mark-mode evil-visualstar expand-region eyebrowse
+         fancy-battery flycheck flycheck-elsa flycheck-package flycheck-pos-tip
+         forge gemini-mode gh-md ghub git-link git-messenger git-modes
+         git-timemachine gitignore-templates gntp gnuplot golden-ratio
+         google-translate helm-ag helm-c-yasnippet helm-comint helm-company
+         helm-descbinds helm-git-grep helm-ls-git helm-make helm-mode-manager
+         helm-org helm-org-rifle helm-projectile helm-purpose helm-swoop
+         helm-themes helm-xref hide-comnt highlight-indentation highlight-numbers
+         highlight-parentheses hl-todo holy-mode hoon-mode htmlize hungry-delete
+         hybrid-mode indent-guide info+ inspector link-hint llama log4e logcat
+         lorem-ipsum macrostep magit magit-section markdown-mode markdown-toc
+         matlab-mode mermaid-mode multi-line multi-term multi-vterm nameless
+         nerd-icons open-junk-file org org-category-capture org-cliplink
+         org-contrib org-download org-mime org-pomodoro org-present
          org-project-capture org-projectile org-rich-yank org-superstar orgit
          orgit-forge overseer package-lint paradox password-generator pcre2el
          pkgbuild-mode popwin pos-tip qml-mode quickrun rainbow-delimiters
