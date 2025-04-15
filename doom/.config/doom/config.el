@@ -74,3 +74,9 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; stolen from:
+;; https://stackoverflow.com/questions/23259479/how-do-you-get-emacs-to-recognize-m-files-as-matlab-files-not-objective-c-file
+(defmacro by-extension (ext mode)
+  `(add-to-list 'auto-mode-alist '(,(format "\\.%s" ext) . ,mode)))
+(by-extension "m matlab-mode)
