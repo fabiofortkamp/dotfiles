@@ -76,6 +76,7 @@ packages=(
   "open-mpi"
   "opencoarrays"
   "openssl"
+  "pandoc"
   "pango"
   "php"
   "pipx"
