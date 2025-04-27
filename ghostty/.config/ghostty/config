@@ -6,4 +6,6 @@ keybind = cmd+r=reload_config
 maximize = true
 
 theme = catppuccin-mocha
+confirm-close-surface = false
+shell-integration = fish
 
