@@ -48,6 +48,7 @@ packages=(
   "coreutils"
   "curl"
   "direnv"
+  "editorconfig"
   "fd"
   "fish"
   "freetype"
@@ -62,6 +63,7 @@ packages=(
   "git-town"
   "goawk"
   "gojq"
+  "grip"
   "icu4c"
   "krb5"
   "libedit"
@@ -71,6 +73,7 @@ packages=(
   "libxml2"
   "libyaml"
   "libzip"
+  "lusingander/tap/serie"
   "mise"
   "ninja"
   "open-mpi"
@@ -85,6 +88,8 @@ packages=(
   "re2c"
   "ripgrep"
   "ruff"
+  "shellcheck"
+  "shfmt"
   "starship"
   "stow"
   "texinfo"
@@ -96,7 +101,6 @@ packages=(
   "zlib"
   "zoxide"
   "zsh"
-  "lusingander/tap/serie"
 )
 
 # Loop over the array to install each application.
