@@ -90,3 +90,12 @@
 (defmacro by-extension (ext mode)
   `(add-to-list 'auto-mode-alist '(,(format "\\.%s" ext) . ,mode)))
 (by-extension "m" matlab-mode)
+
+;; as recommened by `doom doctor'
+(setq shell-file-name (executable-find
+                       "bash"))
+(setq-default vterm-shell (executable-find
+                           "fish"))
+
+(setq-default explicit-shell-file-name (executable-find
+                                        "fish"))
