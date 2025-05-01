@@ -30,6 +30,7 @@ opam install ocaml-lsp-server odoc ocamlformat utop
 # Additional symbolic links
 ln -s "$HOME/dotfiles/default-gems" "$HOME/.default-gems"
 ln -s "$HOME/dotfiles/default-npm-packages" "$HOME/.default-npm-packages"
+ln -s "$HOME/dotfiles/default-python-packages" "$HOME/.default-python-packages"
 
 # Make fish default shell
 echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
