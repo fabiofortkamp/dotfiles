@@ -6,7 +6,7 @@ experimental = true
 uv_venv_auto = true
 
 [tools]
-node = "22"
+node = "23"
 ruby = "3.3"
 python = "3.13"
 uv = "latest"

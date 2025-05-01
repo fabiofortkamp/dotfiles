@@ -99,3 +99,7 @@
 
 (setq-default explicit-shell-file-name (executable-find
                                         "fish"))
+
+;; julia LSP configurations
+(after! eglot-jl
+        (setq eglot-jl-language-server-project "~/.julia/environments/v1.11"))
