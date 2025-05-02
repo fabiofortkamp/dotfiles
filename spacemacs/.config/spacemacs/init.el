@@ -45,7 +45,10 @@ This function should only modify configuration layer settings."
                       )
      ;; better-defaults
      emacs-lisp
-     git
+     (git :variables
+          git-magit-status-fullscreen t
+          magit-diff-refine-hunk t
+          git-enable-magit-todos-plugin t)
      helm
      lsp
      markdown
