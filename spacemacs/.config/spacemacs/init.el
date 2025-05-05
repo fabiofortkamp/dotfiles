@@ -32,7 +32,10 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '((python :variables python-backend 'lsp python-lsp-server 'pyright python-test-runner 'pytest python-formatter 'ruff python-format-on-save t)
+   '(toml
+     javascript
+     csv
+     (python :variables python-backend 'lsp python-lsp-server 'pyright python-test-runner 'pytest python-formatter 'ruff python-format-on-save t)
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -590,48 +593,52 @@ This function is called at the very end of Spacemacs initialization."
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
    '(package-selected-packages
-     '(a ace-jump-helm-line ace-link aggressive-indent alert all-the-icons
-         anaconda-mode arduino-mode auto-compile auto-highlight-symbol
-         auto-yasnippet blacken bui centered-cursor-mode clean-aindent-mode closql
-         code-cells code-review column-enforce-mode company company-anaconda
-         company-quickhelp concurrent ctable cython-mode dap-mode deferred
-         define-word devdocs diminish dired-quick-sort disable-mouse dotenv-mode
-         drag-stuff dumb-jump eat ebuild-mode edit-indirect elisp-def elisp-demos
-         elisp-slime-nav emacsql emojify emr epc esh-help eshell-prompt-extras
-         eshell-z eval-sexp-fu evil-anzu evil-args evil-cleverparens
-         evil-collection evil-easymotion evil-escape evil-evilified-state
-         evil-exchange evil-goggles evil-iedit-state evil-indent-plus evil-lion
-         evil-lisp-state evil-matchit evil-mc evil-nerd-commenter evil-numbers
-         evil-org evil-surround evil-textobj-line evil-tutor evil-unimpaired
-         evil-visual-mark-mode evil-visualstar expand-region eyebrowse
-         fancy-battery flycheck flycheck-elsa flycheck-package flycheck-pos-tip
-         forge gemini-mode ggtags gh-md ghub git-link git-messenger git-modes
-         git-timemachine gitignore-templates gntp gnuplot golden-ratio
-         google-translate helm-ag helm-c-yasnippet helm-comint helm-company
-         helm-cscope helm-descbinds helm-git-grep helm-ls-git helm-make
-         helm-mode-manager helm-org helm-org-rifle helm-projectile helm-purpose
-         helm-pydoc helm-swoop helm-themes helm-xref hide-comnt
-         highlight-indentation highlight-numbers highlight-parentheses hl-todo
-         holy-mode hoon-mode htmlize hungry-delete hybrid-mode importmagic
-         indent-guide info+ inspector link-hint live-py-mode llama load-env-vars
-         log4e logcat lorem-ipsum lsp-docker lsp-mode lsp-pyright lsp-treemacs
-         macrostep magit magit-section markdown-mode markdown-toc matlab-mode
-         mermaid-mode multi-line multi-term multi-vterm nameless nerd-icons nose
-         open-junk-file org org-category-capture org-cliplink org-contrib
-         org-download org-mime org-pomodoro org-present org-project-capture
-         org-projectile org-rich-yank org-superstar orgit orgit-forge overseer
-         package-lint paradox password-generator pcre2el pip-requirements pipenv
-         pippel pkgbuild-mode poetry popwin pos-tip py-isort pydoc pyenv-mode
-         pylookup pytest pythonic pyvenv qml-mode quickrun rainbow-delimiters
-         reformatter restart-emacs ruff-format scad-mode shell-pop smeargle
+     '(a ace-jump-helm-line ace-link add-node-modules-path aggressive-indent alert
+         all-the-icons anaconda-mode arduino-mode auto-compile
+         auto-highlight-symbol auto-yasnippet blacken bui centered-cursor-mode
+         clean-aindent-mode closql code-cells code-review column-enforce-mode
+         company company-anaconda company-quickhelp concurrent csv-mode ctable
+         cython-mode dap-mode deferred define-word devdocs diminish
+         dired-quick-sort disable-mouse dotenv-mode drag-stuff dumb-jump eat
+         ebuild-mode edit-indirect elisp-def elisp-demos elisp-slime-nav emacsql
+         emojify emr epc esh-help eshell-prompt-extras eshell-z eval-sexp-fu
+         evil-anzu evil-args evil-cleverparens evil-collection evil-easymotion
+         evil-escape evil-evilified-state evil-exchange evil-goggles
+         evil-iedit-state evil-indent-plus evil-lion evil-lisp-state evil-matchit
+         evil-mc evil-nerd-commenter evil-numbers evil-org evil-surround
+         evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode
+         evil-visualstar expand-region eyebrowse fancy-battery flycheck
+         flycheck-elsa flycheck-package flycheck-pos-tip forge gemini-mode ggtags
+         gh-md ghub git-link git-messenger git-modes git-timemachine
+         gitignore-templates gntp gnuplot golden-ratio google-translate grizzl
+         helm-ag helm-c-yasnippet helm-comint helm-company helm-cscope
+         helm-descbinds helm-git-grep helm-ls-git helm-make helm-mode-manager
+         helm-org helm-org-rifle helm-projectile helm-purpose helm-pydoc
+         helm-swoop helm-themes helm-xref hide-comnt highlight-indentation
+         highlight-numbers highlight-parentheses hl-todo holy-mode hoon-mode
+         htmlize hungry-delete hybrid-mode impatient-mode import-js importmagic
+         indent-guide info+ inspector js-doc js2-mode js2-refactor link-hint
+         live-py-mode livid-mode llama load-env-vars log4e logcat lorem-ipsum
+         lsp-docker lsp-mode lsp-pyright lsp-treemacs macrostep magit
+         magit-section markdown-mode markdown-toc matlab-mode mermaid-mode
+         multi-line multi-term multi-vterm multiple-cursors nameless nerd-icons
+         nodejs-repl nose npm-mode open-junk-file org org-category-capture
+         org-cliplink org-contrib org-download org-mime org-pomodoro org-present
+         org-project-capture org-projectile org-rich-yank org-superstar orgit
+         orgit-forge overseer package-lint paradox password-generator pcre2el
+         pip-requirements pipenv pippel pkgbuild-mode poetry popwin pos-tip
+         prettier-js py-isort pydoc pyenv-mode pylookup pytest pythonic pyvenv
+         qml-mode quickrun rainbow-delimiters reformatter restart-emacs
+         ruff-format scad-mode shell-pop simple-httpd skewer-mode smeargle
          space-doc spaceline spacemacs-purpose-popwin spacemacs-whitespace-cleanup
          sphinx-doc stan-mode string-edit-at-point string-inflection
-         symbol-overlay symon term-cursor terminal-here thrift toc-org transient
-         treemacs-evil treemacs-icons-dired treemacs-magit treemacs-persp
-         treemacs-projectile treepy undo-fu undo-fu-session uuidgen vala-mode
-         vala-snippets vi-tilde-fringe volatile-highlights vterm vundo wgrep winum
-         with-editor wolfram-mode writeroom-mode ws-butler xcscope yaml yapfify
-         yasnippet yasnippet-snippets)))
+         symbol-overlay symon term-cursor terminal-here tern thrift toc-org
+         toml-mode transient treemacs-evil treemacs-icons-dired treemacs-magit
+         treemacs-persp treemacs-projectile treepy undo-fu undo-fu-session uuidgen
+         vala-mode vala-snippets vi-tilde-fringe volatile-highlights vterm vundo
+         web-beautify wgrep winum with-editor wolfram-mode writeroom-mode
+         ws-butler xcscope yaml yapfify yasnippet yasnippet-snippets))
+   '(safe-local-variable-values '((org-confirm-babel-evaluate))))
   (custom-set-faces
    ;; custom-set-faces was added by Custom.
    ;; If you edit it by hand, you could mess it up, so be careful.
