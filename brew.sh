@@ -92,6 +92,7 @@ packages=(
   "shfmt"
   "starship"
   "stow"
+  "tealdeer"
   "texinfo"
   "texlab"
   "texlive"
