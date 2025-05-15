@@ -48,6 +48,7 @@ This function should only modify configuration layer settings."
                       )
      ;; better-defaults
      emacs-lisp
+     github-copilot
      (git :variables
           git-magit-status-fullscreen t
           magit-diff-refine-hunk t
