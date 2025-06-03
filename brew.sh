@@ -65,6 +65,7 @@ packages=(
   "gojq"
   "grip"
   "icu4c"
+  "jj"
   "krb5"
   "libedit"
   "libiconv"
