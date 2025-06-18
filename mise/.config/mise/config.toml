@@ -6,10 +6,11 @@ experimental = true
 uv_venv_auto = true
 
 [tools]
-node = "22"
+node = "23"
 ruby = "3.3"
-python = "3.13"
+python = ["3.13", "3.12", "3.11","3.10","3.9"]
 uv = "latest"
 lua = ["5.1"]
 go = "1.24.1"
 opam = "2.3.0"
+julia = "1.11.5"
