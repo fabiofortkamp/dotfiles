@@ -55,7 +55,7 @@ if status is-interactive
     mise activate fish | source
     starship init fish | source
     # ls aliases
-    alias eza="eza --icons=always"
+    alias eza="eza --icons=automatic"
     alias ls="eza"
     alias l="eza -la"
     alias tree="eza --tree"
