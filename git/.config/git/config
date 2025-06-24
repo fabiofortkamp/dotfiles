@@ -80,7 +80,7 @@
 # some settings stolen from:
 # https://blog.gitbutler.com/how-git-core-devs-configure-git/
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [diff]
         algorithm = histogram
         colorMoved = plain
