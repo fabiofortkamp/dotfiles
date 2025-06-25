@@ -13,3 +13,7 @@ vim.g.lazyvim_picker = "telescope"
 -- Leave it to "auto" to automatically use the completion engine
 -- enabled with `:LazyExtras`
 vim.g.lazyvim_cmp = "blink.cmp"
+
+-- if the completion engine supports the AI source,
+-- use that instead of inline suggestions
+vim.g.ai_cmp = true
