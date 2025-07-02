@@ -8,8 +8,10 @@ set -o pipefail # Return value of a pipeline is the status of the last command t
 DOTFILES="$HOME/dotfiles"
 
 # important directories that will be use by the installation tools
-mkdir -p "$HOME/.local/{bin,lib}"
+mkdir -p "$HOME/.local/bin"
+mkdir -p "$HOME/.local/lib"
 mkdir -p "$HOME/build"
+
 
 # Install homebrew
 source "$DOTFILES/brew.sh"
