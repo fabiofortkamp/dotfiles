@@ -4,7 +4,21 @@
 # see: https://github.com/fish-shell/fish-shell/issues/5372
 if status is-interactive
     # set up homebrew path
-    fish_add_path -gP /opt/homebrew/bin/ /opt/homebrew/sbin/
+
+    if test (uname) = Darwin
+        # add homebrew paths
+        if test -d /opt/homebrew/bin
+            fish_add_path -gP /opt/homebrew/bin
+            fish_add_path -gP /opt/homebrew/sbin
+        end
+    end
+    if test (uname) = Linux
+        # add homebrew paths
+        if test -d /home/linuxbrew/.linuxbrew/bin
+            fish_add_path -gP /home/linuxbrew/.linuxbrew/bin
+            fish_add_path -gP /home/linuxbrew/.linuxbrew/sbin
+        end
+    end
 
     fish_add_path -gP "$HOME/.local/bin"
     # create local dotfiles scripts dir
