@@ -2,9 +2,6 @@
 idiomatic_version_file = false
 experimental = true
 
-[settings.python]
-uv_venv_auto = true
-
 [tools]
 node = "23"
 ruby = "3.3"
