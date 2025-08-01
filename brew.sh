@@ -58,6 +58,7 @@ packages=(
   "gd"
   "gdu"
   "gettext"
+  "glow"
   "gh"
   "git"
   "git-flow-avh"
