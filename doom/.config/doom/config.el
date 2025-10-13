@@ -79,3 +79,9 @@
 ;;
 ;; Avoid confirmation when quitting Emacs
 (setq confirm-kill-emacs nil)
+
+;; stolen from:
+;; https://stackoverflow.com/questions/23259479/how-do-you-get-emacs-to-recognize-m-files-as-matlab-files-not-objective-c-file
+(defmacro by-extension (ext mode)
+  `(add-to-list 'auto-mode-alist '(,(format "\\.%s" ext) . ,mode)))
+(by-extension "m" matlab-mode)
