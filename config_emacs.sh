@@ -2,12 +2,20 @@
 
 set -e
 
-# Clone my fork of chemacs
-git clone git@github.com:fabiofortkamp/chemacs2.git "$HOME/.emacs.d"
-
-# Clone spacemacs
-git clone https://github.com/syl20bnr/spacemacs "$HOME/spacemacs"
-
 # Clone doom emacs
-git clone https://github.com/hlissner/doom-emacs "$HOME/doom-emacs"
-"$HOME/doom-emacs/bin/doom" install
+echo "Setting up Doom Emacs..."
+
+# emacs-plus commes from https://github.com/d12frosted/homebrew-emacs-plus?tab=readme-ov-file#options
+echo "Updating Homebrew..."
+brew update
+brew upgrade
+echo "Installing emacs-plus"
+brew tap d12frosted/emacs-plus
+brew install emacs-plus
+
+echo "Cloning Doom Emacs repository..."
+rm -rf ~/.emacs.d
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+
+echo "Installing Doom Emacs..."
+~/.config/emacs/bin/doom install
