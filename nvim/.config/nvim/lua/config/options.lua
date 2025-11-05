@@ -17,3 +17,5 @@ vim.g.lazyvim_cmp = "blink.cmp"
 -- if the completion engine supports the AI source,
 -- use that instead of inline suggestions
 vim.g.ai_cmp = true
+
+vim.g.lazyvim_rust_diagnostics = "bacon-ls"

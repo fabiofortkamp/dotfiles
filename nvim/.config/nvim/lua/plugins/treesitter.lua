@@ -11,6 +11,7 @@ return {
       "markdown",
       "markdown_inline",
       "ruby",
+      "rust",
       "python",
       "regex",
       "vim",
