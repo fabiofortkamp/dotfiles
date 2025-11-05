@@ -12,6 +12,7 @@ return {
         ensure_installed = {
           "stylua",
           "shfmt",
+          "matlab-language-server"
         },
       },
       ---@param opts MasonSettings | {ensure_installed: string[]}
