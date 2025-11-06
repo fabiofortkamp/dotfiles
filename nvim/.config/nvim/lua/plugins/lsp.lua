@@ -11,13 +11,15 @@ return {
         opts_extend = { "ensure_installed" },
         opts = {
           ensure_installed = {
-            "stylua",
-            "shfmt",
-            "matlab-language-server",
             "bacon",
             "bacon-ls",
-            "rust-analyzer",
+            "basedpyright",
             "codelldb",
+            "matlab-language-server",
+            "ruff",
+            "rust-analyzer",
+            "shfmt",
+            "stylua",
           },
         },
         ---@param opts MasonSettings | {ensure_installed: string[]}
@@ -176,6 +178,21 @@ return {
             enabled = diagnostics == "bacon-ls",
           },
           rust_analyzer = { enabled = false },
+          ruff = {
+            cmd_env = { RUFF_TRACE = "messages" },
+            init_options = {
+              settings = {
+                logLevel = "error",
+              },
+            },
+            keys = {
+              {
+                "<leader>co",
+                LazyVim.lsp.action["source.organizeImports"],
+                desc = "Organize Imports",
+              },
+            },
+          },
         },
         -- you can do any additional lsp server setup here
         -- return true if you don't want this server to be setup with lspconfig
