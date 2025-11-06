@@ -34,14 +34,6 @@ return {
     end)
   end,
   opts = function()
-    local plugin = require("lazy.core.config").plugins["conform.nvim"]
-    if plugin.config ~= M.setup then
-      LazyVim.error({
-        "Don't set `plugin.config` for `conform.nvim`.\n",
-        "This will break **LazyVim** formatting.\n",
-        "Please refer to the docs at https://www.lazyvim.org/plugins/formatting",
-      }, { title = "LazyVim" })
-    end
     ---@type conform.setupOpts
     local opts = {
       default_format_opts = {
@@ -83,5 +75,4 @@ return {
     }
     return opts
   end,
-  config = M.setup,
 }
