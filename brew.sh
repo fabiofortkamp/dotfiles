@@ -49,6 +49,7 @@ packages=(
   "curl"
   "direnv"
   "editorconfig"
+  "exercism"
   "fd"
   "ffmpeg"
   "fish"

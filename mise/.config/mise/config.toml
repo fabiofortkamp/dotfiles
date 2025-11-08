@@ -3,13 +3,15 @@ idiomatic_version_file = false
 experimental = true
 
 [tools]
+erlang = "28.1.1"
 ghcup = "0.1.50.2"
+gleam = "1.13.0"
 go = "1.24.1"
 julia = "1.11.5"
 lua = ["5.1"]
 node = "23"
 opam = "2.3.0"
-python = ["3.13", "3.12", "3.11","3.10","3.9"]
-rust = "1.91.0"
+python = ["3.13", "3.12", "3.11", "3.10", "3.9"]
 ruby = "3.3"
+rust = "1.91.0"
 uv = "0.7.18"
