@@ -11,13 +11,15 @@ return {
         opts_extend = { "ensure_installed" },
         opts = {
           ensure_installed = {
-            "stylua",
-            "shfmt",
-            "matlab-language-server",
             "bacon",
             "bacon-ls",
-            "rust-analyzer",
+            "basedpyright",
             "codelldb",
+            "matlab-language-server",
+            "ruff",
+            "rust-analyzer",
+            "shfmt",
+            "stylua",
           },
         },
         ---@param opts MasonSettings | {ensure_installed: string[]}
