@@ -37,3 +37,6 @@ ln -s "$HOME/dotfiles/default-python-packages" "$HOME/.default-python-packages"
 # Make fish default shell
 echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
 chsh -s /opt/homebrew/bin/fish
+
+# Install Julia language server (which is very manual for now)
+julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer"); Pkg.add("SymbolServer"); Pkg.add("StaticLint")'
