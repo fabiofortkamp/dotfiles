@@ -155,6 +155,7 @@ if status is-interactive
     alias gpr='git pull --rebase'
     alias gprv='git pull --rebase -v'
     alias gpra='git pull --rebase --autostash'
+    alias gp='git push'
     alias gpv='git push --verbose'
     alias gpoat='git push origin --all && git push origin --tags'
     alias gsts='git stash show --patch'
