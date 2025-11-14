@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-cd $DOTFILES
-stow mypy ruff julia zsh tmux direnv starship nushell hatch fish nvim wezterm aerospace git mise gh chemacs doom spacemacs ghostty jj
+cd "$HOME/dotfiles" || returns
+stow mypy ruff julia zsh tmux direnv starship nushell hatch fish nvim nvim-advent wezterm git mise gh doom ghostty
