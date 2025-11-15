@@ -69,7 +69,7 @@ if status is-interactive
     starship init fish | source
 
     # neomim aliases
-    alias v="NVIM_APPNAME=neovim-advent nvim"
+    alias v="NVIM_APPNAME=nvim-advent nvim"
     set -gx EDITOR nvim
 
     # ls aliases
