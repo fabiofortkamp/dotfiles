@@ -1,5 +1,7 @@
 -- Entry point for the neovim configuration
 
+-- lazy.nvim config
+require("config.lazy")
 -- Meta: Basic keybindings for (re-)loading the config
 -- vim is the main table that is accessible through the config
 -- syntax: vim.keymap.set(MODE,KEY,ACTION)
