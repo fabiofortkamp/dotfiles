@@ -36,6 +36,9 @@ if status is-interactive
 
     # Set up fzf key bindings
     fzf --fish | source
+    # and set up options for the fifc plugin, which overrides the tab key binding
+    # to complete with fzf
+    set -U fifc_fd_opts --hidden
 
     # Set up atuin
     atuin init fish --disable-up-arrow | source
