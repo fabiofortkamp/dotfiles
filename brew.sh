@@ -90,6 +90,7 @@ packages=(
   "pkg-config"
   "poppler"
   "python-launcher"
+  "pyrefly"
   "re2c"
   "resvg"
   "ripgrep"
