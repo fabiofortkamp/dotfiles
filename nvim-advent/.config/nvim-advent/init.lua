@@ -2,13 +2,11 @@
 
 -- lazy.nvim config
 require("config.lazy")
+
 -- Meta: Basic keybindings for (re-)loading the config
 -- vim is the main table that is accessible through the config
 -- syntax: vim.keymap.set(MODE,KEY,ACTION)
 -- reload the current file
-
-vim.opt.shiftwidth = 4
-
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
 -- execute the current line using the lua engine - notice the '.' selector for the current line
 vim.keymap.set("n", "<space>x", ":.lua<CR>")
@@ -25,3 +23,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Some basic options
+vim.opt.shiftwidth = 4
+vim.opt.number = true
+vim.opt.relativenumber = true
+
