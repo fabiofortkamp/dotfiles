@@ -15,7 +15,14 @@ return {
 	},
     },
       config = function()
+	-- server configurations
 	vim.lsp.enable("lua_ls")
+
+	-- in nvim 0.11+, the virtual lines have to be turned on
+	vim.diagnostic.config({
+	   virtual_lines = true,
+
+	})
       end,
   },
 }
