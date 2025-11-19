@@ -77,6 +77,7 @@ packages=(
   "libxml2"
   "libyaml"
   "libzip"
+  "lua-language-server"
   "mise"
   "ninja"
   "open-mpi"
