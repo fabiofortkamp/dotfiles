@@ -28,4 +28,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.opt.shiftwidth = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
-
+vim.opt.clipboard = "unnamedplus"
