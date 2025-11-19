@@ -1,5 +1,5 @@
 font-family = "VictorMono Nerd Font Mono"
-font-size = 16
+font-size = 18
 
 keybind = cmd+r=reload_config
 
