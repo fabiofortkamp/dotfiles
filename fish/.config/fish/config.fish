@@ -38,7 +38,7 @@ if status is-interactive
     fzf --fish | source
 
     # Set up atuin
-    atuin init fish | source
+    atuin init fish --disable-up-arrow | source
 
     # add MATLAB and COMSOL to PATH
     # only macOS supported for not
