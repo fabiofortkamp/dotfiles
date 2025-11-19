@@ -3,9 +3,9 @@
   "lualine.nvim": { "branch": "master", "commit": "3946f0122255bc377d14a59b27b609fb3ab25768" },
   "mini.icons": { "branch": "main", "commit": "ff2e4f1d29f659cc2bad0f9256f2f6195c6b2428" },
   "mini.nvim": { "branch": "main", "commit": "b409fd1d8b9ea7ec7c0923eb2562b52ed5d1ab0a" },
+  "nvim": { "branch": "main", "commit": "da33755d00e09bff2473978910168ff9ea5dc453" },
   "nvim-web-devicons": { "branch": "master", "commit": "8dcb311b0c92d460fac00eac706abd43d94d68af" },
   "oil.nvim": { "branch": "master", "commit": "7e1cd7703ff2924d7038476dcbc04b950203b902" },
   "snacks.nvim": { "branch": "main", "commit": "fe7cfe9800a182274d0f868a74b7263b8c0c020b" },
-  "tokyonight.nvim": { "branch": "main", "commit": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd" },
   "vim-tmux-navigator": { "branch": "master", "commit": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a" }
 }

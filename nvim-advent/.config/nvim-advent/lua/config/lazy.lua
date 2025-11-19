@@ -32,7 +32,7 @@ vim.g.maplocalleader = ","
 require("lazy").setup({
 	-- the spec argument is a table of plugins to pass for lazy to setup
 	spec = {
-	  { "folke/tokyonight.nvim", config = function() vim.cmd.colorscheme "tokyonight" end},
+	  { "catppuccin/nvim", config = function() vim.cmd.colorscheme "catppuccin-frappe" end},
 	    -- import your plugins
 	{ import = "config.plugins" },
 	  },
