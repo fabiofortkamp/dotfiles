@@ -100,6 +100,7 @@ packages=(
   "shfmt"
   "starship"
   "stow"
+  "stylua"
   "tealdeer"
   "texinfo"
   "texlab"
