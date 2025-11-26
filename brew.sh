@@ -78,6 +78,7 @@ packages=(
   "libyaml"
   "libzip"
   "lua-language-server"
+  "luacheck"
   "mise"
   "ninja"
   "open-mpi"
