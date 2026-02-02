@@ -175,7 +175,7 @@ return {
             },
           },
           bacon_ls = {
-            enabled = diagnostics == "bacon-ls",
+            enabled = true,
           },
           rust_analyzer = { enabled = false },
           gleam = {},
