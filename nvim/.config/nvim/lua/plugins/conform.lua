@@ -54,6 +54,7 @@ return {
           -- To organize the imports.
           "ruff_organize_imports",
         },
+        go = { "goimports", "gofumpt" },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
