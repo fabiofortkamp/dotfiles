@@ -2,6 +2,13 @@
 # that then complain about missing key bindings
 # this is to bypass that and only have this setup on interactive shells
 # see: https://github.com/fish-shell/fish-shell/issues/5372
+
+# Load local (non-version-controlled) secrets, if present.
+set -l fish_secrets "$__fish_config_dir/secrets.fish"
+if test -f "$fish_secrets"
+    source "$fish_secrets"
+end
+
 if status is-interactive
     # set up homebrew path
 
