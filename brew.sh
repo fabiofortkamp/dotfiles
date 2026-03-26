@@ -46,6 +46,7 @@ packages=(
   "cairo"
   "cmake"
   "coreutils"
+  "copilot-cli"
   "curl"
   "direnv"
   "editorconfig"
