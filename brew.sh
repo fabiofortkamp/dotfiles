@@ -118,6 +118,7 @@ packages=(
   "zsh"
 )
 
+
 # Loop over the array to install each application.
 for package in "${packages[@]}"; do
   if brew list --formula | grep -q "^$package\$"; then
@@ -129,10 +130,12 @@ for package in "${packages[@]}"; do
 done
 
 # Install casks
+brew tap manaflow-ai/cmux
 # Define an array of packages to install using Homebrew.
 casks=(
   "emacs"
   "codex"
+  "cmux"
   "claude-code"
   "ghostty"
   "quarto"
