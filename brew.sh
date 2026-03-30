@@ -45,6 +45,7 @@ packages=(
   "bottom"
   "cairo"
   "cmake"
+  "charmbracelet/tap/crush"
   "coreutils"
   "copilot-cli"
   "curl"
@@ -59,6 +60,7 @@ packages=(
   "gcc"
   "gd"
   "gdu"
+  "gemini"
   "gettext"
   "glow"
   "gh"
@@ -130,6 +132,8 @@ done
 # Define an array of packages to install using Homebrew.
 casks=(
   "emacs"
+  "codex"
+  "claude-code"
   "ghostty"
   "quarto"
   "skim"
