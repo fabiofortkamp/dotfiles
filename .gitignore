@@ -7,3 +7,4 @@ fish/.config/fish/secrets.fish
 fish/.config/fish/fish_variables
 doom/.config/doom/custom.el
 gh/.config/gh/hosts.yml
+ghostty/.config/ghostty/theme-auto.conf

@@ -1,0 +1,10 @@
+# Ghostty theme selection by directory.
+# Each `path_prefix` applies to that directory and all of its subdirectories.
+# The first matching rule wins. If no rule matches, the default theme is used.
+
+default_theme = "TokyoNight"
+
+[[rules]]
+path_prefix = "/Users/fapfor/dtu"
+theme = "TokyoNight"
+
