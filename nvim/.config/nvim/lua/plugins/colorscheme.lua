@@ -38,7 +38,6 @@ return {
         notify = true,
         semantic_tokens = true,
         snacks = true,
-        telescope = true,
         treesitter = true,
         treesitter_context = true,
         which_key = true,
