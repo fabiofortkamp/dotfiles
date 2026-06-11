@@ -4,10 +4,6 @@ return {
     ensure_installed = {
       "bash",
       "javascript",
-      "go",
-      "gomod",
-      "gowork",
-      "gosum",
       "json",
       "lua",
       "make",
@@ -16,7 +12,6 @@ return {
       "markdown_inline",
       "ninja",
       "ruby",
-      "rust",
       "python",
       "regex",
       "rst",

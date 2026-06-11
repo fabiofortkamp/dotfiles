@@ -64,8 +64,6 @@ if status is-interactive
     add_to_path_if_exists "/Applications/MATLAB_R2024b.app/bin"
     add_to_path_if_exists "/Applications/Blender.app/Contents/MacOS"
 
-    # Emacs configuration
-    add_to_path_if_exists "$HOME/doom-emacs/bin"
 
     # common variables
     set -gx XDG_CONFIG_HOME "$HOME/.config"
@@ -78,8 +76,6 @@ if status is-interactive
     mise activate fish | source
     starship init fish | source
 
-    # neomim aliases
-    alias v="NVIM_APPNAME=nvim-advent nvim"
     set -gx EDITOR nvim
 
     # ls aliases

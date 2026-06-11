@@ -1,10 +1,11 @@
 local plugins = {}
-local Path = require("pathlib")
-local plugins_dir = Path("~") / "nvim-plugins"
-for this_plugin in plugins_dir:fs_iterdir(false, 1, nil) do
-  local plugin = {
-    dir = this_plugin,
-  }
-  table.insert(plugins, plugin)
+local plugins_dir = vim.fn.expand("~/nvim-plugins")
+if vim.fn.isdirectory(plugins_dir) == 1 then
+  for _, name in ipairs(vim.fn.readdir(plugins_dir)) do
+    local path = plugins_dir .. "/" .. name
+    if vim.fn.isdirectory(path) == 1 then
+      table.insert(plugins, { dir = path })
+    end
+  end
 end
 return plugins
