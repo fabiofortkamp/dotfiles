@@ -11,13 +11,9 @@ return {
         opts_extend = { "ensure_installed" },
         opts = {
           ensure_installed = {
-            "bacon",
-            "bacon-ls",
             "basedpyright",
-            "codelldb",
             "matlab-language-server",
             "ruff",
-            "rust-analyzer",
             "shfmt",
             "stylua",
             "goimports",
@@ -180,10 +176,6 @@ return {
               },
             },
           },
-          bacon_ls = {
-            enabled = true,
-          },
-          rust_analyzer = { enabled = false },
           gleam = {},
           gopls = {
             gofumpt = true,
@@ -363,144 +355,6 @@ return {
         })
       end
 
-      -- config from https://github.com/julia-vscode/LanguageServer.jl/wiki/Vim-and-Neovim
-      local function create_capabilities()
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-        capabilities.textDocument.completion.completionItem.preselectSupport = true
-        capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-        capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-        capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-        capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-        capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-        capabilities.textDocument.completion.completionItem.resolveSupport = {
-          properties = { "documentation", "detail", "additionalTextEdits" },
-        }
-        capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown" }
-        capabilities.textDocument.codeAction = {
-          dynamicRegistration = true,
-          codeActionLiteralSupport = {
-            codeActionKind = {
-              valueSet = (function()
-                local res = vim.tbl_values(vim.lsp.protocol.CodeActionKind)
-                table.sort(res)
-                return res
-              end)(),
-            },
-          },
-        }
-        return capabilities
-      end
-
-      -- disable virtual text (recommended for julia)
-      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
-        underline = false,
-        signs = true,
-        update_in_insert = false,
-      })
-
-      local on_attach = function(client, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-      end
-
-      local lspconfig = require("lspconfig")
-
-      local function lsp_setup(name, config)
-        lspconfig[name].setup(config)
-      end
-
-      lsp_setup("julials", {
-        on_attach = on_attach,
-        capabilities = create_capabilities(),
-      })
     end),
-  },
-  {
-    "Saecki/crates.nvim",
-    event = { "BufRead Cargo.toml" },
-    opts = {
-      completion = {
-        crates = {
-          enabled = true,
-        },
-      },
-      lsp = {
-        enabled = true,
-        actions = true,
-        completion = true,
-        hover = true,
-      },
-    },
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    ft = { "rust" },
-    opts = {
-      server = {
-        on_attach = function(_, bufnr)
-          vim.keymap.set("n", "<leader>cR", function()
-            vim.cmd.RustLsp("codeAction")
-          end, { desc = "Code Action", buffer = bufnr })
-          vim.keymap.set("n", "<leader>dr", function()
-            vim.cmd.RustLsp("debuggables")
-          end, { desc = "Rust Debuggables", buffer = bufnr })
-        end,
-        default_settings = {
-          -- rust-analyzer language server configuration
-          ["rust-analyzer"] = {
-            cargo = {
-              allFeatures = true,
-              loadOutDirsFromCheck = true,
-              buildScripts = {
-                enable = true,
-              },
-            },
-            -- Add clippy lints for Rust if using rust-analyzer
-            checkOnSave = diagnostics == "rust-analyzer",
-            -- Enable diagnostics if using rust-analyzer
-            diagnostics = {
-              enable = diagnostics == "rust-analyzer",
-            },
-            procMacro = {
-              enable = true,
-            },
-            files = {
-              exclude = {
-                ".direnv",
-                ".git",
-                ".jj",
-                ".github",
-                ".gitlab",
-                "bin",
-                "node_modules",
-                "target",
-                "venv",
-                ".venv",
-              },
-              -- Avoid Roots Scanned hanging, see https://github.com/rust-lang/rust-analyzer/issues/12613#issuecomment-2096386344
-              watcher = "client",
-            },
-          },
-        },
-      },
-    },
-    config = function(_, opts)
-      if LazyVim.has("mason.nvim") then
-        local codelldb = vim.fn.exepath("codelldb")
-        local codelldb_lib_ext = io.popen("uname"):read("*l") == "Linux" and ".so" or ".dylib"
-        local library_path = vim.fn.expand("$MASON/opt/lldb/lib/liblldb" .. codelldb_lib_ext)
-        opts.dap = {
-          adapter = require("rustaceanvim.config").get_codelldb_adapter(codelldb, library_path),
-        }
-      end
-      vim.g.rustaceanvim = vim.tbl_deep_extend("keep", vim.g.rustaceanvim or {}, opts or {})
-      if vim.fn.executable("rust-analyzer") == 0 then
-        LazyVim.error(
-          "**rust-analyzer** not found in PATH, please install it.\nhttps://rust-analyzer.github.io/",
-          { title = "rustaceanvim" }
-        )
-      end
-    end,
   },
 }

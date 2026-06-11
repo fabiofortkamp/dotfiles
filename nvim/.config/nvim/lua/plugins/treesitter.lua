@@ -16,7 +16,6 @@ return {
       "markdown_inline",
       "ninja",
       "ruby",
-      "rust",
       "python",
       "regex",
       "rst",

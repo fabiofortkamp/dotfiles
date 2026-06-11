@@ -18,7 +18,5 @@ vim.g.lazyvim_cmp = "blink.cmp"
 -- use that instead of inline suggestions
 vim.g.ai_cmp = true
 
-vim.g.lazyvim_rust_diagnostics = "bacon-ls"
-
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
