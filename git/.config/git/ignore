@@ -1,5 +1,6 @@
 mise.local.toml
 .DS_Store
 .jj
+bin/*.jar
 
 **/.claude/settings.local.json

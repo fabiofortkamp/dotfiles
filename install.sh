@@ -34,6 +34,9 @@ ln -s "$HOME/dotfiles/default-gems" "$HOME/.default-gems"
 ln -s "$HOME/dotfiles/default-npm-packages" "$HOME/.default-npm-packages"
 ln -s "$HOME/dotfiles/default-python-packages" "$HOME/.default-python-packages"
 
+# Install code-maat analysis tool
+source "$DOTFILES/bin/install-code-maat.sh"
+
 # Make fish default shell
 echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
 chsh -s /opt/homebrew/bin/fish
