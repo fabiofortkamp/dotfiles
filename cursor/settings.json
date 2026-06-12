@@ -1,0 +1,159 @@
+{
+    "workbench.colorTheme": "Tokyo Night Light",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 14,
+    "editor.fontFamily": "VictorMono Nerd Font Mono",
+    "editor.rulers": [
+        88
+    ],
+    "editor.wordWrapColumn": 88,
+    "editor.wordWrap": "bounded",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.lineNumbers": "relative",
+    "editor.suggestSelection": "first",
+    "terminal.integrated.fontSize": 15,
+    "workbench.settings.editor": "json",
+    "workbench.settings.openDefaultSettings": true,
+    "terminal.integrated.inheritEnv": false,
+    "[csv]": {
+        "editor.wordWrap": "off"
+    },
+    "[restructuredtext]": {
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    "python.languageServer": "Pylance",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.view.pdf.external.viewer.command": "/Applications/Skim.app/Contents/SharedSupport/displayline",
+    "latex-workshop.view.pdf.external.viewer.args": [
+        "0",
+        "%PDF%"
+    ],
+    "latex-workshop.view.pdf.external.synctex.command": "/Applications/Skim.app/Contents/SharedSupport/displayline",
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "-r",
+        "-b",
+        "%LINE%",
+        "%PDF%",
+        "%TEX%"
+    ],
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "python.terminal.executeInFileDir": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.inlineSuggest.enabled": true,
+    "jupyter.interactiveWindow.textEditor.executeSelection": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        }
+    },
+    "vim.overrideCopy": false,
+    "vim.useSystemClipboard": true,
+    "workbench.startupEditor": "none",
+    "git.openRepositoryInParentFolders": "always",
+    "terminal.integrated.commandsToSkipShell": [
+        "matlab.interrupt"
+    ],
+    "workbench.iconTheme": "vscode-icons",
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        }
+    ],
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "editor.formatOnSave": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.external.osxExec": "Ghostty.app",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "[quarto]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "other": "on",
+            "strings": "on"
+        },
+        "editor.quickSuggestionsDelay": 250,
+        "editor.snippetSuggestions": "bottom",
+        "editor.wordBasedSuggestions": "off",
+        "editor.suggestOnTriggerCharacters": true,
+        "editor.unicodeHighlight.ambiguousCharacters": false,
+        "editor.unicodeHighlight.invisibleCharacters": false
+    },
+    "remote.autoForwardPortsSource": "hybrid",
+    "files.autoSave": "afterDelay",
+    "makefile.configureOnOpen": true,
+    "projectManager.git.baseFolders": [
+        "~/Repos"
+    ],
+    "projectManager.any.baseFolders": [
+        "~/OneDrive/1-Projects"
+    ],
+    "cmake.showOptionsMovedNotification": false,
+    "python.analysis.typeCheckingMode": "standard",
+    "python.defaultInterpreterPath": "~/.local/share/mise/shims/python",
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "python.usePythonEnvironmentsExtension": true,
+    "editor.largeFileOptimizations": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "diffEditor.maxComputationTime": 0,
+    "chat.viewSessions.orientation": "stacked",
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true
+}

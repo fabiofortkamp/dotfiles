@@ -21,6 +21,7 @@ source "$DOTFILES/build_neovim.sh"
 
 # Link everything together
 source "$DOTFILES/stow.sh"
+source "$DOTFILES/link-editors.sh"
 
 # Install tools with mise
 mise install

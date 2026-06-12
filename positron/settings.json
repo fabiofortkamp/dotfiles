@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "renv.lock": "json"
+    },
+    "positron.assistant.enable": true,
+    "positron.assistant.showTokenUsage.enable": true,
+    "positron.assistant.provider.anthropic.enable": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "chat.viewSessions.orientation": "stacked",
+    "editor.fontSize": 15,
+    "editor.formatOnSave": true,
+    "files.autoSave": "onFocusChange",
+    "window.autoDetectColorScheme": true
+}

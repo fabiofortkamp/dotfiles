@@ -38,6 +38,9 @@ macOS dotfiles for an engineering research workflow, managed with [GNU Stow](htt
 | `mise/` | `~/.config/mise/` | mise tool versions (Go, Python, Ruby, Node, Rust, etc.) |
 | `starship/` | `~/.config/starship.toml` | Starship prompt |
 | `bin/` | `~/dotfiles/bin/` (on PATH) | Custom scripts |
+| `vscode/` | `~/Library/Application Support/Code/User/` | VS Code settings and snippets (linked by `link-editors.sh`) |
+| `cursor/` | `~/Library/Application Support/Cursor/User/` | Cursor settings (linked by `link-editors.sh`) |
+| `positron/` | `~/Library/Application Support/Positron/User/` | Positron settings (linked by `link-editors.sh`) |
 
 ## Key custom scripts (`bin/`)
 
