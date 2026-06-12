@@ -165,6 +165,7 @@ if status is-interactive
     abbr --add gprv 'git pull --rebase -v'
     abbr --add gpra 'git pull --rebase --autostash'
     abbr --add gp 'git push'
+    abbr --add gpu 'git push origin HEAD'
     abbr --add gpv 'git push --verbose'
     abbr --add gpoat 'git push origin --all && git push origin --tags'
     abbr --add gsts 'git stash show --patch'
