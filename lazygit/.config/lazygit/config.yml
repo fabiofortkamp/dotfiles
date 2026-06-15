@@ -1,0 +1,25 @@
+gui:
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - '#82aaff'
+      - bold
+    inactiveBorderColor:
+      - '#444a73'
+    optionsTextColor:
+      - '#82aaff'
+    selectedLineBgColor:
+      - '#2d3f76'
+    unstagedChangesColor:
+      - '#ff757f'
+    defaultFgColor:
+      - '#c8d3f5'
+    searchingActiveBorderColor:
+      - '#ffc777'
+
+git:
+  paging:
+    colorArg: always
+
+os:
+  editPreset: nvim
