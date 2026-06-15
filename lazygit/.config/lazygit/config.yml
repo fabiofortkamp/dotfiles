@@ -16,10 +16,8 @@ gui:
       - '#c8d3f5'
     searchingActiveBorderColor:
       - '#ffc777'
-
 git:
   paging:
     colorArg: always
-
 os:
   editPreset: nvim
