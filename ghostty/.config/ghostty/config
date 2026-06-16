@@ -8,4 +8,3 @@ maximize = true
 theme = TokyoNight
 confirm-close-surface = false
 shell-integration = fish
-config-file = "?theme-auto.conf"

@@ -47,10 +47,6 @@ macOS dotfiles for an engineering research workflow, managed with [GNU Stow](htt
 - **`tmux-sessionizer`** — fuzzy-find projects under `~/personal`, `~/dtu`, `~/polo`, `~/nvim-plugins`, `~/build` and create/switch tmux sessions. Bound to `Ctrl-S` in Fish.
 - **`run-command-on-git-revisions`** — run a command across a range of git revisions.
 
-## Ghostty theme switching
-
-The Ghostty config loads `theme-auto.conf` (gitignored, auto-generated) via `config-file = "?theme-auto.conf"`. The `ghostty-theme-context` script writes that file. Rules live in `theme-context.toml` (also gitignored). This lets different directories use different Ghostty themes automatically.
-
 ## Fish shell notes
 
 - Secrets (API keys, tokens) go in `~/.config/fish/secrets.fish` — gitignored.
