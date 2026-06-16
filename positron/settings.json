@@ -7,6 +7,7 @@
     "positron.assistant.provider.anthropic.enable": false,
     "github.copilot.nextEditSuggestions.enabled": true,
     "chat.viewSessions.orientation": "stacked",
+    "workbench.colorTheme": "Catppuccin Latte",
     "editor.fontSize": 15,
     "editor.formatOnSave": true,
     "files.autoSave": "onFocusChange",

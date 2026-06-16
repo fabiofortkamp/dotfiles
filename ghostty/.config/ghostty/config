@@ -5,6 +5,6 @@ keybind = cmd+r=reload_config
 
 maximize = true
 
-theme = TokyoNight Moon
+theme = catppuccin-frappe
 confirm-close-surface = false
 shell-integration = fish
