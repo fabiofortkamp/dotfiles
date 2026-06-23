@@ -46,6 +46,7 @@ packages=(
   "cairo"
   "cmake"
   "charmbracelet/tap/crush"
+  "claude-code"
   "coreutils"
   "copilot-cli"
   "curl"
