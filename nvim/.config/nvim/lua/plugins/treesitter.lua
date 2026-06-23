@@ -2,7 +2,10 @@ return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
     ensure_installed = {
+      "astro",
       "bash",
+      "css",
+      "html",
       "javascript",
       "json",
       "lua",
@@ -15,6 +18,7 @@ return {
       "python",
       "regex",
       "rst",
+      "typescript",
       "vim",
       "yaml",
     },

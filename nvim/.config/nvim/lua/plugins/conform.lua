@@ -46,7 +46,14 @@ return {
         lua = { "stylua" },
         fish = { "fish_indent" },
         sh = { "shfmt" },
+        astro = { "prettierd" },
+        css = { "prettierd" },
+        html = { "prettierd" },
+        javascript = { "prettierd" },
+        javascriptreact = { "prettierd" },
         ruby = { "rubocop" },
+        typescript = { "prettierd" },
+        typescriptreact = { "prettierd" },
         python = {
           -- To fix auto-fixable lint errors.
           "ruff_fix",

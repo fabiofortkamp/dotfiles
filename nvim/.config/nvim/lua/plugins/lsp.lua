@@ -11,11 +11,17 @@ return {
         opts_extend = { "ensure_installed" },
         opts = {
           ensure_installed = {
+            "astro-language-server",
             "basedpyright",
+            "css-lsp",
+            "eslint-lsp",
+            "html-lsp",
             "matlab-language-server",
+            "prettierd",
             "ruff",
             "shfmt",
             "stylua",
+            "vtsls",
           },
         },
         ---@param opts MasonSettings | {ensure_installed: string[]}
@@ -170,8 +176,13 @@ return {
               },
             },
           },
+          astro = {},
+          cssls = {},
+          eslint = {},
           gleam = {},
+          html = {},
           ruby_lsp = { mason = false },
+          vtsls = {},
         },
         -- you can do any additional lsp server setup here
         -- return true if you don't want this server to be setup with lspconfig
