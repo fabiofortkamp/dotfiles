@@ -72,6 +72,7 @@ if status is-interactive
     set -gx TMP /tmp
     set -gx PYTEST_DEBUG_TEMPROOT /tmp
     set -gx XDG_RUNTIME_DIR "$TMP/run/$USER"
+    mkdir -p $XDG_RUNTIME_DIR
 
     mise activate fish | source
     starship init fish | source
