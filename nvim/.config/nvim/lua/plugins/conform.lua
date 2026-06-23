@@ -46,6 +46,7 @@ return {
         lua = { "stylua" },
         fish = { "fish_indent" },
         sh = { "shfmt" },
+        ruby = { "rubocop" },
         python = {
           -- To fix auto-fixable lint errors.
           "ruff_fix",
