@@ -57,8 +57,7 @@ return {
       ghost_text = {
         enabled = vim.g.ai_cmp,
       },
-      -- Don't select by default, auto insert on selection
-      list = { selection = { preselect = false, auto_insert = true } },
+      list = { selection = { preselect = false, auto_insert = false } },
     },
 
     -- experimental signature help support
