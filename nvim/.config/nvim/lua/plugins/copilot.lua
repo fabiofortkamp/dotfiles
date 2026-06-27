@@ -8,16 +8,7 @@ return {
         build = ":Copilot auth",
         event = "BufReadPost",
         opts = {
-          suggestion = {
-            enabled = true,
-            auto_trigger = true,
-            hide_during_completion = true,
-            keymap = {
-              accept = false, -- handled by nvim-cmp / blink.cmp
-              next = "<M-]>",
-              prev = "<M-[>",
-            },
-          },
+          suggestion = { enabled = false },
           panel = { enabled = false },
           filetypes = {
             markdown = true,
