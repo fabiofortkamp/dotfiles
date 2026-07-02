@@ -16,5 +16,23 @@ return {
     },
     ft = { "ruby", "eruby", "haml", "slim" },
     cmd = { "Rails", "A", "AV", "AS", "AT", "R", "RV", "RS", "RT" },
+    init = function()
+      -- vim-rails fires `User Rails` for every buffer it detects as part of a
+      -- Rails app. Set the goto-style mappings buffer-locally there so they
+      -- only shadow the built-in `g` keys inside Rails projects.
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "Rails",
+        callback = function(ev)
+          local function map(lhs, rhs, desc)
+            vim.keymap.set("n", lhs, rhs, { buffer = ev.buf, silent = true, desc = desc })
+          end
+          map("ga", "<cmd>A<cr>", "Rails: alternate file (impl <-> test)")
+          map("gR", "<cmd>R<cr>", "Rails: related file (controller <-> view)")
+          map("gm", "<cmd>Emodel<cr>", "Rails: go to model")
+          map("gC", "<cmd>Econtroller<cr>", "Rails: go to controller")
+          map("gV", "<cmd>Eview<cr>", "Rails: go to view")
+        end,
+      })
+    end,
   },
 }
