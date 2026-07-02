@@ -48,6 +48,9 @@ return {
         sh = { "shfmt" },
         astro = { "prettierd" },
         css = { "prettierd" },
+        -- ERB templates (.html.erb). Requires the `erb-formatter` gem:
+        --   gem install erb-formatter
+        eruby = { "erb_format" },
         html = { "prettierd" },
         javascript = { "prettierd" },
         javascriptreact = { "prettierd" },

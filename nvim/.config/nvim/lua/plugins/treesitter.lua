@@ -5,6 +5,7 @@ return {
       "astro",
       "bash",
       "css",
+      "embedded_template",
       "html",
       "javascript",
       "json",
