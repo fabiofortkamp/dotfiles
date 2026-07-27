@@ -46,6 +46,11 @@ if status is-interactive
     # and set up options for the fifc plugin, which overrides the tab key binding
     # to complete with fzf
     set -U fifc_fd_opts --hidden
+    # fifc hardcodes fzf's --exact flag, forcing exact-match completion. Rewrite
+    # its function at load time to use --no-exact (fuzzy) instead of patching the
+    # vendored plugin file, so fisher updates stay clean and this self-heals if
+    # upstream ever drops the flag.
+    functions _fifc | string replace -- '--exact' '--no-exact' | source
 
     # Set up atuin
     atuin init fish --disable-up-arrow | source
