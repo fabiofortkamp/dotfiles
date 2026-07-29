@@ -2,8 +2,8 @@ function _fifc
     set -f --export SHELL (command --search fish)
     set -l result
     set -Ux _fifc_extract_regex
+    set -Ux _fifc_rules_fzf_opts
     set -gx _fifc_complist_path (string join '' (mktemp) "_fifc")
-    set -gx _fifc_custom_fzf_opts
     set -gx fifc_extracted
     set -gx fifc_commandline
     set -gx fifc_token (commandline --current-token)
@@ -25,7 +25,7 @@ function _fifc
     set -gx fifc_group (_fifc_completion_group)
     set source_cmd (_fifc_action source)
 
-    set fifc_fzf_query (string trim --chars '\'' -- "$fifc_fzf_query")
+    set fifc_safe_query (string unescape -- "$fifc_query" | string escape --style=script)
 
     set -l fzf_cmd "
         _fifc_launched_by_fzf=1 SHELL=fish fzf \
@@ -41,8 +41,10 @@ function _fifc
             --header '$header' \
             --preview '_fifc_action preview {} {q}' \
             --bind='$fifc_open_keybinding:execute(_fifc_action open {} {q} &> /dev/tty)' \
-            --query '$fifc_query' \
-            $_fifc_custom_fzf_opts"
+            --bind='tab:down,shift-tab:up,ctrl-space:toggle+down' \
+            --query $fifc_safe_query \
+            $fifc_custom_fzf_opts \
+            $_fifc_rules_fzf_opts"
 
     set -l cmd (string join -- " | " $source_cmd $fzf_cmd)
     # We use eval hack because wrapping source command
@@ -50,9 +52,9 @@ function _fifc
     eval $cmd | while read -l token
         # don't escape '~' for path, `$` for environ
         if string match --quiet '~*' -- $token
-            set -a result (string join -- "" "~" (string sub --start 2 -- $token | string escape))
+            set -a result (string join -- "" "~" (string sub --start 2 -- $token | string escape --no-quoted))
         else if string match --quiet '$*' -- $token
-            set -a result (string join -- "" "\$" (string sub --start 2 -- $token | string escape))
+            set -a result (string join -- "" "\$" (string sub --start 2 -- $token | string escape --no-quoted))
         else
             set -a result (string escape --no-quoted -- $token)
         end
@@ -65,8 +67,9 @@ function _fifc
     # Add space trailing space only if:
     # - there is no trailing space already present
     # - Result is not a directory
-    # We need to unescape $result for directory test as we escaped it before
-    if test (count $result) -eq 1; and not test -d (string unescape -- $result[1])
+    # Expand tilde before directory test since fish doesn't expand ~ from variables
+    set -l result_path (_fifc_expand_tilde (string unescape -- $result[1]))
+    if test (count $result) -eq 1; and not test -d "$result_path"
         set -l buffer (string split -- "$fifc_commandline" (commandline -b))
         if not string match -- ' *' "$buffer[2]"
             set -a result ''
@@ -79,10 +82,10 @@ function _fifc
 
     commandline --function repaint
 
-    rm $_fifc_complist_path
     # Clean state
+    command $fifc_rm_cmd $_fifc_complist_path
     set -e _fifc_extract_regex
-    set -e _fifc_custom_fzf_opts
+    set -e _fifc_rules_fzf_opts
     set -e _fifc_complist_path
     set -e fifc_token
     set -e fifc_group
