@@ -53,6 +53,11 @@ macOS dotfiles for an engineering research workflow, managed with [GNU Stow](htt
 - Shell state in `fish_variables` is gitignored.
 - Extensive git aliases are defined in `config.fish`, mirroring Oh-My-Zsh git plugin conventions (`ga`, `gco`, `gst`, etc.).
 - `git-town` subcommands are aliased in `~/.config/git/config` (`hack`, `ship`, `sync`, etc.).
+- Fish plugins are managed by [fisher](https://github.com/jorgebucaran/fisher). Only `fish_plugins` (the plugin list) is committed; the installed plugin files under `functions/`, `conf.d/`, `completions/` are gitignored because fisher owns them. Update with `fisher update`; on a fresh machine, bootstrap with:
+  ```fish
+  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher update
+  ```
+  Do **not** commit the plugin files — doing so desyncs them from fisher's ledger (a gitignored universal variable) and makes `fisher update` fail with "conflicting files".
 
 ## Neovim (`nvim/`)
 
