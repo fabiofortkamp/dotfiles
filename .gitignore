@@ -17,3 +17,7 @@ fish/.config/fish/functions/_fifc*.fish
 fish/.config/fish/functions/fifc.fish
 fish/.config/fish/conf.d/fifc.fish
 fish/.config/fish/completions/fifc.fish
+/herdr/.config/herdr/herdr-client.log
+/herdr/.config/herdr/herdr-server.log
+/herdr/.config/herdr/session.json
+/herdr/.config/herdr/.plugins.lock
