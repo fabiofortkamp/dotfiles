@@ -71,6 +71,7 @@ packages=(
   "goawk"
   "gojq"
   "grip"
+  "herdr"
   "icu4c"
   "imagemagick"
   "jj"
@@ -118,7 +119,6 @@ packages=(
   "zoxide"
   "zsh"
 )
-
 
 # Loop over the array to install each application.
 for package in "${packages[@]}"; do
