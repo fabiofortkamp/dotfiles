@@ -3,6 +3,7 @@ idiomatic_version_file = false
 experimental = true
 
 [tools]
+clojure = "1.12.5.1664"
 erlang = "28.1.1"
 ghcup = "0.1.50.2"
 gleam = "1.13.0"
