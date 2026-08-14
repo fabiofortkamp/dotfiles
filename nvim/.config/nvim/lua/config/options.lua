@@ -14,3 +14,12 @@ vim.g.ai_cmp = true
 
 vim.g.lazyvim_python_lsp = "basedpyright"
 vim.g.lazyvim_python_ruff = "ruff"
+
+vim.opt.listchars = {
+  tab = "->",
+  trail = "·",
+  nbsp = "␣",
+  extends = ">",
+  precedes = "<",
+  multispace = "·", -- only mark runs of 2+ spaces, leave single spaces blank
+}
