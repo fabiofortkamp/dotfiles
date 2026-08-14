@@ -77,12 +77,14 @@ open_worktree = "prefix+ctrl+g"
 remove_worktree = ""  # optional, unset by default; opens confirmation
 rename_workspace = "prefix+shift+w"
 close_workspace = "prefix+shift+d"
-# Spaces navigate with shift, agents with alt, using the same letters and digits.
+# Spaces navigate with shift, agents with ctrl, using the same letters and digits.
+# Not alt: without macos-option-as-alt, Option+K is a dead key on macOS and the
+# keypress never reaches the terminal, so alt+k silently does nothing.
 previous_workspace = "prefix+shift+k"
 next_workspace = "prefix+shift+j"
-previous_agent = "prefix+alt+k"
-next_agent = "prefix+alt+j"
-focus_agent = "prefix+alt+1..9"
+previous_agent = "prefix+ctrl+k"
+next_agent = "prefix+ctrl+j"
+focus_agent = "prefix+ctrl+1..9"
 remote_image_paste = "ctrl+v" # only active in herdr --remote; empty disables raw-key image paste
 new_tab = "prefix+c"
 rename_tab = "prefix+shift+t"
