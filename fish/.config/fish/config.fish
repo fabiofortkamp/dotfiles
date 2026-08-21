@@ -67,7 +67,6 @@ if status is-interactive
     add_to_path_if_exists "/Applications/MATLAB_R2024b.app/bin"
     add_to_path_if_exists "/Applications/Blender.app/Contents/MacOS"
 
-
     # common variables
     set -gx XDG_CONFIG_HOME "$HOME/.config"
     set -gx XDG_DATA_HOME "$HOME/.local/share/"
@@ -83,7 +82,7 @@ if status is-interactive
     set -gx EDITOR nvim
 
     # command overrides (alias preferred over abbr — these shadow existing commands)
-    alias eza="eza --icons=automatic"
+    alias eza="eza --icons=auto"
     alias ls="eza"
     alias l="eza -la"
     alias tree="eza --tree"
@@ -92,7 +91,7 @@ if status is-interactive
     # stolen from the Oh-My-Zsh git plugin
     # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
     # I've filtered out things that depended on functions
-    abbr --add g 'git'
+    abbr --add g git
     abbr --add ga 'git add'
     abbr --add gaa 'git add --all'
     abbr --add gapa 'git add --patch'
