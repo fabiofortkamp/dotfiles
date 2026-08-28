@@ -1,0 +1,40 @@
+# Global clang-format defaults.
+#
+# clang-format has no XDG support: it walks up from the file being formatted
+# looking for `.clang-format`, with no fallback to $HOME/.config. Living at
+# `~/.clang-format` means the walk finds it for every project under $HOME,
+# while any project that ships its own copy still wins.
+---
+Language: Cpp
+BasedOnStyle: LLVM
+
+ColumnLimit: 100
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# `int* p` rather than `int *p` — the pointer is part of the type.
+PointerAlignment: Left
+ReferenceAlignment: Left
+
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+BreakBeforeBraces: Attach
+SeparateDefinitionBlocks: Always
+
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  # Corresponding header for this TU (handled by clang-format as priority 0).
+  - Regex: '^<[a-z_]+>$'            # C++ standard library: <vector>, <string>
+    Priority: 3
+  - Regex: '^<.*\.h>$'              # C system headers: <stdio.h>
+    Priority: 2
+  - Regex: '^<.*>$'                 # Other third-party angle includes
+    Priority: 4
+  - Regex: '^".*"$'                 # Project headers
+    Priority: 1
+
+AlwaysBreakTemplateDeclarations: Yes
+SpaceAfterTemplateKeyword: false

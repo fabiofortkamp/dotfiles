@@ -13,8 +13,10 @@ return {
           ensure_installed = {
             "astro-language-server",
             "basedpyright",
+            "clang-format",
             "css-lsp",
             "eslint-lsp",
+            "gersemi",
             "html-lsp",
             "matlab-language-server",
             "prettierd",
@@ -177,10 +179,39 @@ return {
             },
           },
           astro = {},
+          -- The lazyvim clangd extra installs clangd through mason, which is the
+          -- right binary on Linux. On macOS it is not: an upstream clangd cannot
+          -- parse Apple's SDK headers (it dies on `unknown type name '__uint32_t'`)
+          -- even when -isysroot is correct, because the SDK relies on Apple-clang
+          -- extensions that upstream's resource dir lacks. Xcode's own clangd
+          -- matches the SDK it ships with, so prefer it when it exists and fall
+          -- back to whatever is on PATH everywhere else. Resolved at runtime
+          -- rather than hardcoded, so this file stays identical on both systems.
+          clangd = {
+            cmd = (function()
+              local exe = "clangd"
+              if vim.fn.has("mac") == 1 and vim.fn.executable("/usr/bin/clangd") == 1 then
+                exe = "/usr/bin/clangd"
+              end
+              return {
+                exe,
+                "--background-index",
+                "--clang-tidy",
+                "--header-insertion=iwyu",
+                "--completion-style=detailed",
+                "--function-arg-placeholders",
+                "--fallback-style=llvm",
+                -- Ask the compiler named in compile_commands.json where its own
+                -- system headers are, instead of guessing.
+                "--query-driver=/usr/bin/c++,/usr/bin/cc,/usr/bin/clang++,/usr/bin/clang,/usr/bin/g++,/usr/bin/gcc,/opt/homebrew/bin/*,/home/linuxbrew/.linuxbrew/bin/*",
+              }
+            end)(),
+          },
           cssls = {},
           eslint = {},
           gleam = {},
           html = {},
+          neocmake = {},
           ruby_lsp = { mason = false },
           vtsls = {},
         },

@@ -1,0 +1,253 @@
+#!/usr/bin/env bash
+
+# Scaffold a C++ project that is correct from the first commit: CMake with
+# presets, Ninja, Catch2 via FetchContent, sanitizers one flag away, and a
+# compile_commands.json that clangd can actually find.
+#
+# Usage: new-cpp-project <path>
+#
+# The layout deliberately puts the real code in a library target and leaves
+# main.cpp as a thin shell. That is what makes the code testable — a project
+# where everything lives in main() cannot be unit tested at all.
+
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: $(basename "$0") <path>" >&2
+  exit 1
+fi
+
+target=$1
+name=$(basename "$target")
+# CMake target names cannot contain characters that are legal in directory names.
+slug=$(echo "$name" | tr -c 'A-Za-z0-9_' '_' | sed 's/_*$//')
+
+if [[ -e $target ]]; then
+  echo "error: $target already exists" >&2
+  exit 1
+fi
+
+mkdir -p "$target"/{src,include/"$slug",tests}
+cd "$target"
+
+cat >CMakeLists.txt <<EOF
+cmake_minimum_required(VERSION 3.25)
+
+project(
+    $slug
+    VERSION 0.1.0
+    LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# Stay on standard C++ rather than the compiler's dialect of it.
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Warnings live on an INTERFACE target so every target we own gets the same set.
+# Putting them straight on the library would leave main.cpp and the tests
+# unchecked, which is where beginners' bugs actually are.
+add_library(${slug}_warnings INTERFACE)
+target_compile_options(
+    ${slug}_warnings
+    INTERFACE -Wall
+              -Wextra
+              -Wpedantic
+              -Wshadow
+              -Wconversion
+              -Wsign-conversion
+              -Wnon-virtual-dtor
+              -Wold-style-cast)
+
+# The library holds all the real logic so that both the executable and the
+# tests can link against it.
+add_library(${slug}_lib src/${slug}.cpp)
+target_include_directories(${slug}_lib PUBLIC include)
+target_link_libraries(${slug}_lib PRIVATE ${slug}_warnings)
+
+add_executable($slug src/main.cpp)
+target_link_libraries($slug PRIVATE ${slug}_lib ${slug}_warnings)
+
+# Optional: uncomment for linear algebra work.
+# include(FetchContent)
+# FetchContent_Declare(
+#     Eigen
+#     GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+#     GIT_TAG 3.4.0
+#     GIT_SHALLOW TRUE)
+# set(EIGEN_BUILD_TESTING OFF)
+# FetchContent_MakeAvailable(Eigen)
+# target_link_libraries(${slug}_lib PUBLIC Eigen3::Eigen)
+
+include(CTest)
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
+EOF
+
+cat >CMakePresets.json <<'EOF'
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+      }
+    },
+    {
+      "name": "dev",
+      "inherits": "base",
+      "displayName": "Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "asan",
+      "inherits": "base",
+      "displayName": "Debug + Address/UB sanitizer",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS": "-fsanitize=address,undefined -fno-omit-frame-pointer -g",
+        "CMAKE_EXE_LINKER_FLAGS": "-fsanitize=address,undefined"
+      }
+    },
+    {
+      "name": "release",
+      "inherits": "base",
+      "displayName": "Optimised, with debug info",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "dev", "configurePreset": "dev" },
+    { "name": "asan", "configurePreset": "asan" },
+    { "name": "release", "configurePreset": "release" }
+  ],
+  "testPresets": [
+    {
+      "name": "dev",
+      "configurePreset": "dev",
+      "output": { "outputOnFailure": true }
+    },
+    {
+      "name": "asan",
+      "configurePreset": "asan",
+      "output": { "outputOnFailure": true }
+    }
+  ]
+}
+EOF
+
+cat >"include/$slug/$slug.hpp" <<EOF
+#pragma once
+
+#include <string>
+
+namespace $slug {
+
+std::string greet(const std::string& who);
+
+}  // namespace $slug
+EOF
+
+cat >"src/$slug.cpp" <<EOF
+#include "$slug/$slug.hpp"
+
+#include <string>
+
+namespace $slug {
+
+std::string greet(const std::string& who) {
+    return "Hello, " + who + "!";
+}
+
+}  // namespace $slug
+EOF
+
+cat >src/main.cpp <<EOF
+#include "$slug/$slug.hpp"
+
+#include <iostream>
+
+int main() {
+    std::cout << $slug::greet("world") << '\n';
+    return 0;
+}
+EOF
+
+cat >tests/CMakeLists.txt <<EOF
+include(FetchContent)
+
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v3.7.1
+    GIT_SHALLOW TRUE)
+FetchContent_MakeAvailable(Catch2)
+
+add_executable(${slug}_tests test_${slug}.cpp)
+target_link_libraries(${slug}_tests PRIVATE ${slug}_lib ${slug}_warnings
+                      Catch2::Catch2WithMain)
+
+# Registers each TEST_CASE with CTest individually, which is what lets
+# neotest-ctest run and debug a single test from the editor.
+list(APPEND CMAKE_MODULE_PATH \${catch2_SOURCE_DIR}/extras)
+include(Catch)
+catch_discover_tests(${slug}_tests)
+EOF
+
+cat >"tests/test_$slug.cpp" <<EOF
+#include "$slug/$slug.hpp"
+
+#include <catch2/catch_test_macros.hpp>
+
+TEST_CASE("greet addresses the caller by name", "[greet]") {
+    REQUIRE($slug::greet("world") == "Hello, world!");
+
+    SECTION("an empty name still produces a greeting") {
+        REQUIRE($slug::greet("") == "Hello, !");
+    }
+}
+EOF
+
+cat >.gitignore <<'EOF'
+build/
+.cache/
+compile_commands.json
+CMakeUserPresets.json
+EOF
+
+cat >README.md <<EOF
+# $name
+
+## Build
+
+\`\`\`sh
+cmake --preset dev
+cmake --build --preset dev
+ctest --preset dev
+\`\`\`
+
+Presets: \`dev\` (debug), \`asan\` (address + UB sanitizer), \`release\`.
+
+Run it with \`./build/dev/$slug\`.
+EOF
+
+# Ship the style config with the project so the repo is self-contained for
+# anyone reading it, falling back to the global copies from the dotfiles.
+for f in .clang-format .clang-tidy; do
+  if [[ -f "$HOME/$f" ]]; then
+    cp "$HOME/$f" "$f"
+  fi
+done
+
+git init --quiet
+git add --all
+echo "Created $target"
+echo "  cd $target && cmake --preset dev && cmake --build --preset dev && ctest --preset dev"

@@ -5,7 +5,9 @@ code in this repository.
 
 ## What this repo is
 
-macOS dotfiles for an engineering research workflow, managed with [GNU Stow](https://www.gnu.org/software/stow/). Each top-level directory is a Stow package: running `stow <package>` from `~/dotfiles` creates symlinks under `$HOME` mirroring the package's directory tree.
+Dotfiles for an engineering research workflow, managed with [GNU Stow](https://www.gnu.org/software/stow/). Each top-level directory is a Stow package: running `stow <package>` from `~/dotfiles` creates symlinks under `$HOME` mirroring the package's directory tree.
+
+Primarily macOS, but also used on Linux — `brew.sh` runs under Linuxbrew. Consequence for anything you add here: **never hardcode a Homebrew prefix**, since it is `/opt/homebrew` on Apple Silicon but `/home/linuxbrew/.linuxbrew` on Linux. Prefer tools resolved from `PATH`, or installed by Mason in the Neovim config.
 
 ## How you should work with this repo
 
@@ -31,13 +33,14 @@ macOS dotfiles for an engineering research workflow, managed with [GNU Stow](htt
 | Directory | Destination | Purpose |
 |-----------|-------------|---------|
 | `fish/` | `~/.config/fish/` | Fish shell config, aliases, PATH setup |
-| `nvim/` | `~/.config/nvim/` | Neovim — LazyVim-based, focused on Python/MATLAB/Markdown |
+| `nvim/` | `~/.config/nvim/` | Neovim — LazyVim-based, focused on Python/C++/MATLAB/Markdown |
 | `tmux/` | `~/.config/tmux/` | Tmux config (prefix: `C-a`, vi keys, TPM plugins) |
 | `ghostty/` | `~/.config/ghostty/` | Ghostty terminal config |
 | `git/` | `~/.config/git/` | Git config — has personal name/email, change before reusing |
 | `mise/` | `~/.config/mise/` | mise tool versions (Go, Python, Ruby, Node, Rust, etc.) |
 | `starship/` | `~/.config/starship.toml` | Starship prompt |
 | `bin/` | `~/dotfiles/bin/` (on PATH) | Custom scripts |
+| `clang/` | `~/.clang-format`, `~/.clang-tidy` | Global C/C++ style and lint config (bare dotfiles — clang tooling has no XDG support and only walks parent directories) |
 | `vscode/` | `~/Library/Application Support/Code/User/` | VS Code settings and snippets (linked by `link-editors.sh`) |
 | `cursor/` | `~/Library/Application Support/Cursor/User/` | Cursor settings (linked by `link-editors.sh`) |
 | `positron/` | `~/Library/Application Support/Positron/User/` | Positron settings (linked by `link-editors.sh`) |
@@ -46,6 +49,7 @@ macOS dotfiles for an engineering research workflow, managed with [GNU Stow](htt
 
 - **`tmux-sessionizer`** — fuzzy-find projects under `~/personal`, `~/dtu`, `~/polo`, `~/nvim-plugins`, `~/build` and create/switch tmux sessions. Bound to `Ctrl-S` in Fish.
 - **`run-command-on-git-revisions`** — run a command across a range of git revisions.
+- **`new-cpp-project <path>`** — scaffold a C++ project: CMake + Ninja + CMakePresets (`dev`/`asan`/`release`), a library target plus a thin `main.cpp`, and Catch2 v3 tests registered with CTest via `catch_discover_tests()`. The presets export `compile_commands.json`, which is what makes clangd work.
 
 ## Fish shell notes
 
@@ -62,6 +66,21 @@ macOS dotfiles for an engineering research workflow, managed with [GNU Stow](htt
 ## Neovim (`nvim/`)
 
 Based on LazyVim. Plugin overrides live in `nvim/.config/nvim/lua/plugins/`.
+
+Enabled LazyVim extras are listed in `nvim/.config/nvim/lazyvim.json`: `lang.clangd` and
+`dap.core`. Both are needed — the clangd extra's nvim-dap block is `optional = true`, so
+without `dap.core` it silently installs no debugger.
+
+For C++, `lsp.lua` picks the clangd binary at runtime: Xcode's `/usr/bin/clangd` on macOS,
+Mason's elsewhere. This is not cosmetic — an upstream clangd cannot parse Apple's SDK headers
+(it fails on `unknown type name '__uint32_t'`) even with a correct `-isysroot`, while Xcode's
+matches the SDK it ships with. `--query-driver` is also set, so clangd asks the compiler named
+in `compile_commands.json` where its system headers are.
+
+`cmake-tools.nvim` (`<leader>m…`) drives the build and symlinks `compile_commands.json` to the
+project root — if C++ completion is ever silently dead, check that symlink first. `neotest` +
+`neotest-ctest` (`<leader>t…`) run individual tests, which works because the scaffold registers
+them with `catch_discover_tests()`.
 
 ## Tool version management
 

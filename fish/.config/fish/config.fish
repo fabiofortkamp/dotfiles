@@ -81,6 +81,16 @@ if status is-interactive
 
     set -gx EDITOR nvim
 
+    # C/C++ builds. Setting these globally means a project never has to remember
+    # them: Ninja instead of make, ccache in front of the compiler, and
+    # compile_commands.json always emitted (clangd is useless without it).
+    set -gx CMAKE_GENERATOR Ninja
+    set -gx CMAKE_EXPORT_COMPILE_COMMANDS ON
+    if type -q ccache
+        set -gx CMAKE_C_COMPILER_LAUNCHER ccache
+        set -gx CMAKE_CXX_COMPILER_LAUNCHER ccache
+    end
+
     # command overrides (alias preferred over abbr — these shadow existing commands)
     alias eza="eza --icons=auto"
     alias ls="eza"
@@ -193,6 +203,17 @@ if status is-interactive
     abbr --add gwtls 'git worktree list'
     abbr --add gwtmv 'git worktree move'
     abbr --add gwtrm 'git worktree remove'
+
+    # cmake abbreviations
+    # These assume the CMakePresets.json laid down by `new-cpp-project`,
+    # which defines the dev / asan / release presets.
+    abbr --add cmc 'cmake --preset'
+    abbr --add cmb 'cmake --build --preset'
+    abbr --add cmt 'ctest --preset'
+    abbr --add cmd 'cmake --preset dev; and cmake --build --preset dev'
+    abbr --add cma 'cmake --preset asan; and cmake --build --preset asan'
+    abbr --add cmf 'cmake --preset dev --fresh'
+    abbr --add cmclean 'rm -rf build'
 
     # BEGIN opam configuration
     # This is useful if you're using opam as it adds:

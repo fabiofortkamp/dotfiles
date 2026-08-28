@@ -4,7 +4,9 @@ return {
     ensure_installed = {
       "astro",
       "bash",
+      "cmake",
       "css",
+      "doxygen",
       "embedded_template",
       "html",
       "javascript",

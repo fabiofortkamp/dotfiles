@@ -47,6 +47,9 @@ return {
         fish = { "fish_indent" },
         sh = { "shfmt" },
         astro = { "prettierd" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
+        cmake = { "gersemi" },
         css = { "prettierd" },
         -- ERB templates (.html.erb). Requires the `erb-formatter` gem:
         --   gem install erb-formatter

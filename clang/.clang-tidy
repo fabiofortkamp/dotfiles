@@ -1,0 +1,40 @@
+# Global clang-tidy defaults.
+#
+# Found by the same parent-directory walk as `.clang-format`, so this applies to
+# every project under $HOME unless the project ships its own.
+#
+# clangd runs these in-editor via its `--clang-tidy` flag, so no separate
+# clang-tidy binary needs to be installed.
+---
+Checks: >
+  -*,
+  bugprone-*,
+  performance-*,
+  modernize-*,
+  readability-*,
+  cppcoreguidelines-*,
+  misc-*,
+  -modernize-use-trailing-return-type,
+  -readability-magic-numbers,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -readability-identifier-length,
+  -misc-non-private-member-variables-in-classes,
+  -cppcoreguidelines-non-private-member-variables-in-classes,
+  -bugprone-easily-swappable-parameters
+
+# Warnings only — never fail a build on style.
+WarningsAsErrors: ''
+
+# Only diagnose our own headers, not anything pulled in by FetchContent.
+HeaderFilterRegex: '.*'
+ExcludeHeaderFilterRegex: '(_deps|build)/'
+
+CheckOptions:
+  readability-identifier-naming.ClassCase: CamelCase
+  readability-identifier-naming.StructCase: CamelCase
+  readability-identifier-naming.FunctionCase: lower_case
+  readability-identifier-naming.VariableCase: lower_case
+  readability-identifier-naming.PrivateMemberSuffix: _
+  readability-identifier-naming.NamespaceCase: lower_case
+  readability-identifier-naming.EnumCase: CamelCase
+  readability-identifier-naming.ConstantCase: lower_case
