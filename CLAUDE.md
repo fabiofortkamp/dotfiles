@@ -87,3 +87,14 @@ them with `catch_discover_tests()`.
 `mise` manages all programming language runtimes. `brew` handles CLI tools and apps. The heuristic: programming languages → mise; everything else → brew.
 
 Local per-project overrides: create `mise.local.toml` in any project (globally gitignored by mise config).
+
+### `~/.local/bin` shadows Homebrew
+
+`config.fish` adds `$HOME/.local/bin` after Homebrew, and `fish_add_path` prepends, so
+`~/.local/bin` wins. It legitimately holds `nvim`, `mise`, `uv`, `zig` and the pipx/uv
+shims — but anything installed there silently overrides a brew formula.
+
+A self-built LLVM 19 (+assertions) and a git-snapshot CMake 4 lived there until 2026-08-28,
+shadowing `clang`, `clang-format`, `cmake`, `ctest` and `cpack` system-wide. They were moved
+to `~/.local/llvm-19-selfbuilt/` (see the README there). Don't reinstall a C/C++ toolchain
+into `~/.local/bin` — use brew, so versions stay reproducible from `brew.sh`.

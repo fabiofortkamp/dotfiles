@@ -45,6 +45,7 @@ packages=(
   "bottom"
   "cairo"
   "ccache"
+  "clang-format"
   "cmake"
   "charmbracelet/tap/crush"
   "claude-code"
