@@ -88,6 +88,7 @@ packages=(
   "lua-language-server"
   "luacheck"
   "mise"
+  "nginx"
   "ninja"
   "open-mpi"
   "opencoarrays"
@@ -134,16 +135,16 @@ for package in "${packages[@]}"; do
 done
 
 # Install casks
-brew tap manaflow-ai/cmux
 # Define an array of packages to install using Homebrew.
 casks=(
   "emacs"
   "codex"
-  "cmux"
   "claude-code"
+  "docker"
   "ghostty"
   "quarto"
   "skim"
+  "tailscale"
   "wezterm"
 )
 
