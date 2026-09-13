@@ -1,24 +1,19 @@
-custom/local.zsh
-tmux/.config/tmux/plugins
-nushell/.config/nushell/history.txt
-lazyvim/.config/lazyvim/lua/plugins/dev.lua
-fish/.config/fish/fish_variables
-fish/.config/fish/secrets.fish
-fish/.config/fish/fish_variables
-doom/.config/doom/custom.el
-gh/.config/gh/hosts.yml
+tmux/plugins
+fish/fish_variables
+fish/secrets.fish
+gh/hosts.yml
 
-# Fisher-managed plugin files. Fisher owns these (see fish/.config/fish/fish_plugins);
+# Fisher-managed plugin files. Fisher owns these (see fish/fish_plugins);
 # only fish_plugins is committed. On a new machine, materialize them with:
 #   curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher update
-fish/.config/fish/functions/fisher.fish
-fish/.config/fish/completions/fisher.fish
-fish/.config/fish/functions/_fifc*.fish
-fish/.config/fish/functions/fifc.fish
-fish/.config/fish/conf.d/fifc.fish
-fish/.config/fish/completions/fifc.fish
-/herdr/.config/herdr/herdr-client.log
-/herdr/.config/herdr/herdr-server.log
-/herdr/.config/herdr/session.json
-/herdr/.config/herdr/.plugins.lock
-/herdr/.config/herdr/release-notes.json
+fish/functions/fisher.fish
+fish/completions/fisher.fish
+fish/functions/_fifc*.fish
+fish/functions/fifc.fish
+fish/conf.d/fifc.fish
+fish/completions/fifc.fish
+/herdr/herdr-client.log
+/herdr/herdr-server.log
+/herdr/session.json
+/herdr/.plugins.lock
+/herdr/release-notes.json

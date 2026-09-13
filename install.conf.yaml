@@ -1,0 +1,71 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      relative: true
+
+- create:
+    - ~/.local/bin
+    - ~/.local/lib
+    - ~/build
+
+- brewfile:
+    - Brewfile
+
+- link:
+    ~/.config/fish: fish
+    ~/.config/nvim: nvim
+    ~/.config/tmux: tmux
+    ~/.config/ghostty: ghostty
+    ~/.config/git: git
+    ~/.config/gh: gh
+    ~/.config/karabiner: karabiner
+    ~/.config/herdr: herdr
+    ~/.julia/config: julia
+    ~/.config/mise/config.toml: mise/config.toml
+    ~/.config/starship.toml: starship/starship.toml
+    ~/.config/lazygit/config.yml: lazygit/config.yml
+    ~/.config/mypy/config: mypy/config
+    ~/.config/ruff/ruff.toml: ruff/ruff.toml
+    ~/.config/wezterm/wezterm.lua: wezterm/wezterm.lua
+    ~/.config/atuin/config.toml: atuin/config.toml
+    ~/.config/jj/config.toml: jj/config.toml
+    ~/.config/hatch/config.toml: hatch/config.toml
+    ~/.hatch-complete.zsh: hatch/.hatch-complete.zsh
+    ~/.clang-format: clang/.clang-format
+    ~/.clang-tidy: clang/.clang-tidy
+    ~/.default-gems: default-gems
+    ~/.default-npm-packages: default-npm-packages
+    ~/.default-python-packages: default-python-packages
+    ~/Library/Application Support/Code/User/settings.json: vscode/settings.json
+    ~/Library/Application Support/Code/User/snippets: vscode/snippets
+    ~/Library/Application Support/Cursor/User/settings.json: cursor/settings.json
+    ~/Library/Application Support/Positron/User/settings.json: positron/settings.json
+
+- shell:
+    - command: ./build_neovim.sh
+      description: Building Neovim from source
+      stdin: true
+      stdout: true
+      stderr: true
+
+    - command: mise install
+      description: Installing mise-managed tool versions
+      stdout: true
+      stderr: true
+
+    - command: go install golang.org/x/tools/gopls@latest
+      description: Installing gopls
+      stdout: true
+      stderr: true
+
+    - command: ./set-default-shell.sh
+      description: Setting fish as the default shell
+      stdin: true
+      stdout: true
+      stderr: true
+
+    - command: julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer"); Pkg.add("SymbolServer"); Pkg.add("StaticLint")'
+      description: Installing the Julia language server
+      stdout: true
+      stderr: true

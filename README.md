@@ -15,21 +15,24 @@ have my username, so you should change those settings.
 
 ### Running the installation script
 
+Installation is managed by [dotbot](https://github.com/anishathalye/dotbot), vendored as a git
+submodule along with the [dotbot-brew](https://github.com/d12frosted/dotbot-brew) plugin.
+
 Run the following commands in a shell:
 ```shell
 
 git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
-./install.sh
+./install
 ```
 
 ## Features
 
 ### Fish as the default shell 🐟
 
-[Fish](https://fishshell.com/) is set as the default shell, with [replacements](./fish/.config/fish/config.fish)
+[Fish](https://fishshell.com/) is set as the default shell, with [replacements](./fish/config.fish)
 for git and [eza](https://github.com/eza-community/eza). [Fzf](https://github.com/junegunn/fzf), [atuin](https://docs.atuin.sh/) (in offline mode) and [zoxide](https://github.com/ajeetdsouza/zoxide) are also initialized.
 
-The prompt is managed by the [starship](https://starship.rs/guide/) [configuration](./starship/.config/starship.toml).
+The prompt is managed by the [starship](https://starship.rs/guide/) [configuration](./starship/starship.toml).
 
 Some features of the shell:
 
@@ -46,20 +49,21 @@ directory;
 
 ### Neovim as default editor 📝
 
-[Neovim](https://neovim.io/) is the default editor, and uses a [configuration](/nvim/.config/nvim/) based on [LazyVim](https://www.lazyvim.org/).
+[Neovim](https://neovim.io/) is the default editor, and uses a [configuration](/nvim/) based on [LazyVim](https://www.lazyvim.org/).
 
 The configuration is mainly centered around working with Python, Matlab, and Markdown files.
 LSP and tree-sitter parsers are fully configured for these languages.
 
 ### Package management with homebrew 🍻
 
-[Homebrew](https://brew.sh/) is the default tool to install new packages. See [this script](./brew.sh) for a list
-of packages that are installed.
+[Homebrew](https://brew.sh/) is the default tool to install new packages, installed via the
+[dotbot-brew](https://github.com/d12frosted/dotbot-brew) plugin. See the [Brewfile](./Brewfile)
+for a list of packages that are installed.
 
 ### Dev tool management with mise 🥙
 
 [Mise](https://mise.jdx.dev/) is used to install and use development tools.
-See the [configuration](./mise/.config/mise/config.toml).
+See the [configuration](./mise/config.toml).
 
 My heuristic is that, if something is a programming language that I use to do my work, then
 it is managed my mise and not by homebrew. The tools that I use (or at least is trying to learn how to use)

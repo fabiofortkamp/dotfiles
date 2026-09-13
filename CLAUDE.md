@@ -5,9 +5,9 @@ code in this repository.
 
 ## What this repo is
 
-Dotfiles for an engineering research workflow, managed with [GNU Stow](https://www.gnu.org/software/stow/). Each top-level directory is a Stow package: running `stow <package>` from `~/dotfiles` creates symlinks under `$HOME` mirroring the package's directory tree.
+Dotfiles for an engineering research workflow, managed with [dotbot](https://github.com/anishathalye/dotbot), vendored as a git submodule (`dotbot/`) along with the [dotbot-brew](https://github.com/d12frosted/dotbot-brew) plugin (`dotbot-brew/`). `./install` runs `install.conf.yaml`, which symlinks each top-level directory's contents into `$HOME` (mapping is explicit per entry — unlike Stow, package directories don't need to mirror the `$HOME` path they target) and installs Homebrew packages from `Brewfile` via the `brewfile` directive.
 
-Primarily macOS, but also used on Linux — `brew.sh` runs under Linuxbrew. Consequence for anything you add here: **never hardcode a Homebrew prefix**, since it is `/opt/homebrew` on Apple Silicon but `/home/linuxbrew/.linuxbrew` on Linux. Prefer tools resolved from `PATH`, or installed by Mason in the Neovim config.
+Primarily macOS, but also used on Linux — `dotbot-brew` bootstraps Homebrew under Linuxbrew there. Consequence for anything you add here: **never hardcode a Homebrew prefix**, since it is `/opt/homebrew` on Apple Silicon but `/home/linuxbrew/.linuxbrew` on Linux. Prefer tools resolved from `PATH`, or installed by Mason in the Neovim config.
 
 ## How you should work with this repo
 
@@ -41,9 +41,9 @@ Primarily macOS, but also used on Linux — `brew.sh` runs under Linuxbrew. Cons
 | `starship/` | `~/.config/starship.toml` | Starship prompt |
 | `bin/` | `~/dotfiles/bin/` (on PATH) | Custom scripts |
 | `clang/` | `~/.clang-format`, `~/.clang-tidy` | Global C/C++ style and lint config (bare dotfiles — clang tooling has no XDG support and only walks parent directories) |
-| `vscode/` | `~/Library/Application Support/Code/User/` | VS Code settings and snippets (linked by `link-editors.sh`) |
-| `cursor/` | `~/Library/Application Support/Cursor/User/` | Cursor settings (linked by `link-editors.sh`) |
-| `positron/` | `~/Library/Application Support/Positron/User/` | Positron settings (linked by `link-editors.sh`) |
+| `vscode/` | `~/Library/Application Support/Code/User/` | VS Code settings and snippets |
+| `cursor/` | `~/Library/Application Support/Cursor/User/` | Cursor settings |
+| `positron/` | `~/Library/Application Support/Positron/User/` | Positron settings |
 
 ## Key custom scripts (`bin/`)
 
@@ -65,9 +65,9 @@ Primarily macOS, but also used on Linux — `brew.sh` runs under Linuxbrew. Cons
 
 ## Neovim (`nvim/`)
 
-Based on LazyVim. Plugin overrides live in `nvim/.config/nvim/lua/plugins/`.
+Based on LazyVim. Plugin overrides live in `nvim/lua/plugins/`.
 
-Enabled LazyVim extras are listed in `nvim/.config/nvim/lazyvim.json`: `lang.clangd` and
+Enabled LazyVim extras are listed in `nvim/lazyvim.json`: `lang.clangd` and
 `dap.core`. Both are needed — the clangd extra's nvim-dap block is `optional = true`, so
 without `dap.core` it silently installs no debugger.
 
@@ -97,4 +97,4 @@ shims — but anything installed there silently overrides a brew formula.
 A self-built LLVM 19 (+assertions) and a git-snapshot CMake 4 lived there until 2026-08-28,
 shadowing `clang`, `clang-format`, `cmake`, `ctest` and `cpack` system-wide. They were moved
 to `~/.local/llvm-19-selfbuilt/` (see the README there). Don't reinstall a C/C++ toolchain
-into `~/.local/bin` — use brew, so versions stay reproducible from `brew.sh`.
+into `~/.local/bin` — use brew, so versions stay reproducible from `Brewfile`.
