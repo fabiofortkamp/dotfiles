@@ -33,7 +33,7 @@
     ~/.config/ghostty: ghostty
     ~/.config/git: git
     ~/.config/gh: gh
-    ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
+    ~/.config/karabiner: karabiner
     ~/.config/herdr: herdr
     ~/.julia/config: julia
     ~/.config/mise/config.toml: mise/config.toml
