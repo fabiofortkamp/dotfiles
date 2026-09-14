@@ -2,7 +2,21 @@
     link:
       create: true
       relink: true
+      backup: true
       relative: true
+
+# Broken symlinks left over from the Stow layout (~/.config/mise ->
+# ../dotfiles/mise/.config/mise) block `link`: dotbot follows symlinks when
+# checking whether a parent directory exists, so a dangling one looks absent
+# and the subsequent mkdir fails on it. Stow folded package roots one level
+# inside each of these directories, hence the explicit list rather than
+# `recursive: true`. Quote "~" -- a bare ~ is null in YAML.
+- clean:
+    - "~"
+    - ~/.config
+    - ~/Library/Application Support/Code/User
+    - ~/Library/Application Support/Cursor/User
+    - ~/Library/Application Support/Positron/User
 
 - create:
     - ~/.local/bin
