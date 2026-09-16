@@ -29,21 +29,21 @@
 - link:
     ~/.config/fish: fish
     ~/.config/nvim: nvim
-    ~/.config/tmux: tmux
     ~/.config/ghostty: ghostty
     ~/.config/git: git
     ~/.config/gh: gh
     ~/.config/karabiner: karabiner
     ~/.config/herdr: herdr
     ~/.julia/config: julia
-    ~/.config/mise/config.toml: mise/config.toml
-    ~/.config/starship.toml: starship/starship.toml
-    ~/.config/lazygit/config.yml: lazygit/config.yml
-    ~/.config/mypy/config: mypy/config
-    ~/.config/ruff/ruff.toml: ruff/ruff.toml
-    ~/.config/wezterm/wezterm.lua: wezterm/wezterm.lua
-    ~/.config/atuin/config.toml: atuin/config.toml
-    ~/.config/jj/config.toml: jj/config.toml
+    ~/.config/tmux/tmux.conf: tmux.conf
+    ~/.config/mise/config.toml: mise-config.toml
+    ~/.config/starship.toml: starship.toml
+    ~/.config/lazygit/config.yml: lazygit.yml
+    ~/.config/mypy/config: mypy-config.ini
+    ~/.config/ruff/ruff.toml: ruff-config.toml
+    ~/.config/wezterm/wezterm.lua: wezterm.lua
+    ~/.config/atuin/config.toml: atuin.toml
+    ~/.config/jj/config.toml: jj.toml
     ~/.config/hatch/config.toml: hatch/config.toml
     ~/.hatch-complete.zsh: hatch/.hatch-complete.zsh
     ~/.clang-format: clang/.clang-format

@@ -32,7 +32,7 @@ git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
 [Fish](https://fishshell.com/) is set as the default shell, with [replacements](./fish/config.fish)
 for git and [eza](https://github.com/eza-community/eza). [Fzf](https://github.com/junegunn/fzf), [atuin](https://docs.atuin.sh/) (in offline mode) and [zoxide](https://github.com/ajeetdsouza/zoxide) are also initialized.
 
-The prompt is managed by the [starship](https://starship.rs/guide/) [configuration](./starship/starship.toml).
+The prompt is managed by the [starship](https://starship.rs/guide/) [configuration](./starship.toml).
 
 Some features of the shell:
 
@@ -63,7 +63,7 @@ for a list of packages that are installed.
 ### Dev tool management with mise 🥙
 
 [Mise](https://mise.jdx.dev/) is used to install and use development tools.
-See the [configuration](./mise/config.toml).
+See the [configuration](./mise-config.toml).
 
 My heuristic is that, if something is a programming language that I use to do my work, then
 it is managed my mise and not by homebrew. The tools that I use (or at least is trying to learn how to use)

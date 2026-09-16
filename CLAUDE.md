@@ -5,7 +5,7 @@ code in this repository.
 
 ## What this repo is
 
-Dotfiles for an engineering research workflow, managed with [dotbot](https://github.com/anishathalye/dotbot), vendored as a git submodule (`dotbot/`) along with the [dotbot-brew](https://github.com/d12frosted/dotbot-brew) plugin (`dotbot-brew/`). `./install` runs `install.conf.yaml`, which symlinks each top-level directory's contents into `$HOME` (mapping is explicit per entry — unlike Stow, package directories don't need to mirror the `$HOME` path they target) and installs Homebrew packages from `Brewfile` via the `brewfile` directive.
+Dotfiles for an engineering research workflow, managed with [dotbot](https://github.com/anishathalye/dotbot), vendored as a git submodule (`dotbot/`) along with the [dotbot-brew](https://github.com/d12frosted/dotbot-brew) plugin (`dotbot-brew/`). `./install` runs `install.conf.yaml`, which symlinks top-level directories and files into `$HOME` (mapping is explicit per entry — unlike Stow, sources don't need to mirror the `$HOME` path they target) and installs Homebrew packages from `Brewfile` via the `brewfile` directive.
 
 Primarily macOS, but also used on Linux — `dotbot-brew` bootstraps Homebrew under Linuxbrew there. Consequence for anything you add here: **never hardcode a Homebrew prefix**, since it is `/opt/homebrew` on Apple Silicon but `/home/linuxbrew/.linuxbrew` on Linux. Prefer tools resolved from `PATH`, or installed by Mason in the Neovim config.
 
@@ -34,16 +34,35 @@ Primarily macOS, but also used on Linux — `dotbot-brew` bootstraps Homebrew un
 |-----------|-------------|---------|
 | `fish/` | `~/.config/fish/` | Fish shell config, aliases, PATH setup |
 | `nvim/` | `~/.config/nvim/` | Neovim — LazyVim-based, focused on Python/C++/MATLAB/Markdown |
-| `tmux/` | `~/.config/tmux/` | Tmux config (prefix: `C-a`, vi keys, TPM plugins) |
 | `ghostty/` | `~/.config/ghostty/` | Ghostty terminal config |
 | `git/` | `~/.config/git/` | Git config — has personal name/email, change before reusing |
-| `mise/` | `~/.config/mise/` | mise tool versions (Go, Python, Ruby, Node, Rust, etc.) |
-| `starship/` | `~/.config/starship.toml` | Starship prompt |
 | `bin/` | `~/dotfiles/bin/` (on PATH) | Custom scripts |
 | `clang/` | `~/.clang-format`, `~/.clang-tidy` | Global C/C++ style and lint config (bare dotfiles — clang tooling has no XDG support and only walks parent directories) |
 | `vscode/` | `~/Library/Application Support/Code/User/` | VS Code settings and snippets |
 | `cursor/` | `~/Library/Application Support/Cursor/User/` | Cursor settings |
 | `positron/` | `~/Library/Application Support/Positron/User/` | Positron settings |
+
+### Single-file configs live at the top level
+
+A tool whose config is a single file gets that file at the repo root rather than a
+directory of its own — `starship.toml`, `tmux.conf`, `wezterm.lua`, `atuin.toml`,
+`jj.toml`, `lazygit.yml`, `mise-config.toml`, `ruff-config.toml`, `mypy-config.ini`.
+Because `install.conf.yaml` maps every entry explicitly, the source name is free, so
+files are renamed where the destination name is generic (four tools want
+`config.toml`). The `-config` suffix on mise/ruff/mypy is deliberate: a root-level
+`mise.toml`, `ruff.toml` or `mypy.ini` would be auto-discovered as *project* config
+by those tools whenever the cwd is inside `~/dotfiles`, since they all walk up from
+the working directory.
+
+Three single-file directories stay directories on purpose, and are symlinked whole:
+
+- `gh/` — `gh config set` and `gh auth login` rewrite `config.yml` by writing a temp
+  file and renaming over it, which would replace a symlinked file with a real one.
+  The whole-dir link also keeps the gitignored `hosts.yml` (auth token) working.
+- `karabiner/` — Karabiner-Elements saves `karabiner.json` from the GUI the same way,
+  and writes `automatic_backups/` next to it.
+- `herdr/` — resolves `sounds/` and its plugin lock relative to the config directory,
+  and writes logs, sockets and `session.json` there (all gitignored).
 
 ## Key custom scripts (`bin/`)
 
