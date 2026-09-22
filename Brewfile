@@ -1,3 +1,7 @@
+# Homebrew refuses to load a formula from a non-official tap unless it's
+# explicitly trusted (since Homebrew 6.0) -- needed for charmbracelet/tap/crush below.
+tap "charmbracelet/tap", trusted: true
+
 brew "atuin"
 brew "autoconf"
 brew "automake"
