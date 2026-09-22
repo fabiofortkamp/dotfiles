@@ -73,7 +73,7 @@
       stdout: true
       stderr: true
 
-    - command: go install golang.org/x/tools/gopls@latest
+    - command: mise exec go -- go install golang.org/x/tools/gopls@latest
       description: Installing gopls
       stdout: true
       stderr: true

@@ -39,6 +39,18 @@ EOF
 }
 check_homebrew_prereqs
 
+# fish/config.fish adds Homebrew's bin/sbin to PATH, but only for interactive
+# fish shells -- this script and the dotbot `shell:` steps it runs never
+# source that. Without this, `brew`, `cmake`, `mise`, etc. are "not found" in
+# those later steps even right after the `brewfile:` step installs them
+# (dotbot-brew finds `brew` via a hardcoded absolute path internally, so it
+# doesn't need PATH itself). Safe to prepend unconditionally: entries for a
+# prefix that doesn't exist (yet) are just skipped at lookup time, and
+# `brewfile:` creates the right one before any later step needs it.
+for prefix in /opt/homebrew /home/linuxbrew/.linuxbrew /usr/local; do
+  export PATH="${prefix}/bin:${prefix}/sbin:${PATH}"
+done
+
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
