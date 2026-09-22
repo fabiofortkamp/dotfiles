@@ -1,9 +1,11 @@
 # dotfiles
 
-macOS-based configuration for a engineering research workflow focused on the commmand line.
+macOS-based configuration for an engineering research workflow focused on the command line.
 
 This is what suits me. Please notice that, in particular, [git](./git/) and [GitHub CLI client](./gh/)
 have my username, so you should change those settings.
+
+See [CHANGELOG.md](./CHANGELOG.md) for release history.
 
 
 ## Installation
@@ -12,6 +14,7 @@ have my username, so you should change those settings.
 - git
 - bash
 - curl
+- make
 
 ### Running the installation script
 
@@ -22,6 +25,7 @@ Run the following commands in a shell:
 ```shell
 
 git clone --recursive https://github.com/fabiofortkamp/dotfiles ~/dotfiles
+cd ~/dotfiles
 ./install
 ```
 
@@ -66,22 +70,5 @@ for a list of packages that are installed.
 See the [configuration](./mise-config.toml).
 
 My heuristic is that, if something is a programming language that I use to do my work, then
-it is managed my mise and not by homebrew. The tools that I use (or at least is trying to learn how to use)
+it is managed by mise and not by homebrew. The tools that I use (or at least is trying to learn how to use)
 are listed in the configuration file linked above.
-
-Some features of my mise configuration:
-
-- Installed tools:
-  - Go 1.24.1
-  - Lua 5.1
-  - Node 22
-  - OPAM 2.3.0
-  - Python 3.13
-  - Ruby  3.3
-  - uv (configured to always fetch the latest version)
-- Python and uv are integrated; mise with use python version information provided in `uv.lock` files
-- You can override the local defaults by placing a file `mise.local.toml` in a project;
-this dotfiles configuration automatically ignores this filename in git for all repos;
-- [Idiomatic version files](https://mise.jdx.dev/configuration.html#idiomatic-version-files) are 
-disabled to be parsed by mise;
-- For all ruby versions, [these gems](./default-gems) are installed by default.
