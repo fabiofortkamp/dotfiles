@@ -118,12 +118,22 @@ Local per-project overrides: create `mise.local.toml` in any project (globally g
 
 `brew shellenv` is never sourced here (`fish/config.fish` only adds `bin`/`sbin` to `PATH`), so a
 tool mise builds from source won't find a Homebrew-installed C library's headers/libs on its own —
-Homebrew doesn't inject `CPATH`/`LIBRARY_PATH` globally, on Linux or macOS. `lua`'s entry in
-`mise-config.toml` is the example: it needs `readline` (in `Brewfile`) and points `CPATH`/
-`LIBRARY_PATH` at `{{ exec(command='brew --prefix') }}` via that tool's `install_env` — the
-`[env]` table won't do, since mise only applies it to `mise exec`/tasks/activated shells, not to
-`mise install`'s own build subprocess. Reach for the same pattern (per-tool `install_env`, not a
-hardcoded prefix) if another mise-built tool hits a similar missing-header failure.
+Homebrew doesn't inject `CPATH`/`LIBRARY_PATH` globally, on Linux or macOS. `lua` is the example:
+it needs `readline` (in `Brewfile`), and `CPATH`/`LIBRARY_PATH` pointed at `$(brew --prefix)` —
+done as a plain shell prefix on the `mise install` command in `install.conf.yaml`, not inside
+`mise-config.toml`.
+
+**Do not put an `exec(command=...)` template anywhere in `mise-config.toml`'s `[tools]` table**
+(this includes a tool's `install_env`, despite docs implying it's install-scoped) — mise re-renders
+the *entire* config, all `[tools]` fields included, on every config parse, not just during an
+actual `mise install`. That includes plain shell activation (`mise activate fish`'s hook firing on
+every new prompt). A `brew`-dependent template there broke every new shell on every machine
+(`mise ERROR failed to parse template ... command ["sh", ...] exited with code 127`) once `brew`
+wasn't resolvable in whatever minimal environment mise's internal `exec()` runs with — which isn't
+guaranteed to be the live, `fish_add_path`-populated `$PATH` of an interactive shell. Anything that
+needs `brew --prefix` belongs in the one bootstrap command that actually needs it, computed as a
+plain `$(...)` shell substitution at the moment that command runs — never as a persisted template
+in the config file mise re-parses constantly.
 
 `install.conf.yaml` also runs `mise plugins update` right before `mise install`, since a plugin
 git-cloned once and never refreshed can keep carrying a bug already fixed upstream (this bit us

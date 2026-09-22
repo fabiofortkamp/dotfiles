@@ -68,8 +68,8 @@
       stdout: true
       stderr: true
 
-    - command: mise install
-      description: Installing mise-managed tool versions
+    - command: CPATH="$(brew --prefix)/include" LIBRARY_PATH="$(brew --prefix)/lib" mise install
+      description: Installing mise-managed tool versions (CPATH/LIBRARY_PATH so lua's native build finds Homebrew's readline)
       stdout: true
       stderr: true
 
