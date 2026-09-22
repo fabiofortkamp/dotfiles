@@ -23,6 +23,17 @@
     - ~/.local/lib
     - ~/build
 
+# git-flow-avh was pulled from homebrew-core; the Brewfile below installs its
+# replacement, git-flow-next, but the two ship the same bin/git-flow binary,
+# so brew link refuses to overwrite a leftover git-flow-avh install from
+# before this switch. No-op (both checks short-circuit) on a machine that
+# never had Homebrew or that formula.
+- shell:
+    - command: command -v brew >/dev/null 2>&1 && brew list git-flow-avh &>/dev/null && brew uninstall git-flow-avh; true
+      description: Removing superseded git-flow-avh (replaced by git-flow-next; the two conflict on bin/git-flow)
+      stdout: true
+      stderr: true
+
 - brewfile:
     - Brewfile
 
@@ -34,7 +45,6 @@
     ~/.config/gh: gh
     ~/.config/karabiner: karabiner
     ~/.config/herdr: herdr
-    ~/.julia/config: julia
     ~/.config/tmux/tmux.conf: tmux.conf
     ~/.config/mise/config.toml: mise-config.toml
     ~/.config/starship.toml: starship.toml
@@ -73,18 +83,8 @@
       stdout: true
       stderr: true
 
-    - command: mise exec go -- go install golang.org/x/tools/gopls@latest
-      description: Installing gopls
-      stdout: true
-      stderr: true
-
     - command: ./set-default-shell.sh
       description: Setting fish as the default shell
       stdin: true
-      stdout: true
-      stderr: true
-
-    - command: mise exec julia -- julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer"); Pkg.add("SymbolServer"); Pkg.add("StaticLint")'
-      description: Installing the Julia language server
       stdout: true
       stderr: true
