@@ -9,7 +9,7 @@ ghcup = "0.1.50.2"
 gleam = "1.13.0"
 go = "1.24.1"
 julia = "1.12.1"
-lua = ["5.1"]
+lua = { version = ["5.1"], install_env = { CPATH = "{{ exec(command='brew --prefix') }}/include", LIBRARY_PATH = "{{ exec(command='brew --prefix') }}/lib" } }
 node = "26.3.1"
 opam = "2.3.0"
 python = ["3.14", "3.13", "3.12", "3.11", "3.10", "3.9"]

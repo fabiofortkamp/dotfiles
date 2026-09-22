@@ -63,6 +63,11 @@
       stdout: true
       stderr: true
 
+    - command: mise plugins update
+      description: Updating mise plugins (a stale cached plugin can carry a bug already fixed upstream)
+      stdout: true
+      stderr: true
+
     - command: mise install
       description: Installing mise-managed tool versions
       stdout: true
@@ -79,7 +84,7 @@
       stdout: true
       stderr: true
 
-    - command: mise exec -- julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer"); Pkg.add("SymbolServer"); Pkg.add("StaticLint")'
+    - command: mise exec julia -- julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer"); Pkg.add("SymbolServer"); Pkg.add("StaticLint")'
       description: Installing the Julia language server
       stdout: true
       stderr: true

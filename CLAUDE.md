@@ -114,6 +114,22 @@ them with `catch_discover_tests()`.
 
 Local per-project overrides: create `mise.local.toml` in any project (globally gitignored by mise config).
 
+### Native mise builds may need Homebrew's headers pointed at explicitly
+
+`brew shellenv` is never sourced here (`fish/config.fish` only adds `bin`/`sbin` to `PATH`), so a
+tool mise builds from source won't find a Homebrew-installed C library's headers/libs on its own —
+Homebrew doesn't inject `CPATH`/`LIBRARY_PATH` globally, on Linux or macOS. `lua`'s entry in
+`mise-config.toml` is the example: it needs `readline` (in `Brewfile`) and points `CPATH`/
+`LIBRARY_PATH` at `{{ exec(command='brew --prefix') }}` via that tool's `install_env` — the
+`[env]` table won't do, since mise only applies it to `mise exec`/tasks/activated shells, not to
+`mise install`'s own build subprocess. Reach for the same pattern (per-tool `install_env`, not a
+hardcoded prefix) if another mise-built tool hits a similar missing-header failure.
+
+`install.conf.yaml` also runs `mise plugins update` right before `mise install`, since a plugin
+git-cloned once and never refreshed can keep carrying a bug already fixed upstream (this bit us
+with the `lua` asdf plugin's bundled LuaRocks rockspec, which needed a one-line sed patch that a
+stale local plugin clone didn't have yet).
+
 ### `~/.local/bin` shadows Homebrew
 
 `config.fish` adds `$HOME/.local/bin` after Homebrew, and `fish_add_path` prepends, so
