@@ -8,3 +8,4 @@ maximize = true
 theme = catppuccin-frappe
 confirm-close-surface = false
 shell-integration = fish
+command = fish

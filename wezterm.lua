@@ -15,6 +15,8 @@ config.color_scheme = "catppuccin-mocha"
 config.font = wezterm.font("VictorMono Nerd Font")
 config.font_size = 16.0
 
+config.default_prog = { "fish" }
+
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = true
 config.window_close_confirmation = "NeverPrompt"

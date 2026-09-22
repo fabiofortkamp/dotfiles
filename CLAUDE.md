@@ -9,6 +9,13 @@ Dotfiles for an engineering research workflow, managed with [dotbot](https://git
 
 Primarily macOS, but also used on Linux — `dotbot-brew` bootstraps Homebrew under Linuxbrew there. Consequence for anything you add here: **never hardcode a Homebrew prefix**, since it is `/opt/homebrew` on Apple Silicon but `/home/linuxbrew/.linuxbrew` on Linux. Prefer tools resolved from `PATH`, or installed by Mason in the Neovim config.
 
+### No-sudo Linux bootstrap
+
+`./install` is meant to work on a Linux box with no sudo access at all. Two things that would otherwise need it are handled:
+
+- **Homebrew**: `dotbot-brew`'s auto-installer defaults to `/home/linuxbrew/.linuxbrew`, which typically needs sudo the first time. `install` runs a preflight check before dotbot starts (before `cd "${BASEDIR}"`) that detects "no brew found + no usable sudo" on Linux and fails fast with instructions to pre-install Homebrew into a user-owned prefix (`~/.linuxbrew`) instead. This lives in `install` itself, not `install.conf.yaml`, because dotbot's shell plugin defaults to `exit_on_failure=False` and would keep running later directives (like `brewfile:`) even after a failed check.
+- **fish as the shell**: setting it via `chsh` requires sudo (PAM's `pam_shells.so` refuses a shell not listed in `/etc/shells`, and only root can edit that file). Rather than depending on that, Ghostty (`command = fish`) and WezTerm (`config.default_prog`) are configured to launch fish directly, bypassing the OS login-shell mechanism entirely. `set-default-shell.sh` still tries `chsh` first (works fine when sudo is available) but prints manual alternatives (a `~/.bashrc` `exec fish` guard, or `RemoteCommand fish` in `~/.ssh/config` on the connecting machine) and exits 0 instead of aborting the bootstrap when it can't.
+
 ## How you should work with this repo
 
 ### Interaction Rules

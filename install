@@ -8,6 +8,37 @@ DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# dotbot-brew auto-installs Homebrew when none is found, which on Linux
+# normally needs sudo the first time (to create/chown
+# /home/linuxbrew/.linuxbrew). Catch that before dotbot even starts --
+# dotbot's shell plugin defaults to exit_on_failure=False, so a failing
+# check placed inside install.conf.yaml wouldn't actually stop the
+# brewfile step from running afterward.
+check_homebrew_prereqs() {
+  [ "$(uname)" = "Linux" ] || return 0
+  command -v brew >/dev/null 2>&1 && return 0
+  for loc in /home/linuxbrew/.linuxbrew/bin/brew /usr/local/bin/brew /opt/homebrew/bin/brew; do
+    [ -x "$loc" ] && return 0
+  done
+  sudo -v 2>/dev/null && return 0
+
+  cat >&2 <<'EOF'
+Homebrew was not found on this machine, and sudo is not available.
+dotbot-brew's automatic installer defaults to /home/linuxbrew/.linuxbrew,
+which normally needs sudo the first time (to create/chown that directory).
+
+Install Homebrew into a directory you already own instead, then re-run
+./install -- it will be detected on PATH and the auto-installer skipped:
+
+    git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
+    mkdir -p ~/.linuxbrew/bin
+    ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin/brew
+    eval "$(~/.linuxbrew/bin/brew shellenv)"
+EOF
+  exit 1
+}
+check_homebrew_prereqs
+
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"

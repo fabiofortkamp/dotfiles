@@ -12,7 +12,7 @@ if [ -d "$HOME/build/neovim" ]; then
 fi
 
 echo "Cloning neovim source"
-git clone git@github.com:neovim/neovim.git "$HOME/build/neovim"
+git clone https://github.com/neovim/neovim.git "$HOME/build/neovim"
 cd "$HOME/build/neovim"
 
 echo "Installing neovim from $(pwd)"
